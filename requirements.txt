@@ -1,0 +1,9 @@
+polars-lts-cpu
+numpy
+seaborn
+matplotlib
+torch_geometric
+plotly==5.22.0
+python-igraph
+networkit
+networkx
