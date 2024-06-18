@@ -2,10 +2,9 @@ from pathlib import Path
 import polars as pl
 import torch
 import os
-from torch_geometric.data import Data
 
 from src.utils.constants import FIRST_FEAT_NAME
-from src.service.prepare_data_network import DataNetWork
+from service.data_processing import DataNetWork
 
 
 FILE = Path(__file__).resolve()
@@ -32,10 +31,10 @@ def load_elliptic() -> DataNetWork:
 
     # Timestamp based split:
     time_step = torch.from_numpy(feat_df['time_steps'].to_numpy())
-    train_mask = (time_step < 30) & (y != "unknown")
-    val_mask = (time_step >= 30) & (time_step < 40) & (y != "unknown") 
-    test_mask = (time_step >= 40) & (y != "unknown")
+    train_mask = (time_step < 30) & (y != 2)
+    val_mask = (time_step >= 30) & (time_step < 40) & (y != 2) 
+    test_mask = (time_step >= 40) & (y != 2)
     
-    ntw = DataNetWork(feat_df.to_pandas(), edge_df, train_mask=train_mask, val_mask=val_mask, test_mask=test_mask)
+    ntw = DataNetWork(feat_df, edge_df, train_mask=train_mask, val_mask=val_mask, test_mask=test_mask)
 
     return ntw
