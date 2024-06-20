@@ -3,3 +3,4 @@ FIRST_FEAT_NAME = {
         'column_2': 'time_steps',
 }
 
+CONFIG_FILE = 'conf/development.yml'

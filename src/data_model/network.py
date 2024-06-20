@@ -6,10 +6,12 @@ import networkit as nk
 import numpy as np
 import polars as pl
 
+
 from src.data_model.graph import Graph
 
 
-class DataNetWork:
+
+class DataNetWorkImpl:
     
     def __init__(
         self, 

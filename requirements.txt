@@ -7,3 +7,8 @@ plotly==5.22.0
 python-igraph
 networkit
 networkx
+dependency-injector
+thespian
+tensorboard
+torch 
+torchvision

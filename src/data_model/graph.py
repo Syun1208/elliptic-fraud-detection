@@ -9,6 +9,7 @@ class Graph:
         edges: pl.DataFrame,
         map_id: Dict[int, int]    
     ) -> None:
+        
         self.nodes = nodes
         self.edges = edges
         self.map_id = map_id
