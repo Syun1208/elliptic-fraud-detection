@@ -22,7 +22,7 @@ class Logger:
         log_dir: str,
         log_clear_days: int
     ) -> None:
-        self.log_dir = log_dir
+        self.log_dir = os.path.join(WORK_DIR, log_dir)
         self.log_clear_days = log_clear_days
         self.running_date = str(datetime.date.today())
 

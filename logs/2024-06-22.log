@@ -1,0 +1,32 @@
+2024-06-22 01:25:13,849 - src.service.graph_experiments - ERROR - 'ExperimentsImpl' object has no attribute 'phase'
+2024-06-22 01:25:13,850 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/Users/phamminhlong/Desktop/paper/src/service/graph_experiments.py", line 40, in run
+    if self.phase == 'train':
+AttributeError: 'ExperimentsImpl' object has no attribute 'phase'
+
+2024-06-22 01:25:13,850 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 0.0004s
+2024-06-22 01:26:22,417 - src.service.graph_experiments - INFO - Start training !
+2024-06-22 01:26:22,556 - src.service.graph_experiments - ERROR - Expected a 'Data', 'HeteroData', or a tuple of 'FeatureStore' and 'GraphStore' (got '<class 'src.service.data_loader.EllipticLoader'>')
+2024-06-22 01:26:22,559 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/Users/phamminhlong/Desktop/paper/src/service/graph_train.py", line 77, in fit
+    input_nodes=self.data_loader.train_mask,
+AttributeError: 'EllipticLoader' object has no attribute 'train_mask'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/phamminhlong/Desktop/paper/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/Users/phamminhlong/Desktop/paper/src/utils/timer.py", line 30, in wraper
+    result = func(*args, **kwargs)
+  File "/Users/phamminhlong/Desktop/paper/src/service/graph_train.py", line 83, in fit
+    loader = NeighborLoader(
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch_geometric/loader/neighbor_loader.py", line 229, in __init__
+    neighbor_sampler = NeighborSampler(
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch_geometric/sampler/neighbor_sampler.py", line 66, in __init__
+    self.data_type = DataType.from_data(data)
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch_geometric/sampler/base.py", line 36, in from_data
+    raise ValueError(f"Expected a 'Data', 'HeteroData', or a tuple of "
+ValueError: Expected a 'Data', 'HeteroData', or a tuple of 'FeatureStore' and 'GraphStore' (got '<class 'src.service.data_loader.EllipticLoader'>')
+
+2024-06-22 01:26:22,559 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 0.1425s

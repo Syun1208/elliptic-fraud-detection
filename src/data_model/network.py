@@ -11,7 +11,7 @@ from src.data_model.graph import Graph
 
 
 
-class DataNetWorkImpl:
+class DataNetWork:
     
     def __init__(
         self, 

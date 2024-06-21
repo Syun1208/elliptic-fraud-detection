@@ -5,11 +5,12 @@ import torch.nn as nn
 import torch
 import os
 import tqdm
-from sklearn.metrics import average_precision_score
+from sklearn.metrics import roc_auc_score, average_precision_score
 from torch.utils.tensorboard import SummaryWriter
 from multiprocessing import Pool
 
 
+from src.utils.timer import time_complexity
 from src.service.data_loader import DataLoader
 from torch_geometric.loader import NeighborLoader
 from src.utils.visualizer import plot_confusion_matrix
@@ -27,6 +28,10 @@ class Trainer(ABC):
     def fit(self):
         pass
     
+    @abstractmethod
+    def to_model(self):
+        pass
+    
 
 class TrainerImpl(Trainer):
     
@@ -38,16 +43,19 @@ class TrainerImpl(Trainer):
         epochs: int,
         lr: float,
         batch_size: int,
-        device: int,
-        path_logs_tensorboard: str
+        device_id: int,
+        path_logs_tensorboard: str,
+        path_model: str
     ) -> None:
         
         self.model = model
-        self.data_loader = self.data_loader
-        self.logger = logger
+        self.data_loader = data_loader
+        self.logger = logger.get_tracking(__name__)
         self.epochs = epochs
         self.lr = lr
-        self.batch_size = self.batch_size
+        self.device_id = device_id
+        self.batch_size = batch_size
+        self.path_model = path_model
         self.path_logs_tensorboard = os.path.join(WORK_DIR, path_logs_tensorboard)
         if not os.path.exists(self.path_logs_tensorboard):
             os.makedirs(self.path_logs_tensorboard)
@@ -56,6 +64,9 @@ class TrainerImpl(Trainer):
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=self.lr)
         self.criterion = nn.CrossEntropyLoss()
     
+    
+    
+    @time_complexity(name_process='PHASE TRAIN')
     def fit(self) -> None:
         
         
@@ -77,7 +88,7 @@ class TrainerImpl(Trainer):
                 num_workers=Pool()._processes
             )
             
-        device = torch.device(f'cuda:{device}' if torch.cuda.is_available() else 'cpu')
+        device = torch.device(f'cuda:{self.device_id}' if torch.cuda.is_available() else 'cpu')
         self.model.to(device)
         
         
@@ -95,8 +106,8 @@ class TrainerImpl(Trainer):
                 
                 out, h = self.model(batch.x, batch.edge_index.to(device))
                 
-                y_hat = out[:batch.batch_size]
-                y = batch.y[:batch.batch_size]
+                y_hat = out[:batch.batch_size].to(device)
+                y = batch.y[:batch.batch_size].to(device)
                 
                 loss = self.criterion(y_hat, y)
                 accuracy += torch.sum(y_hat == y)
@@ -120,7 +131,23 @@ class TrainerImpl(Trainer):
                     y_hat.cpu().detach().numpy()[:,1]
             )  
             
-            self.writer.add_scalar(tag='AveragePrecision/train', scalar_value=ap_score / batch, global_step=steps)
+            ra_score = roc_auc_score(
+                y.cpu().detach().numpy(), 
+                y_hat.cpu().detach().numpy()[:,1]
+            )
+            
+            self.writer.add_scalar(
+                tag='AveragePrecision/train', 
+                scalar_value=ap_score, 
+                global_step=epoch
+            )
+            
+            self.writer.add_scalar(
+                tag='AUCROC/train',
+                scalar_value=ra_score,
+                global_step=epoch
+            )
+            
             self.writer.add_figure(
                 "ConfusionMatrix/train", 
                 plot_confusion_matrix(
@@ -129,11 +156,15 @@ class TrainerImpl(Trainer):
                 ), 
                 epoch
             )
+            
+        self.logger.info('DONE PHASE TRAIN !')
+        
+        # Save the trained model
+        self.to_model(self.path_model)
         
     
     def to_model(self, path: str) -> None:
         torch.save({
-            'epoch': self.epochs,
             'model_state_dict': self.model.state_dict(),
             'optimizer_state_dict': self.optimizer.state_dict(),
             }, path)

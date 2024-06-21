@@ -1,7 +1,7 @@
 import torch.nn as nn
 import torch.nn.functional as F
 
-class Decoder_linear(nn.Module):
+class DecoderLinear(nn.Module):
     def __init__(
             self, 
             embedding_dim: int, 
@@ -16,7 +16,7 @@ class Decoder_linear(nn.Module):
         h = self.softmax(h)
         return h
     
-class Decoder_deep(nn.Module):
+class DecoderDeep(nn.Module):
     def __init__(
             self, 
             embedding_dim: int, 
@@ -43,7 +43,7 @@ class Decoder_deep(nn.Module):
         h = self.softmax(h)
         return h
     
-class Decoder_linear_norm(nn.Module):
+class DecoderLinearNorm(nn.Module):
     def __init__(
             self, 
             embedding_dim: int, 
@@ -60,7 +60,7 @@ class Decoder_linear_norm(nn.Module):
         h = self.softmax(h)
         return h
 
-class Decoder_deep_norm(nn.Module):
+class DecoderDeepNorm(nn.Module):
     def __init__(
             self, 
             embedding_dim: int, 
@@ -87,4 +87,5 @@ class Decoder_deep_norm(nn.Module):
             h = F.relu(h)
         h = self.layer2(h)
         h = self.softmax(h)
+        
         return h

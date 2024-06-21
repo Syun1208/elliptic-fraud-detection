@@ -4,6 +4,7 @@ import torch
 import os
 from abc import ABC, abstractmethod
 
+from src.utils.timer import time_complexity
 from src.utils.constants import FIRST_FEAT_NAME
 from src.data_model.network import DataNetWork
 
@@ -33,6 +34,7 @@ class EllipticLoader(DataLoader):
         self.path_classes = path_classes
     
     
+    @time_complexity(name_process='PHASE ELLIPTIC LOADER')
     def load(self) -> DataNetWork:
         
         feat_df = pl.read_csv(

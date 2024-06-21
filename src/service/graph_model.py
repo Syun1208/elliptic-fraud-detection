@@ -1,9 +1,8 @@
-import torch
 from torch import Tensor
 import torch.nn as nn
 import torch.nn.functional as F
 from torch_geometric.nn import GCNConv, GATv2Conv, SAGEConv, GINConv, GINEConv
-from service.graph_decoder import *
+from src.service.graph_decoder import *
 
 # Look at having hidden_dim and only embedding_dim in final layer
 
@@ -37,7 +36,7 @@ class GCN(nn.Module):
                 self.gcn_hidden.append(GCNConv(hidden_dim, hidden_dim))
             self.gcn2 = GCNConv(hidden_dim, embedding_dim)
 
-        self.out = Decoder_linear(embedding_dim, output_dim)
+        self.out = DecoderLinear(embedding_dim, output_dim)
 
     def forward(self, x, edge_index):
         h = self.gcn1(x, edge_index)
@@ -86,7 +85,7 @@ class GraphSAGE(nn.Module): #Neighbourhood sampling only in training step (via D
             
             self.sage2 = SAGEConv(hidden_dim, embedding_dim, aggr=sage_aggr)
 
-        self.out = Decoder_linear(embedding_dim, output_dim)
+        self.out = DecoderLinear(embedding_dim, output_dim)
         
     def forward(self, x, edge_index):
         h = self.sage1(x, edge_index)
@@ -133,7 +132,7 @@ class GAT(nn.Module):
                 self.gat_hidden.append(GATv2Conv(heads*hidden_dim, hidden_dim, heads=heads))
             self.gat2 = GATv2Conv(heads*hidden_dim, embedding_dim, heads=heads, concat=False)
 
-        self.out = Decoder_linear(embedding_dim)
+        self.out = DecoderLinear(embedding_dim)
 
     def forward(self, x, edge_index, edge_features=None):
         h = self.gat1(x, edge_index, edge_attr=edge_features)
@@ -207,7 +206,7 @@ class GIN(nn.Module):
                     nn.Linear(hidden_dim, embedding_dim)
                     ))
 
-        self.out = Decoder_linear(embedding_dim)
+        self.out = DecoderLinear(embedding_dim)
     
     def forward(self, x, edge_index):
         h = self.gin1(x, edge_index)
@@ -283,7 +282,7 @@ class GINE(nn.Module):
                     ),
                     edge_dim=edge_dim)
         
-        self.out = Decoder_linear(embedding_dim)
+        self.out = DecoderLinear(embedding_dim)
         
     def forward(self, x, edge_index, edge_features):
         h = self.gine1(x, edge_index, edge_features)

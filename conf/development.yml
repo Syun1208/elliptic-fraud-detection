@@ -8,17 +8,27 @@ gat:
   hidden_dim: 64
   embedding_dim: 128
   n_layers: 3
+  n_features: 166
+  output_dim: 2
   dropout_rate: 0.6
-  lr: 0.01
-  n_epochs: 500
   heads: 5
+
+  lr: 0.01
+  epochs: 500
+  batch_size: 128
+
+  path_model: 'experiment/gat/model.pt'
+
+  test:
+    n_random_samples: 1000
+    path_results: 'experiment/gat/results.csv'
 
 
 logger:
   log_dir: 'logs/'
   log_clear_days: 20
 
-device: 0
+device_id: 0
 
 tensorboard:
   log_dir: 'runs/gat_version_1'
