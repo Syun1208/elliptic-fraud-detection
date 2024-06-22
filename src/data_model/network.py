@@ -56,11 +56,13 @@ class DataNetWork:
             pl.col('next_transid')
         )
         if not self.directed:
-            map_id = {i:j for i,j in enumerate((nodes
+            map_id = {j:i for i,j in enumerate((nodes
                                             .to_series()
                                             .to_list()))} 
             
-            nodes = nodes.map(map_id)
+            nodes = nodes.with_columns(
+                pl.col('transid').map_dict(map_id).cast(pl.Int64)
+            )
             edges = edges.with_columns(
                 pl.col('current_transid').map_dict(map_id).cast(pl.Int64),
                 pl.col('next_transid').map_dict(map_id).cast(pl.Int64)
@@ -75,14 +77,14 @@ class DataNetWork:
         
         
     def get_network_nx(self) -> nx.DiGraph:
-        edges_zipped = zip(self.edges['current_transid'], self.edges['next_transid'])
+        edges_zipped = zip(self.graph.edges['current_transid'], self.graph.edges['next_transid'])
         
         if self.directed:
             G_nx = nx.DiGraph()
         else: 
             G_nx = nx.Graph()
         
-        G_nx.add_nodes_from(self.nodes)
+        G_nx.add_nodes_from(self.graph.nodes)
         G_nx.add_edges_from(edges_zipped)
         
         return G_nx     
@@ -90,9 +92,9 @@ class DataNetWork:
             
             
     def get_network_nk(self) -> nx.DiGraph:
-        edges_zipped = zip(self.edges['current_transid'], self.edges['next_transid'])
+        edges_zipped = zip(self.graph.edges['current_transid'], self.graph.edges['next_transid'])
         
-        G_nk = nk.Graph(len(self.nodes), directed = self.directed)
+        G_nk = nk.Graph(len(self.graph.nodes), directed = self.directed)
         
         for u,v in edges_zipped:
             G_nk.addEdge(u,v)
@@ -105,13 +107,13 @@ class DataNetWork:
         labels = self.df_features['class']
         features = self.df_features.drop(columns=['transid', 'class'])
         
-        x = torch.tensor(np.array(features.values, dtype=float), dtype=torch.float)
+        x = torch.tensor(np.array(features.to_numpy(), dtype=float), dtype=torch.float)
         if x.size()[1] == 0:
             x = torch.ones(x.size()[0], 1)
-        y = torch.tensor(np.array(labels.values, dtype=np.int64), dtype=torch.int64)
+        y = torch.tensor(np.array(labels.to_numpy(), dtype=np.int64), dtype=torch.int64)
         
         # Reformat and convert to tensor
-        edge_index = np.array(self.edges.values).T 
+        edge_index = np.array(self.graph.edges.to_numpy()).T 
         edge_index = torch.tensor(edge_index, dtype=torch.long)
         
         #create weights tensor with same shape of edge_index

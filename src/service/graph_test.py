@@ -49,7 +49,7 @@ class TesterImpl(Tester):
         self.model = model
         self.path_model = path_model
         self.n_random_samples = n_random_samples
-        self.data_loader = data_loader
+        self.data_loader = data_loader.load()
         self.logger = logger.get_tracking(__name__)
         self.device = torch.device(f'cuda:{device_id}' if torch.cuda.is_available() else 'cpu')
     
@@ -59,25 +59,22 @@ class TesterImpl(Tester):
         
         ra_list = []
         ap_list = []
-    
-        network = self.data_loader.load()
-        network.x = network.x[:, 1:]
-        data = network.get_features_torch()
         
         self.load_model(
             os.path.join(WORK_DIR, self.path_model)
         )
         
+        loader = self.data_loader.get_network_torch()
+        
         self.model.eval()
         
-        data = self.data_loader.get_network_torch
         for _ in tqdm.tqdm(range(self.n_random_samples), colour='green', desc='Testing: '):
             random_test_mark = resample_testmask(self.data_loader.test_mask)
             
-            out, h = self.model(data.x, data.edge_index.to(self.device))
+            out, h = self.model(loader.x, loader.edge_index.to(self.device))
                 
             y_hat = out[random_test_mark].to(self.device)
-            y = data.y[random_test_mark].to(self.device)
+            y = loader.y[random_test_mark].to(self.device)
             
             ra_score = roc_auc_score(
                 y.cpu().detach().numpy(), 
@@ -104,6 +101,8 @@ class TesterImpl(Tester):
         self.model.load_state_dict(
             checkpoint['model_state_dict']
         )
+        
+        self.logger.info(f'LOAD MODEL SUCCESSFULLY AT: {path}')
         
 
     

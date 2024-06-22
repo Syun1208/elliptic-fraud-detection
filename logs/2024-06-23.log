@@ -1,0 +1,53 @@
+2024-06-23 00:06:59,538 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.6273s
+2024-06-23 00:09:32,450 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.5249s
+2024-06-23 00:10:26,635 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 1.2848s
+2024-06-23 00:10:26,638 - src.service.graph_experiments - INFO - Start training !
+2024-06-23 00:10:37,002 - src.service.graph_experiments - ERROR - Caught ImportError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    return self.collate_fn(data)
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch_geometric/loader/node_loader.py", line 147, in collate_fn
+    out = self.node_sampler.sample_from_nodes(input_data)
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch_geometric/sampler/neighbor_sampler.py", line 322, in sample_from_nodes
+    out = node_sample(inputs, self._sample)
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch_geometric/sampler/neighbor_sampler.py", line 542, in node_sample
+    out = sample_fn(seed, seed_time)
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch_geometric/sampler/neighbor_sampler.py", line 508, in _sample
+    raise ImportError(f"'{self.__class__.__name__}' requires "
+ImportError: 'NeighborSampler' requires either 'pyg-lib' or 'torch-sparse'
+
+2024-06-23 00:10:37,016 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/Users/phamminhlong/Desktop/paper/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/Users/phamminhlong/Desktop/paper/src/utils/timer.py", line 30, in wraper
+    result = func(*args, **kwargs)
+  File "/Users/phamminhlong/Desktop/paper/src/service/graph_train.py", line 101, in fit
+    for i, batch in enumerate(loader):
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1346, in _next_data
+    return self._process_data(data)
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1372, in _process_data
+    data.reraise()
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch/_utils.py", line 722, in reraise
+    raise exception
+ImportError: Caught ImportError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    return self.collate_fn(data)
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch_geometric/loader/node_loader.py", line 147, in collate_fn
+    out = self.node_sampler.sample_from_nodes(input_data)
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch_geometric/sampler/neighbor_sampler.py", line 322, in sample_from_nodes
+    out = node_sample(inputs, self._sample)
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch_geometric/sampler/neighbor_sampler.py", line 542, in node_sample
+    out = sample_fn(seed, seed_time)
+  File "/Users/phamminhlong/miniconda3/envs/mlops/lib/python3.8/site-packages/torch_geometric/sampler/neighbor_sampler.py", line 508, in _sample
+    raise ImportError(f"'{self.__class__.__name__}' requires "
+ImportError: 'NeighborSampler' requires either 'pyg-lib' or 'torch-sparse'
+
+
+2024-06-23 00:10:37,017 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 10.3789s

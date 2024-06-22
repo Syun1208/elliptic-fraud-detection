@@ -49,7 +49,7 @@ class TrainerImpl(Trainer):
     ) -> None:
         
         self.model = model
-        self.data_loader = data_loader
+        self.data_loader = data_loader.load()
         self.logger = logger.get_tracking(__name__)
         self.epochs = epochs
         self.lr = lr
@@ -63,16 +63,20 @@ class TrainerImpl(Trainer):
         self.writer = SummaryWriter(self.path_logs_tensorboard)
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=self.lr)
         self.criterion = nn.CrossEntropyLoss()
-    
+        
+        self.logger.info(f'MODEL: \n {self.model}')
+        self.logger.info(f'HYPERPARAMETERS: \n \
+                         epochs: {self.epochs} \n \
+                         learning-rate: {self.lr} \n \
+                         batch-size: {self.batch_size}')
     
     
     @time_complexity(name_process='PHASE TRAIN')
     def fit(self) -> None:
-        
-        
+
         try:
             loader = NeighborLoader(
-                self.data_loader, 
+                data=self.data_loader.get_network_torch(), 
                 num_neighbors= [-1]*self.model.n_layers, 
                 input_nodes=self.data_loader.train_mask, 
                 batch_size=self.batch_size, 
@@ -81,18 +85,17 @@ class TrainerImpl(Trainer):
             )
         except:
             loader = NeighborLoader(
-                self.data_loader, 
+                data=self.data_loader.get_network_torch(), 
                 num_neighbors= [-1]* self.model.n_layers, 
                 batch_size=self.batch_size, 
                 shuffle=True, 
                 num_workers=Pool()._processes
             )
-            
+
         device = torch.device(f'cuda:{self.device_id}' if torch.cuda.is_available() else 'cpu')
         self.model.to(device)
-        
-        
-        for epoch in tqdm.tqdm(self.epochs, colour='green', desc='Training graph model'):
+
+        for epoch in tqdm.tqdm(range(self.epochs), colour='green', desc='Training graph model'):
             
             running_loss = 0.0
             accuracy = 0
@@ -168,3 +171,5 @@ class TrainerImpl(Trainer):
             'model_state_dict': self.model.state_dict(),
             'optimizer_state_dict': self.optimizer.state_dict(),
             }, path)
+
+        self.logger.info(f'SAVE YOUR MODEL AT: {path}')

@@ -62,6 +62,7 @@ class EllipticLoader(DataLoader):
             "new_class": list(mapping.values())
         })
         class_df = class_df.join(mapper, on='class', how='left').drop('class').rename({'new_class': 'class'})
+        feat_df = feat_df.join(class_df, on='transid', how='left')
         y = torch.from_numpy(class_df['class'].to_numpy())
 
         # Timestamp based split:
