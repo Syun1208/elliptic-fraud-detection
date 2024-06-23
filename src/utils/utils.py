@@ -16,8 +16,8 @@ def get_device(device_id: int) -> torch.device:
     if torch.cuda.is_available():
         hw = f'cuda:{device_id}'
     
-    elif torch.backends.mps.is_available():
-        hw = 'mps'
+    # elif torch.backends.mps.is_available():
+    #     hw = 'mps'
     
     else: 
         hw = 'cpu'

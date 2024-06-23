@@ -1,3 +1,7 @@
+import warnings
+
+warnings.filterwarnings('ignore')
+
 from abc import abstractmethod, ABC
 from pathlib import Path
 import torch
@@ -72,7 +76,7 @@ class TrainerImpl(Trainer):
                          epochs: {self.epochs} \n \
                          learning-rate: {self.lr} \n \
                          batch-size: {self.batch_size}')
-    
+        self.logger.info(f'DEVICE: {self.device}')
     
     @time_complexity(name_process='PHASE TRAIN')
     def fit(self) -> None:
@@ -80,7 +84,7 @@ class TrainerImpl(Trainer):
         try:
             loader = NeighborLoader(
                 data=self.data_loader.get_network_torch(), 
-                num_neighbors= [-1]*self.model.n_layers, 
+                num_neighbors=[-1]*self.model.n_layers, 
                 input_nodes=self.data_loader.train_mask, 
                 batch_size=self.batch_size, 
                 shuffle=True, 
@@ -89,7 +93,7 @@ class TrainerImpl(Trainer):
         except:
             loader = NeighborLoader(
                 data=self.data_loader.get_network_torch(), 
-                num_neighbors= [-1]* self.model.n_layers, 
+                num_neighbors=[-1]* self.model.n_layers, 
                 batch_size=self.batch_size, 
                 shuffle=True, 
                 num_workers=Pool()._processes
@@ -101,7 +105,6 @@ class TrainerImpl(Trainer):
         for epoch in tqdm.tqdm(range(self.epochs), colour='green', desc='Training graph model'):
             
             running_loss = 0.0
-            accuracy = 0
             ap_score = 0
             
             self.model.train()
@@ -109,19 +112,18 @@ class TrainerImpl(Trainer):
             for i, batch in enumerate(loader):
                 
                 self.optimizer.zero_grad()
-                
-                out, h = self.model(batch.x, batch.edge_index.to(self.device))
+
+                out, h = self.model(batch.x, batch.edge_index)
                 
                 y_hat = out[:batch.batch_size].to(self.device)
                 y = batch.y[:batch.batch_size].to(self.device)
                 
                 loss = self.criterion(y_hat, y)
-                accuracy += torch.sum(y_hat == y)
                  
                 loss.backward()
                 self.optimizer.step()
                 
-                running_loss += loss.items()
+                running_loss += loss.item()
                 
                 if i % 1000 == 999:   
                              
@@ -130,17 +132,13 @@ class TrainerImpl(Trainer):
                     
                     # Save accuracy and loss to Tensorboard
                     self.writer.add_scalar(tag='Loss/train', scalar_value=running_loss / batch, global_step=steps)
-                    self.writer.add_scalar(tag='Accuracy/train', scalar_value=accuracy / batch, global_step=steps)
-                 
+            
             ap_score = average_precision_score(
-                    y.cpu().detach().numpy(), 
-                    y_hat.cpu().detach().numpy()[:,1]
+                    y_true=y.cpu().detach().numpy(), 
+                    y_score=y_hat.cpu().detach().numpy()[:,1]
             )  
             
-            ra_score = roc_auc_score(
-                y.cpu().detach().numpy(), 
-                y_hat.cpu().detach().numpy()[:,1]
-            )
+            self.logger.info(f'AP: {ap_score}')
             
             self.writer.add_scalar(
                 tag='AveragePrecision/train', 
@@ -148,28 +146,21 @@ class TrainerImpl(Trainer):
                 global_step=epoch
             )
             
-            self.writer.add_scalar(
-                tag='AUCROC/train',
-                scalar_value=ra_score,
-                global_step=epoch
-            )
-            
-            self.writer.add_figure(
-                "ConfusionMatrix/train", 
-                plot_confusion_matrix(
-                    y_true=y.cpu().detach().numpy(), 
-                    y_pred=y_hat.cpu().detach().numpy()[:, 1]
-                ), 
-                epoch
-            )
-            
         self.logger.info('DONE PHASE TRAIN !')
         
         # Save the trained model
-        self.to_model(self.path_model)
+        self.to_model(
+            os.path.join(WORK_DIR, self.path_model)
+        )
         
     
     def to_model(self, path: str) -> None:
+        
+        os.makedirs(
+            '/'.join(os.path.splitext(path)[0].split('/')[:-1]), 
+            exist_ok=True
+        )
+        
         torch.save({
             'model_state_dict': self.model.state_dict(),
             'optimizer_state_dict': self.optimizer.state_dict(),

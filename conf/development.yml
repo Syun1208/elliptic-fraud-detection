@@ -13,11 +13,11 @@ gat:
   dropout_rate: 0.6
   heads: 5
 
-  lr: 0.01
+  lr: 0.001
   epochs: 500
   batch_size: 128
 
-  path_model: 'model/gat/model.pt'
+  path_model: 'model/gat/gat.pt'
 
   test:
     n_random_samples: 1000
