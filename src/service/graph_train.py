@@ -122,16 +122,15 @@ class TrainerImpl(Trainer):
                  
                 loss.backward()
                 self.optimizer.step()
+       
+                # Save accuracy and loss to Tensorboard
+                self.writer.add_scalar(
+                    tag='Loss/train', 
+                    scalar_value=loss, 
+                    global_step=i
+                )
                 
-                running_loss += loss.item()
-                
-                if i % 1000 == 999:   
-                             
-                    steps = epoch * len(loader) + i 
-                    batch = i * self.batch_size 
-                    
-                    # Save accuracy and loss to Tensorboard
-                    self.writer.add_scalar(tag='Loss/train', scalar_value=running_loss / batch, global_step=steps)
+                self.logger.info(f'Loss: {loss}')
             
             ap_score = average_precision_score(
                     y_true=y.cpu().detach().numpy(), 
