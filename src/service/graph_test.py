@@ -6,6 +6,7 @@ from pathlib import Path
 from abc import ABC, abstractmethod
 from sklearn.metrics import roc_auc_score, average_precision_score
 
+from src.utils.utils import get_device
 from src.utils.timer import time_complexity
 from src.service.data_loader import DataLoader
 from src.utils.logger import Logger
@@ -51,7 +52,7 @@ class TesterImpl(Tester):
         self.n_random_samples = n_random_samples
         self.data_loader = data_loader.load()
         self.logger = logger.get_tracking(__name__)
-        self.device = torch.device(f'cuda:{device_id}' if torch.cuda.is_available() else 'cpu')
+        self.device = get_device(device_id)
     
     
     @time_complexity(name_process='PHASE TEST')

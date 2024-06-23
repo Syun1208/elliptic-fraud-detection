@@ -10,6 +10,7 @@ from torch.utils.tensorboard import SummaryWriter
 from multiprocessing import Pool
 
 
+from src.utils.utils import get_device
 from src.utils.timer import time_complexity
 from src.service.data_loader import DataLoader
 from torch_geometric.loader import NeighborLoader
@@ -19,7 +20,6 @@ from src.utils.logger import Logger
 
 FILE = Path(__file__).resolve()
 WORK_DIR = FILE.parents[2]
-
 
 
 class Trainer(ABC):
@@ -64,6 +64,9 @@ class TrainerImpl(Trainer):
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=self.lr)
         self.criterion = nn.CrossEntropyLoss()
         
+        self.device = get_device(self.device_id)
+        
+        
         self.logger.info(f'MODEL: \n {self.model}')
         self.logger.info(f'HYPERPARAMETERS: \n \
                          epochs: {self.epochs} \n \
@@ -92,8 +95,8 @@ class TrainerImpl(Trainer):
                 num_workers=Pool()._processes
             )
 
-        device = torch.device(f'cuda:{self.device_id}' if torch.cuda.is_available() else 'cpu')
-        self.model.to(device)
+        
+        self.model.to(self.device)
 
         for epoch in tqdm.tqdm(range(self.epochs), colour='green', desc='Training graph model'):
             
@@ -107,10 +110,10 @@ class TrainerImpl(Trainer):
                 
                 self.optimizer.zero_grad()
                 
-                out, h = self.model(batch.x, batch.edge_index.to(device))
+                out, h = self.model(batch.x, batch.edge_index.to(self.device))
                 
-                y_hat = out[:batch.batch_size].to(device)
-                y = batch.y[:batch.batch_size].to(device)
+                y_hat = out[:batch.batch_size].to(self.device)
+                y = batch.y[:batch.batch_size].to(self.device)
                 
                 loss = self.criterion(y_hat, y)
                 accuracy += torch.sum(y_hat == y)

@@ -2,6 +2,7 @@ from typing import Dict, Any
 import yaml
 import numpy as np
 import random
+import torch
 
 
 def load_yaml(path: str) -> Dict[str, Any]:
@@ -9,6 +10,21 @@ def load_yaml(path: str) -> Dict[str, Any]:
         data = yaml.safe_load(file)
     
     return data
+
+def get_device(device_id: int) -> torch.device:
+    
+    if torch.cuda.is_available():
+        hw = f'cuda:{device_id}'
+    
+    elif torch.backends.mps.is_available():
+        hw = 'mps'
+    
+    else: 
+        hw = 'cpu'
+        
+    device = torch.device(hw)
+    
+    return device
 
 
 def resample_testmask(test_mask, p=0.5):
