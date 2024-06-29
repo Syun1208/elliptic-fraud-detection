@@ -10,10 +10,10 @@ gat:
   n_layers: 3
   n_features: 166
   output_dim: 2
-  dropout_rate: 0.6
+  dropout_rate: 0.5
   heads: 5
 
-  lr: 0.00001
+  lr: 0.0001
   epochs: 500
   batch_size: 128
 

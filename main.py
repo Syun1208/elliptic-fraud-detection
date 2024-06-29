@@ -1,4 +1,5 @@
 import warnings
+import argparse
 from dependency_injector.wiring import Provide, inject
 from threadpoolctl import threadpool_limits, threadpool_info
 
@@ -8,6 +9,11 @@ from src.service.graph_experiments import ExperimentsImpl
 
 warnings.filterwarnings("ignore", category=RuntimeWarning, message="Found Intel OpenMP")
 
+def parse_arg():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--phase', type=str, help='train/eval/test', default='train')
+    return parser.parse_args()
+
 
 def create_container(environment: str):
     container = ApplicationContainer()
@@ -15,22 +21,15 @@ def create_container(environment: str):
     
     
 @inject
-def train(experiments: ExperimentsImpl = Provide[ApplicationContainer.experiments]) -> None:
-    experiments.run(phase='train')
-    
-@inject
-def test(experiments: ExperimentsImpl = Provide[ApplicationContainer.experiments]) -> None:
-    experiments.run(phase='test')
-    
-@inject
-def evaluate(experiments: ExperimentsImpl = Provide[ApplicationContainer.experiments]) -> None:
-    experiments.run(phase='eval')
-    
-    
+def run(experiments: ExperimentsImpl = Provide[ApplicationContainer.experiments], phase: str = 'train') -> None:
+    experiments.run(phase=phase)
+      
     
 create_container(environment=__name__)
 
 
 if __name__ == '__main__':
+    args = parse_arg()
+    
     with threadpool_limits(limits=1, user_api='openmp'):
-        train()
+        run(args.phase)

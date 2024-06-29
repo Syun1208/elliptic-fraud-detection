@@ -105,7 +105,6 @@ class TrainerImpl(Trainer):
         for epoch in tqdm.tqdm(range(self.epochs), colour='green', desc='Training graph model'):
             
             running_loss = 0.0
-            ap_score = 0
             
             self.model.train()
             
@@ -113,37 +112,29 @@ class TrainerImpl(Trainer):
                 
                 self.optimizer.zero_grad()
 
-                out, h = self.model(batch.x, batch.edge_index)
+                out, h = self.model(
+                  batch.x.to(self.device), 
+                  batch.edge_index.to(self.device)
+                )
                 
                 y_hat = out[:batch.batch_size].to(self.device)
                 y = batch.y[:batch.batch_size].to(self.device)
                 
                 loss = self.criterion(y_hat, y)
-                 
+                running_loss += loss.item()
+
                 loss.backward()
                 self.optimizer.step()
        
-                # Save accuracy and loss to Tensorboard
-                self.writer.add_scalar(
-                    tag='Loss/train', 
-                    scalar_value=loss, 
-                    global_step=i
-                )
-                
-                self.logger.info(f'Loss: {loss}')
-            
-            ap_score = average_precision_score(
-                    y_true=y.cpu().detach().numpy(), 
-                    y_score=y_hat.cpu().detach().numpy()[:,1]
-            )  
-            
-            self.logger.info(f'AP: {ap_score}')
-            
+            # Save accuracy and loss to Tensorboard
             self.writer.add_scalar(
-                tag='AveragePrecision/train', 
-                scalar_value=ap_score, 
+                tag='Loss/train', 
+                scalar_value=running_loss, 
                 global_step=epoch
             )
+            
+            self.logger.info(f'Loss: {running_loss / len(loader)}')
+          
             
         self.logger.info('DONE PHASE TRAIN !')
         

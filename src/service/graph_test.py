@@ -61,6 +61,8 @@ class TesterImpl(Tester):
         ra_list = []
         ap_list = []
         
+        self.model.to(self.device)
+
         self.load_model(
             os.path.join(WORK_DIR, self.path_model)
         )
@@ -72,7 +74,10 @@ class TesterImpl(Tester):
         for _ in tqdm.tqdm(range(self.n_random_samples), colour='green', desc='Testing: '):
             random_test_mark = resample_testmask(self.data_loader.test_mask)
             
-            out, h = self.model(loader.x, loader.edge_index.to(self.device))
+            out, h = self.model(
+              loader.x.to(self.device), 
+              loader.edge_index.to(self.device)
+            )
                 
             y_hat = out[random_test_mark].to(self.device)
             y = loader.y[random_test_mark].to(self.device)
