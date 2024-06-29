@@ -8,10 +8,17 @@ class DecoderLinear(nn.Module):
             output_dim: int=2
             ):
         super().__init__()
+        self.layer_norm = nn.LayerNorm(embedding_dim)
         self.layer1 = nn.Linear(embedding_dim, output_dim)
         self.softmax = nn.Softmax(dim=1)
 
-    def forward(self, embedding):
+    def forward(
+        self, 
+        embedding, 
+        normalize=False
+    ):
+        if normalize:
+            embedding = self.layer_norm(embedding)
         h = self.layer1(embedding)
         h = self.softmax(h)
         return h
@@ -25,6 +32,7 @@ class DecoderDeep(nn.Module):
             output_dim: int=2
             ):
         super().__init__()
+        self.layer_norm = nn.LayerNorm(embedding_dim)
         self.layer1 = nn.Linear(embedding_dim, hidden_dim)
         
         self.layers = nn.ModuleList()
@@ -33,7 +41,14 @@ class DecoderDeep(nn.Module):
         self.layer2 = nn.Linear(hidden_dim, output_dim)
         self.softmax = nn.Softmax(dim=1)
 
-    def forward(self, embedding):
+    def forward(
+        self, 
+        embedding,
+        normalize=False
+    ):
+        if normalize:
+            embedding = self.layer_norm(embedding)
+            
         h = self.layer1(embedding)
         h = F.relu(h)
         for layer in self.layers:

@@ -7,7 +7,8 @@ from thespian.actors import ActorSystem
 from src.utils.constants import CONFIG_FILE
 from src.utils.debugger import pretty_errors
 from src.service.data_loader import DataLoader, EllipticLoader
-from src.service.graph_model import GAT
+from src.service.graph_model.gcn import GCN
+from src.service.graph_model.gat import GAT
 from src.service.graph_train import Trainer, TrainerImpl
 from src.service.graph_test import Tester, TesterImpl
 from src.service.graph_eval import Evaluator, EvaluatorImpl
@@ -52,6 +53,16 @@ class ApplicationContainer(containers.DeclarativeContainer):
         output_dim=service_config.gat.output_dim,
         n_layers=service_config.gat.n_layers,
         heads=service_config.gat.heads,
+        dropout_rate=service_config.gat.dropout_rate
+    )
+    
+    gcn = providers.Singleton(
+        GCN,
+        num_features=service_config.gat.n_features,
+        hidden_dim=service_config.gat.hidden_dim,
+        embedding_dim=service_config.gat.embedding_dim,
+        output_dim=service_config.gat.output_dim,
+        n_layers=service_config.gat.n_layers,
         dropout_rate=service_config.gat.dropout_rate
     )
     
