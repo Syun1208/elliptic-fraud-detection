@@ -32,4 +32,4 @@ if __name__ == '__main__':
     args = parse_arg()
     
     with threadpool_limits(limits=1, user_api='openmp'):
-        run(args.phase)
+        run(phase=args.phase)

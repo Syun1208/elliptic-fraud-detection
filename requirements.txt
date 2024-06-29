@@ -15,7 +15,6 @@ tensorboard
 matplotlib
 networkit
 networkx
-'numpy<2'
 pandas
 scikit_learn
 PyYAML
