@@ -31,7 +31,7 @@ class DataNetWork:
 
         self.fraud_dict = dict(
             zip(
-                df_features["transid"].map_dict(self.graph.map_id),
+                pl.from_pandas(df_features["transid"].to_pandas().map(self.graph.map_id)),
                 df_features["class"]
                 )
             )
@@ -60,13 +60,23 @@ class DataNetWork:
                                             .to_series()
                                             .to_list()))} 
             
-            nodes = nodes.with_columns(
-                pl.col('transid').map_dict(map_id).cast(pl.Int64)
-            )
-            edges = edges.with_columns(
-                pl.col('current_transid').map_dict(map_id).cast(pl.Int64),
-                pl.col('next_transid').map_dict(map_id).cast(pl.Int64)
-            )
+            # nodes = nodes.with_columns(
+            #     pl.col('transid').map_dict(map_id).cast(pl.Int64)
+            # )
+            
+            nodes = nodes.to_pandas()
+            nodes['transid'] = nodes['transid'].map(map_id).astype(np.int64)
+            nodes = pl.from_pandas(nodes)
+            
+            # edges = edges.with_columns(
+            #     pl.col('current_transid').map_dict(map_id).cast(pl.Int64),
+            #     pl.col('next_transid').map_dict(map_id).cast(pl.Int64)
+            # )
+            
+            edges = edges.to_pandas()
+            edges['current_transid'] = edges['current_transid'].map(map_id).astype(np.int64)
+            edges['next_transid'] = edges['next_transid'].map(map_id).astype(np.int64)
+            edges = pl.from_pandas(edges)
         
         return Graph(
             nodes=nodes,
@@ -105,7 +115,7 @@ class DataNetWork:
         
     def get_network_torch(self) -> Data:
         labels = self.df_features['class']
-        features = self.df_features.drop(columns=['transid', 'class'])
+        features = self.df_features.to_pandas().drop(columns=['transid', 'class'])
         
         x = torch.tensor(np.array(features.to_numpy(), dtype=float), dtype=torch.float)
         if x.size()[1] == 0:

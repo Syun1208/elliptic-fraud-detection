@@ -1,0 +1,111 @@
+2024-07-04 22:12:48,607 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.8595s
+2024-07-04 22:12:48,692 - src.service.graph_train - INFO - MODEL: 
+ GCN(
+  (dropout): Dropout(p=0.5, inplace=False)
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(64, 64)
+  )
+  (gcn1): GCNConv(166, 64)
+  (gcn2): GCNConv(64, 128)
+  (out): DecoderLinear(
+    (layer_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+    (layer1): Linear(in_features=128, out_features=2, bias=True)
+    (softmax): Softmax(dim=1)
+  )
+)
+2024-07-04 22:12:48,692 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0001 
+                          batch-size: 128
+2024-07-04 22:12:48,692 - src.service.graph_train - INFO - DEVICE: mps
+2024-07-04 22:12:49,338 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.6458s
+2024-07-04 22:12:49,339 - src.service.graph_experiments - INFO - Start training !
+2024-07-04 22:12:49,339 - src.service.graph_experiments - ERROR - DataFrame.drop() got an unexpected keyword argument 'columns'
+2024-07-04 22:12:49,360 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/Users/phamminhlong/Desktop/paper/src/service/graph_train.py", line 86, in fit
+    data=self.data_loader.get_network_torch(),
+  File "/Users/phamminhlong/Desktop/paper/src/data_model/network.py", line 118, in get_network_torch
+    features = self.df_features.drop(columns=['transid', 'class'])
+TypeError: DataFrame.drop() got an unexpected keyword argument 'columns'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/phamminhlong/Desktop/paper/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/Users/phamminhlong/Desktop/paper/src/utils/timer.py", line 30, in wraper
+    result = func(*args, **kwargs)
+  File "/Users/phamminhlong/Desktop/paper/src/service/graph_train.py", line 95, in fit
+    data=self.data_loader.get_network_torch(),
+  File "/Users/phamminhlong/Desktop/paper/src/data_model/network.py", line 118, in get_network_torch
+    features = self.df_features.drop(columns=['transid', 'class'])
+TypeError: DataFrame.drop() got an unexpected keyword argument 'columns'
+
+2024-07-04 22:12:49,360 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 0.0212s
+2024-07-04 22:14:12,459 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.6602s
+2024-07-04 22:14:12,469 - src.service.graph_train - INFO - MODEL: 
+ GCN(
+  (dropout): Dropout(p=0.5, inplace=False)
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(64, 64)
+  )
+  (gcn1): GCNConv(166, 64)
+  (gcn2): GCNConv(64, 128)
+  (out): DecoderLinear(
+    (layer_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+    (layer1): Linear(in_features=128, out_features=2, bias=True)
+    (softmax): Softmax(dim=1)
+  )
+)
+2024-07-04 22:14:12,469 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0001 
+                          batch-size: 128
+2024-07-04 22:14:12,469 - src.service.graph_train - INFO - DEVICE: mps
+2024-07-04 22:14:13,117 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.6478s
+2024-07-04 22:14:13,118 - src.service.graph_experiments - INFO - Start training !
+2024-07-04 22:14:13,118 - src.service.graph_experiments - ERROR - DataFrame.drop() got an unexpected keyword argument 'columns'
+2024-07-04 22:14:13,120 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/Users/phamminhlong/Desktop/paper/src/service/graph_train.py", line 86, in fit
+    data=self.data_loader.get_network_torch(),
+  File "/Users/phamminhlong/Desktop/paper/src/data_model/network.py", line 119, in get_network_torch
+    features = self.df_features.drop(columns=['transid', 'class'])
+TypeError: DataFrame.drop() got an unexpected keyword argument 'columns'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/phamminhlong/Desktop/paper/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/Users/phamminhlong/Desktop/paper/src/utils/timer.py", line 30, in wraper
+    result = func(*args, **kwargs)
+  File "/Users/phamminhlong/Desktop/paper/src/service/graph_train.py", line 95, in fit
+    data=self.data_loader.get_network_torch(),
+  File "/Users/phamminhlong/Desktop/paper/src/data_model/network.py", line 119, in get_network_torch
+    features = self.df_features.drop(columns=['transid', 'class'])
+TypeError: DataFrame.drop() got an unexpected keyword argument 'columns'
+
+2024-07-04 22:14:13,120 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 0.0021s
+2024-07-04 22:14:41,812 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.6346s
+2024-07-04 22:14:41,822 - src.service.graph_train - INFO - MODEL: 
+ GCN(
+  (dropout): Dropout(p=0.5, inplace=False)
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(64, 64)
+  )
+  (gcn1): GCNConv(166, 64)
+  (gcn2): GCNConv(64, 128)
+  (out): DecoderLinear(
+    (layer_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+    (layer1): Linear(in_features=128, out_features=2, bias=True)
+    (softmax): Softmax(dim=1)
+  )
+)
+2024-07-04 22:14:41,823 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0001 
+                          batch-size: 128
+2024-07-04 22:14:41,823 - src.service.graph_train - INFO - DEVICE: mps
+2024-07-04 22:14:42,436 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.6129s
+2024-07-04 22:14:42,436 - src.service.graph_experiments - INFO - Start training !
+2024-07-04 22:16:41,998 - src.service.graph_train - INFO - Loss: 0.7067849048669788
