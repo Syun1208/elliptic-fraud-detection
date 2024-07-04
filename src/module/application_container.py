@@ -70,7 +70,7 @@ class ApplicationContainer(containers.DeclarativeContainer):
     trainer.override(
         providers.Singleton(
             TrainerImpl,
-            model=gat,
+            model=gcn,
             data_loader=elliptic_loader,
             logger=logger, 
             epochs=service_config.gat.epochs,
@@ -87,12 +87,13 @@ class ApplicationContainer(containers.DeclarativeContainer):
     tester.override(
         providers.Singleton(
             TesterImpl,
-            model=gat,
+            model=gcn,
             data_loader=elliptic_loader,
             logger=logger,
             device_id=service_config.device_id,
+            batch_size=service_config.gat.batch_size,
             path_model=service_config.gat.path_model,
-            n_random_samples=service_config.gat.test.n_random_samples
+            n_random_samples=service_config.gat.test.n_test
         )
     )
     

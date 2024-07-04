@@ -36,6 +36,6 @@ def resample_testmask(test_mask, p=0.5):
     sampled_indices = random.sample(true_indices, min(sample_size, len(true_indices)))
 
     # Create new list with False at all indices except the sampled ones
-    output_list = [i in sampled_indices for i in range(len(test_mask))]
+    output_list = np.array([i in sampled_indices for i in range(len(test_mask))])
 
     return output_list
