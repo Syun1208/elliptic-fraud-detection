@@ -9,6 +9,8 @@ from src.utils.debugger import pretty_errors
 from src.service.data_loader import DataLoader, EllipticLoader
 from src.service.graph_model.gcn import GCN
 from src.service.graph_model.gat import GAT
+from src.service.graph_model.gin import GIN
+from src.service.graph_model.graph_sage import GraphSAGE
 from src.service.graph_train import Trainer, TrainerImpl
 from src.service.graph_test import Tester, TesterImpl
 from src.service.graph_eval import Evaluator, EvaluatorImpl
@@ -65,12 +67,32 @@ class ApplicationContainer(containers.DeclarativeContainer):
         n_layers=service_config.gat.n_layers,
         dropout_rate=service_config.gat.dropout_rate
     )
+
+    gin = providers.Singleton(
+        GIN,
+        num_features=service_config.gat.n_features,
+        hidden_dim=service_config.gat.hidden_dim,
+        embedding_dim=service_config.gat.embedding_dim,
+        output_dim=service_config.gat.output_dim,
+        n_layers=service_config.gat.n_layers,
+        dropout_rate=service_config.gat.dropout_rate
+    )
+
+    graph_sage = providers.Singleton(
+        GraphSAGE,
+        num_features=service_config.gat.n_features,
+        hidden_dim=service_config.gat.hidden_dim,
+        embedding_dim=service_config.gat.embedding_dim,
+        output_dim=service_config.gat.output_dim,
+        n_layers=service_config.gat.n_layers,
+        dropout_rate=service_config.gat.dropout_rate
+    )
     
     trainer = providers.AbstractSingleton(Trainer)
     trainer.override(
         providers.Singleton(
             TrainerImpl,
-            model=gcn,
+            model=graph_sage,
             data_loader=elliptic_loader,
             logger=logger, 
             epochs=service_config.gat.epochs,
@@ -87,7 +109,7 @@ class ApplicationContainer(containers.DeclarativeContainer):
     tester.override(
         providers.Singleton(
             TesterImpl,
-            model=gcn,
+            model=graph_sage,
             data_loader=elliptic_loader,
             logger=logger,
             device_id=service_config.device_id,
