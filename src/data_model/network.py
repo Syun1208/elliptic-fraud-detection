@@ -5,6 +5,7 @@ import networkx as nx
 import networkit as nk
 import numpy as np
 import polars as pl
+import pandas as pd
 
 
 from src.data_model.graph import Graph
@@ -28,7 +29,7 @@ class DataNetWork:
         self.directed = directed
         
         self.graph: Graph = self._set_up_network_info()
-
+        print(self.df_edges.shape)
         self.fraud_dict = dict(
             zip(
                 pl.from_pandas(df_features["transid"].to_pandas().map(self.graph.map_id)),
@@ -55,6 +56,7 @@ class DataNetWork:
             pl.col('current_transid'),
             pl.col('next_transid')
         )
+
         if not self.directed:
             map_id = {j:i for i,j in enumerate((nodes
                                             .to_series()
@@ -74,9 +76,18 @@ class DataNetWork:
             # )
             
             edges = edges.to_pandas()
+            
+            edges_direct = edges[['current_transid', 'next_transid']]
+            edges_reverse = edges_direct[['next_transid', 'current_transid']]
+            edges_reverse.columns = ['current_transid', 'next_transid']
+            
+            edges = pd.concat([edges_direct, edges_reverse], axis=0)
+            
             edges['current_transid'] = edges['current_transid'].map(map_id).astype(np.int64)
             edges['next_transid'] = edges['next_transid'].map(map_id).astype(np.int64)
             edges = pl.from_pandas(edges)
+            
+
         
         return Graph(
             nodes=nodes,
@@ -120,6 +131,8 @@ class DataNetWork:
         x = torch.tensor(np.array(features.to_numpy(), dtype=float), dtype=torch.float)
         if x.size()[1] == 0:
             x = torch.ones(x.size()[0], 1)
+        
+        x = x[:, 1:94]
         y = torch.tensor(np.array(labels.to_numpy(), dtype=np.int64), dtype=torch.int64)
         
         # Reformat and convert to tensor
