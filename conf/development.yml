@@ -51,7 +51,7 @@ kan_gnn:
   output_dim: 2
   dropout_rate: 0.5
 
-  lr: 5e-4
+  lr: 0.0005
   epochs: 10000
   batch_size: 128
 
