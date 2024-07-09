@@ -11,6 +11,7 @@ from src.service.graph_model.gcn import GCN
 from src.service.graph_model.gat import GAT
 from src.service.graph_model.gin import GIN
 from src.service.graph_model.graph_sage import GraphSAGE
+from src.service.graph_model.graph_kan import KanGNN
 from src.service.graph_train import Trainer, TrainerImpl
 from src.service.graph_test import Tester, TesterImpl
 from src.service.graph_eval import Evaluator, EvaluatorImpl
@@ -88,19 +89,30 @@ class ApplicationContainer(containers.DeclarativeContainer):
         dropout_rate=service_config.gat.dropout_rate
     )
     
+    graph_kan = providers.Singleton(
+        KanGNN,
+        n_features=service_config.kan_gnn.n_features,
+        hidden_dim=service_config.kan_gnn.hidden_dim, 
+        output_dim=service_config.kan_gnn.output_dim, 
+        grid_dim=service_config.kan_gnn.grid_dim,
+        n_layers=service_config.kan_gnn.n_layers,
+        use_bias=False,
+    )
+    
+    
     trainer = providers.AbstractSingleton(Trainer)
     trainer.override(
         providers.Singleton(
             TrainerImpl,
-            model=graph_sage,
+            model=graph_kan,
             data_loader=elliptic_loader,
             logger=logger, 
-            epochs=service_config.gat.epochs,
-            lr=service_config.gat.lr,
-            batch_size=service_config.gat.batch_size,
+            epochs=service_config.kan_gnn.epochs,
+            lr=service_config.kan_gnn.lr,
+            batch_size=service_config.kan_gnn.batch_size,
             device_id=service_config.device_id,
             path_logs_tensorboard=service_config.tensorboard.log_dir,
-            path_model=service_config.gat.path_model
+            path_model=service_config.kan_gnn.path_model
         )
     )
     
@@ -109,13 +121,13 @@ class ApplicationContainer(containers.DeclarativeContainer):
     tester.override(
         providers.Singleton(
             TesterImpl,
-            model=graph_sage,
+            model=graph_kan,
             data_loader=elliptic_loader,
             logger=logger,
             device_id=service_config.device_id,
-            batch_size=service_config.gat.batch_size,
-            path_model=service_config.gat.path_model,
-            n_random_samples=service_config.gat.test.n_test
+            batch_size=service_config.kan_gnn.batch_size,
+            path_model=service_config.kan_gnn.path_model,
+            n_random_samples=service_config.kan_gnn.test.n_test
         )
     )
     

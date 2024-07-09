@@ -3,17 +3,16 @@ data:
   path_edgelist: 'data/elliptic_bitcoin_dataset/elliptic_txs_edgelist.csv'
   path_classes: 'data/elliptic_bitcoin_dataset/elliptic_txs_classes.csv'
 
-
 gat:
-  hidden_dim: 64
-  embedding_dim: 128
+  hidden_dim: 217
+  embedding_dim: 93
   n_layers: 3
   n_features: 166
   output_dim: 2
-  dropout_rate: 0.5
+  dropout_rate: 0.057
   heads: 5
 
-  lr: 0.0001
+  lr: 0.0864
   epochs: 500
   batch_size: 128
 
@@ -22,6 +21,46 @@ gat:
   test:
     n_test: 1000
     path_results: 'model/gat/results.csv'
+
+
+gcn:
+  hidden_dim: 217
+  embedding_dim: 87
+  n_layers: 3
+  n_features: 93
+  output_dim: 2
+  dropout_rate: 0.057
+  heads: 5
+
+  lr: 0.0864
+  epochs: 500
+  batch_size: 128
+
+  path_model: 'model/gat/gat.pt'
+
+  test:
+    n_test: 1000
+    path_results: 'model/gat/results.csv'
+
+
+kan_gnn:
+  hidden_dim: 256
+  grid_dim: 200
+  n_layers: 3
+  n_features: 93
+  output_dim: 2
+  dropout_rate: 0.5
+
+  lr: 5e-4
+  epochs: 10000
+  batch_size: 128
+
+  path_model: 'model/kan_graph/kan_graph.pt'
+
+  test:
+    n_test: 1000
+    path_results: 'model/kan_graph/results.csv'
+
 
 
 logger:

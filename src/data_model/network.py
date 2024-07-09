@@ -29,7 +29,7 @@ class DataNetWork:
         self.directed = directed
         
         self.graph: Graph = self._set_up_network_info()
-        print(self.df_edges.shape)
+
         self.fraud_dict = dict(
             zip(
                 pl.from_pandas(df_features["transid"].to_pandas().map(self.graph.map_id)),

@@ -27,7 +27,7 @@ class DecoderDeep(nn.Module):
     def __init__(
             self, 
             embedding_dim: int, 
-            num_layers: int,
+            n_layers: int,
             hidden_dim: int,
             output_dim: int=2
             ):
@@ -36,7 +36,7 @@ class DecoderDeep(nn.Module):
         self.layer1 = nn.Linear(embedding_dim, hidden_dim)
         
         self.layers = nn.ModuleList()
-        for i in range(num_layers-2):
+        for i in range(n_layers-2):
             self.layers.append(nn.Linear(hidden_dim, hidden_dim))
         self.layer2 = nn.Linear(hidden_dim, output_dim)
         self.softmax = nn.Softmax(dim=1)
@@ -79,7 +79,7 @@ class DecoderDeepNorm(nn.Module):
     def __init__(
             self, 
             embedding_dim: int, 
-            num_layers: int,
+            n_layers: int,
             hidden_dim: int,
             output_dim: int=2
             ):
@@ -88,7 +88,7 @@ class DecoderDeepNorm(nn.Module):
         self.layer1 = nn.Linear(embedding_dim, hidden_dim)
         
         self.layers = nn.ModuleList()
-        for i in range(num_layers-2):
+        for i in range(n_layers-2):
             self.layers.append(nn.Linear(hidden_dim, hidden_dim))
         self.layer2 = nn.Linear(hidden_dim, output_dim)
         self.softmax = nn.Softmax(dim=1)

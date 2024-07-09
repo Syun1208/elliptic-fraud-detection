@@ -14,7 +14,7 @@ class GINE(nn.Module):
             output_dim: int, 
             n_layers: int, 
             dropout_rate: float = 0
-            ):
+        ):
         super().__init__()
         self.num_features = num_features
         self.edge_dim = edge_dim
