@@ -87,15 +87,6 @@ def _roc_display(y_true, y_pred_prob, class_labels: List[str]) -> plt.Figure:
     
     return fig
 
-
-from typing import List
-import matplotlib.pyplot as plt
-from itertools import cycle
-from sklearn.metrics import roc_curve, auc, confusion_matrix, ConfusionMatrixDisplay, classification_report
-import numpy as np
-import pandas as pd
-import seaborn as sns
-
 def _roc_display(y_true, y_pred_prob, class_labels: List[str]) -> plt.Figure:
     """
     Plot ROC curves for multi-class classification.
