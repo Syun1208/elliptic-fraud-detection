@@ -3,3 +3,7 @@ torch
 torch_geometric
 matplotlib
 mlflow
+
+numpy
+pandas
+seaborn
