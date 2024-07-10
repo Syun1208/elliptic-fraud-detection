@@ -1,4 +1,3 @@
 token
 data/*
 !data/get_data.sh
-/data
