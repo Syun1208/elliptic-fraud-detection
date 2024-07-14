@@ -3,7 +3,11 @@ torch
 torch_geometric
 matplotlib
 mlflow
-
+tqdm
 numpy
 pandas
+polars-lts-cpu
 seaborn
+plotly
+nbformat
+python-igraph

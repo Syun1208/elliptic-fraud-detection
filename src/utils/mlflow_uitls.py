@@ -26,15 +26,22 @@ def set_or_create_experiment(experiment_name: str) -> str:
     return experiment_id
 
 
-def register_model_with_client(model_name: str, run_id: str, artifact_path: str):
+def register_model_with_client(model_name: str, run_id: str, artifact_path: str) -> None: 
     """
-    Register a model.
-
-    :param model_name: Name of the model.
-    :param run_id: Run ID.  
-    :param artifact_path: Artifact path.
-
-    :return: None.
+    Register a model with the MLflow tracking server.
+    
+    --------------------
+    Parameters
+    ----------
+    - `model_name` (str): The name of the model to be registered.
+    - `run_id` (str): The unique identifier for the run that generated the model artifact.
+    - `artifact_path` (str): The relative path to the model artifact within the run's artifact directory.
+    
+    Returns
+    -------
+    - `None`
+    
+    --------------------
     """
     client = mlflow.tracking.MlflowClient()
     client.create_registered_model(model_name)
