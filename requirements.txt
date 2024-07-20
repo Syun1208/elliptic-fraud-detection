@@ -4,7 +4,7 @@ seaborn
 matplotlib
 torch_geometric
 plotly==5.22.0
-python-igraph
+# python-igraph
 networkit
 networkx
 scipy
