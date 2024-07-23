@@ -1,0 +1,1 @@
+- `__slots__`: to save memory and initalization variables for classes
