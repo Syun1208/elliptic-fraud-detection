@@ -1,0 +1,75 @@
+data:
+  path_features: 'data/raw/elliptic_bitcoin_dataset/elliptic_txs_features.csv'
+  path_edgelist: 'data/raw/elliptic_bitcoin_dataset/elliptic_txs_edgelist.csv'
+  path_classes: 'data/raw/elliptic_bitcoin_dataset/elliptic_txs_classes.csv'
+
+gat:
+  hidden_dim: 217
+  embedding_dim: 87
+  n_layers: 3
+  n_features: 93
+  output_dim: 2
+  dropout_rate: 0.057
+  heads: 5
+
+  lr: 0.0864
+  epochs: 500
+  batch_size: 128
+
+  path_model: 'model/gat/gat.pt'
+
+  test:
+    n_test: 1000
+    path_results: 'model/gat/results.csv'
+
+
+gcn:
+  hidden_dim: 217
+  embedding_dim: 87
+  n_layers: 3
+  n_features: 93
+  output_dim: 2
+  dropout_rate: 0.057
+  heads: 5
+
+  lr: 0.0864
+  epochs: 500
+  batch_size: 128
+
+  path_model: 'model/gcn/gcn_v2.pt'
+
+  test:
+    n_test: 10
+    path_results: 'model/gcn/results_v2.csv'
+
+
+gckan:
+  hidden_dim: 217
+  embedding_dim: 87
+  n_layers: 3
+  n_features: 93
+  grid_size: 10
+  output_dim: 2
+  dropout_rate: 0.057
+  heads: 5
+
+  lr: 0.0864
+  epochs: 5
+  batch_size: 128
+
+  path_model: 'model/gckan/gckan_v2.pt'
+
+  test:
+    n_test: 1000
+    path_results: 'model/gckan/results_v2.csv'
+
+
+
+logger:
+  log_dir: 'logs/'
+  log_clear_days: 20
+
+device_id: 0
+
+tensorboard:
+  log_dir: 'runs/gckan_v2'

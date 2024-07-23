@@ -1,0 +1,73 @@
+2024-07-23 17:57:11,714 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4103s
+2024-07-23 17:57:11,754 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-23 17:57:11,754 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-23 17:57:11,754 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-23 17:57:12,168 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4136s
+2024-07-23 17:57:12,174 - src.service.graph_experiments - INFO - Start training !
+2024-07-23 17:57:17,309 - src.service.graph_train - INFO - Loss: 0.2194745351103751
+2024-07-23 17:57:17,310 - src.service.graph_train - INFO - AP train: 0.662159669343412
+2024-07-23 17:57:17,310 - src.service.graph_train - INFO - AP val: 0.5764607814463302
+2024-07-23 17:57:17,311 - src.service.graph_train - INFO - AP test: 0.2800813014477257
+2024-07-23 17:57:21,394 - src.service.graph_train - INFO - Loss: 0.17247055701299566
+2024-07-23 17:57:21,395 - src.service.graph_train - INFO - AP train: 0.7516465332250021
+2024-07-23 17:57:21,395 - src.service.graph_train - INFO - AP val: 0.5452398199206203
+2024-07-23 17:57:21,395 - src.service.graph_train - INFO - AP test: 0.28292311103040907
+2024-07-23 17:57:41,585 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3883s
+2024-07-23 17:57:41,627 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-23 17:57:41,628 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-23 17:57:41,628 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-23 17:57:42,014 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3856s
+2024-07-23 17:57:42,015 - src.service.graph_experiments - INFO - Start training !
+2024-07-23 17:57:47,133 - src.service.graph_train - INFO - Loss: 0.22271672053181607
+2024-07-23 17:57:47,134 - src.service.graph_train - INFO - AP train: 0.7016034553103137
+2024-07-23 17:57:47,134 - src.service.graph_train - INFO - AP val: 0.6184814492749685
+2024-07-23 17:57:47,134 - src.service.graph_train - INFO - AP test: 0.28065629027180383
+2024-07-23 17:57:51,141 - src.service.graph_train - INFO - Loss: 0.17042978773802375
+2024-07-23 17:57:51,142 - src.service.graph_train - INFO - AP train: 0.7604000422171078
+2024-07-23 17:57:51,142 - src.service.graph_train - INFO - AP val: 0.6834373375024251
+2024-07-23 17:57:51,142 - src.service.graph_train - INFO - AP test: 0.33413562716156314
+2024-07-23 17:57:55,220 - src.service.graph_train - INFO - Loss: 0.15719309978295062
+2024-07-23 17:57:55,221 - src.service.graph_train - INFO - AP train: 0.7839167305497783
+2024-07-23 17:57:55,221 - src.service.graph_train - INFO - AP val: 0.7319756052954489
+2024-07-23 17:57:55,221 - src.service.graph_train - INFO - AP test: 0.42551902146904413
+2024-07-23 17:57:59,448 - src.service.graph_train - INFO - Loss: 0.14931876975413105
+2024-07-23 17:57:59,448 - src.service.graph_train - INFO - AP train: 0.8022163554577447
+2024-07-23 17:57:59,449 - src.service.graph_train - INFO - AP val: 0.7303806031993842
+2024-07-23 17:57:59,449 - src.service.graph_train - INFO - AP test: 0.4395135305400039
+2024-07-23 17:58:03,753 - src.service.graph_train - INFO - Loss: 0.1430167724976793
+2024-07-23 17:58:03,753 - src.service.graph_train - INFO - AP train: 0.8174326478364075
+2024-07-23 17:58:03,754 - src.service.graph_train - INFO - AP val: 0.6927571531056484
+2024-07-23 17:58:03,754 - src.service.graph_train - INFO - AP test: 0.4249140617996846
+2024-07-23 17:58:03,755 - src.service.graph_train - INFO - DONE PHASE TRAIN !
+2024-07-23 17:58:03,756 - src.service.graph_train - INFO - SAVE YOUR MODEL AT: /home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/model/gckan/gckan_v2.pt
+2024-07-23 17:58:03,757 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 21.7421s

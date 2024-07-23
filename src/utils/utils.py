@@ -27,15 +27,15 @@ def get_device(device_id: int) -> torch.device:
     return device
 
 
-# def resample_testmask(test_mask, p=0.5):
-#     sample_size = int(np.floor(test_mask.sum()*p))
-#     # Get indices where value is True
-#     true_indices = [i for i, val in enumerate(test_mask) if val]
+def resample_testmask(test_mask, p=0.5):
+    sample_size = int(np.floor(test_mask.sum()*p))
+    # Get indices where value is True
+    true_indices = [i for i, val in enumerate(test_mask) if val]
 
-#     # Randomly select a subset of these indices
-#     sampled_indices = random.sample(true_indices, min(sample_size, len(true_indices)))
+    # Randomly select a subset of these indices
+    sampled_indices = random.sample(true_indices, min(sample_size, len(true_indices)))
 
-#     # Create new list with False at all indices except the sampled ones
-#     output_list = np.array([i in sampled_indices for i in range(len(test_mask))])
+    # Create new list with False at all indices except the sampled ones
+    output_list = np.array([i in sampled_indices for i in range(len(test_mask))])
 
-#     return output_list
+    return output_list

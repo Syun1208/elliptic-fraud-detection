@@ -1,3 +1,6 @@
 token
 data/*
 !data/get_data.sh
+*__pycache__
+runs/
+model/
