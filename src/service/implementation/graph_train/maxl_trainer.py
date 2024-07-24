@@ -1,8 +1,6 @@
 import warnings
-
 warnings.filterwarnings('ignore')
 
-from abc import abstractmethod, ABC
 from pathlib import Path
 import torch
 import torch.nn as nn
@@ -16,28 +14,19 @@ from multiprocessing import Pool
 
 from src.utils.utils import get_device
 from src.utils.timer import time_complexity
-from src.service.data_loader import DataLoader
+from src.service.abstraction.graph_train import Trainer
+from src.service.abstraction.data_loader import DataLoader
 from torch_geometric.loader import NeighborLoader
-from src.utils.visualizer import plot_confusion_matrix
+from src.service.implementation.graph_loss.focal_loss import FocalLoss
 from src.utils.logger import Logger
 
 
 FILE = Path(__file__).resolve()
 WORK_DIR = FILE.parents[2]
 
-
-class Trainer(ABC):
-
-    @abstractmethod
-    def fit(self):
-        pass
-    
-    @abstractmethod
-    def to_model(self):
-        pass
     
 
-class TrainerImpl(Trainer):
+class MAXLTrainerImpl(Trainer):
     
     def __init__(
         self,
@@ -66,7 +55,7 @@ class TrainerImpl(Trainer):
             
         self.writer = SummaryWriter(self.path_logs_tensorboard)
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=self.lr)
-        self.criterion = nn.CrossEntropyLoss()
+        self.criterion = FocalLoss(gamma=0)
         
         self.device = get_device(self.device_id)
         
@@ -105,35 +94,88 @@ class TrainerImpl(Trainer):
         for epoch in tqdm.tqdm(range(self.epochs), colour='green', desc='Training graph model'):
             
             running_loss = 0.0
+            val_loss = 0.0
+            test_loss = 0.0
+            ap_score_train = 0.0
+            ap_score_val = 0.0
+            ap_score_test = 0.0
             
             self.model.train()
             
             for i, batch in enumerate(loader):
                 
-                self.optimizer.zero_grad()
-
                 out, h = self.model(
-                  batch.x.to(self.device), 
-                  batch.edge_index.to(self.device)
-                )
-                
+                        batch.x.to(self.device), 
+                        batch.edge_index.to(self.device)
+                    )
+                    
                 y_hat = out[:batch.batch_size].to(self.device)
                 y = batch.y[:batch.batch_size].to(self.device)
                 
                 loss = self.criterion(y_hat, y)
                 running_loss += loss.item()
-
+                
+                ap_score_train += average_precision_score(
+                        y.cpu().detach().numpy(), 
+                        y_hat.cpu().detach().numpy()[:, 1]
+                    )
+            
                 loss.backward()
                 self.optimizer.step()
+        
+            out, h = self.model(
+                    self.data_loader.get_network_torch().x.to(self.device), 
+                    self.data_loader.get_network_torch().edge_index.to(self.device)
+                )
+            
+            ap_score_val = average_precision_score(
+                    self.data_loader.get_network_torch().y[self.data_loader.val_mask].cpu().detach().numpy(), 
+                    out[self.data_loader.val_mask].cpu().detach().numpy()[:, 1]
+                )
+
+            ap_score_test = average_precision_score(
+                    self.data_loader.get_network_torch().y[self.data_loader.test_mask].cpu().detach().numpy(), 
+                    out[self.data_loader.test_mask].cpu().detach().numpy()[:, 1]
+                )
+            
+            val_loss = self.criterion(
+                self.data_loader.get_network_torch().y[self.data_loader.val_mask].to(self.device),
+                out[self.data_loader.val_mask].to(self.device)
+            )
+            
+            test_loss = self.criterion(
+                self.data_loader.get_network_torch().y[self.data_loader.test_mask].to(self.device),
+                out[self.data_loader.test_mask].to(self.device)
+            )
        
             # Save accuracy and loss to Tensorboard
-            self.writer.add_scalar(
-                tag='Loss/train', 
-                scalar_value=running_loss, 
+            self.writer.add_scalars(
+                main_tag='Focal Loss', 
+                tag_scalar_dict={
+                    'Train': running_loss / len(loader),
+                    'Validation': val_loss,
+                    'Test': test_loss
+                }, 
                 global_step=epoch
             )
             
+            self.writer.add_scalars(
+                main_tag='AUC-AP',
+                tag_scalar_dict={
+                    'Train': ap_score_train / len(loader),
+                    'Validation': ap_score_val,
+                    'Test': ap_score_test
+                    },
+                global_step=epoch
+                
+            )
+            
+            # Show the computed metrics
             self.logger.info(f'Loss: {running_loss / len(loader)}')
+            self.logger.info(f'Loss: {running_loss / len(loader)}')
+            self.logger.info(f'AP train: {ap_score_train / len(loader)}')
+            self.logger.info(f'AP val: {ap_score_val}')
+            self.logger.info(f'AP test: {ap_score_test}')
           
             
         self.logger.info('DONE PHASE TRAIN !')

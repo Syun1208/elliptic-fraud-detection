@@ -6,16 +6,16 @@ from thespian.actors import ActorSystem
 
 from src.utils.constants import CONFIG_FILE
 from src.utils.debugger import pretty_errors
-from src.service.data_loader import DataLoader, EllipticLoader
-from src.service.graph_model.gcn import GCN
-from src.service.graph_model.gat import GAT
-from src.service.graph_model.gin import GIN
-from src.service.graph_model.graph_sage import GraphSAGE
-from src.service.graph_model.graph_kan import KanGNN
-from src.service.graph_train import Trainer, TrainerImpl
-from src.service.graph_test import Tester, TesterImpl
-from src.service.graph_eval import Evaluator, EvaluatorImpl
-from src.service.graph_experiments import Experiments, ExperimentsImpl
+from src.service.implementation.data_loader.elliptic_loader import DataLoader, EllipticLoader
+from src.service.implementation.graph_model.gcn import GCN
+from src.service.implementation.graph_model.gat import GAT
+from src.service.implementation.graph_model.gin import GIN
+from src.service.implementation.graph_model.graph_sage import GraphSAGE
+from src.service.implementation.graph_model.graph_kan import KanGNN
+from src.service.implementation.graph_train.trainer import Trainer, TrainerImpl
+from src.service.implementation.graph_predict.predictor import Predictor, TesterImpl
+from src.service.implementation.graph_eval.evaluator import Evaluator, EvaluatorImpl
+from src.service.implementation.graph_experiments.graph_experiments import Experiments, ExperimentsImpl
 from src.utils.logger import Logger
 
 FILE = Path(__file__).resolve()
@@ -117,8 +117,8 @@ class ApplicationContainer(containers.DeclarativeContainer):
     )
     
 
-    tester = providers.AbstractSingleton(Tester)
-    tester.override(
+    predictor = providers.AbstractSingleton(Predictor)
+    predictor.override(
         providers.Singleton(
             TesterImpl,
             model=graph_kan,
@@ -135,7 +135,7 @@ class ApplicationContainer(containers.DeclarativeContainer):
     evaluator.override(
         providers.Singleton(
             EvaluatorImpl,
-            tester=tester,
+            predictor=predictor,
             logger=logger,
             path_results=service_config.gat.test.path_results
         )
@@ -146,7 +146,7 @@ class ApplicationContainer(containers.DeclarativeContainer):
         providers.Singleton(
             ExperimentsImpl,
             trainer=trainer,
-            tester=tester,
+            predictor=predictor,
             evaluator=evaluator,
             logger=logger
         )

@@ -5,7 +5,7 @@ from threadpoolctl import threadpool_limits, threadpool_info
 
 from src.utils.debugger import pretty_errors
 from src.module.application_container import ApplicationContainer
-from src.service.graph_experiments import ExperimentsImpl
+from src.service.implementation.graph_experiments.graph_experiments import ExperimentsImpl
 
 warnings.filterwarnings("ignore", category=RuntimeWarning, message="Found Intel OpenMP")
 

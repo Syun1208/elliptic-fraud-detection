@@ -2,9 +2,9 @@ from pathlib import Path
 import polars as pl
 import torch
 import os
-from abc import ABC, abstractmethod
 
 from src.utils.timer import time_complexity
+from src.service.abstraction.data_loader import DataLoader
 from src.utils.constants import FIRST_FEAT_NAME
 from src.data_model.network import DataNetWork
 
@@ -12,12 +12,6 @@ from src.data_model.network import DataNetWork
 FILE = Path(__file__).resolve()
 WORK_DIR = FILE.parents[2]
 
-
-class DataLoader(ABC):
-    
-    @abstractmethod
-    def load(self):
-        pass
 
 
 class EllipticLoader(DataLoader):

@@ -1,18 +1,12 @@
-from abc import ABC, abstractmethod
 import traceback
 
 from src.utils.logger import Logger
+from src.service.abstraction.graph_experiments import Experiments
 from src.utils.timer import time_complexity
-from src.service.graph_train import Trainer
-from src.service.graph_test import Tester
-from src.service.graph_eval import Evaluator
+from service.implementation.graph_train.trainer import Trainer
+from src.service.abstraction.graph_predict import Predictor
+from service.implementation.graph_eval.evaluator import Evaluator
 
-
-class Experiments(ABC):
-    
-    @abstractmethod
-    def run(self) -> None:
-        pass
     
 
 class ExperimentsImpl(Experiments):
@@ -20,14 +14,14 @@ class ExperimentsImpl(Experiments):
     def __init__(
         self,
         trainer: Trainer,
-        tester: Tester,
+        predictor: Predictor,
         evaluator: Evaluator,
         logger: Logger
     ) -> None:
     
         self.logger = logger.get_tracking(__name__)
         self.trainer = trainer
-        self.tester = tester
+        self.predictor = predictor
         self.evaluator = evaluator
         
         
@@ -50,7 +44,7 @@ class ExperimentsImpl(Experiments):
             else:
                 
                 self.logger.info('Start predicting !')
-                self.tester.predict()
+                self.predictor.predict()
         
         except Exception as e:
             
