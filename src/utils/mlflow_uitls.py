@@ -1,5 +1,8 @@
 import mlflow
+import os
+import warnings
 
+warnings.filterwarnings('ignore')
 def set_or_create_experiment(experiment_name: str) -> str:
     """
     Get or create an experiment.
@@ -46,3 +49,14 @@ def register_model_with_client(model_name: str, run_id: str, artifact_path: str)
     client = mlflow.tracking.MlflowClient()
     client.create_registered_model(model_name)
     client.create_model_version(name=model_name, source=f"runs:/{run_id}/{artifact_path}")
+    
+    
+def log_model(model, params: dict) -> None:
+    mlflow.log_params(params)
+    
+    # Log model summary
+    with open("model_summary.txt", "w") as f:
+        f.write(str(model))
+    mlflow.log_artifact("model_summary.txt")
+    os.remove("model_summary.txt")
+    

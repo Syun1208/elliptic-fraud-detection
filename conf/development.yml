@@ -54,7 +54,7 @@ gckan:
   heads: 5
 
   lr: 0.0864
-  epochs: 5
+  epochs: 500
   batch_size: 128
 
   path_model: 'model/gckan/gckan_v2.pt'

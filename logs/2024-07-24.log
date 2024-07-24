@@ -1,0 +1,2353 @@
+2024-07-24 13:31:03,570 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3915s
+2024-07-24 13:31:03,619 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 13:31:03,619 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 13:31:03,619 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 13:31:04,020 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4006s
+2024-07-24 13:31:04,021 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 13:31:09,190 - src.service.graph_train - INFO - Loss: 0.22370887644912885
+2024-07-24 13:31:09,191 - src.service.graph_train - INFO - AP train: 0.6695331509116447
+2024-07-24 13:31:09,191 - src.service.graph_train - INFO - AP val: 0.5626236414534896
+2024-07-24 13:31:09,191 - src.service.graph_train - INFO - AP test: 0.2508386113020337
+2024-07-24 13:31:13,327 - src.service.graph_train - INFO - Loss: 0.1729479826590865
+2024-07-24 13:31:13,328 - src.service.graph_train - INFO - AP train: 0.7451409905410687
+2024-07-24 13:31:13,328 - src.service.graph_train - INFO - AP val: 0.6079772579513394
+2024-07-24 13:31:13,328 - src.service.graph_train - INFO - AP test: 0.2850926454150196
+2024-07-24 13:31:17,593 - src.service.graph_train - INFO - Loss: 0.15864124077097805
+2024-07-24 13:31:17,594 - src.service.graph_train - INFO - AP train: 0.7770419319588314
+2024-07-24 13:31:17,594 - src.service.graph_train - INFO - AP val: 0.6859835138913195
+2024-07-24 13:31:17,594 - src.service.graph_train - INFO - AP test: 0.37164238467743216
+2024-07-24 13:31:21,851 - src.service.graph_train - INFO - Loss: 0.15082179391441713
+2024-07-24 13:31:21,852 - src.service.graph_train - INFO - AP train: 0.7883087287548549
+2024-07-24 13:31:21,852 - src.service.graph_train - INFO - AP val: 0.6692069171615072
+2024-07-24 13:31:21,852 - src.service.graph_train - INFO - AP test: 0.42817302234912435
+2024-07-24 13:31:26,124 - src.service.graph_train - INFO - Loss: 0.14646191013176085
+2024-07-24 13:31:26,124 - src.service.graph_train - INFO - AP train: 0.8148286281665261
+2024-07-24 13:31:26,124 - src.service.graph_train - INFO - AP val: 0.7515621598866992
+2024-07-24 13:31:26,124 - src.service.graph_train - INFO - AP test: 0.46724617276653696
+2024-07-24 13:31:26,124 - src.service.graph_train - INFO - DONE PHASE TRAIN !
+2024-07-24 13:31:26,126 - src.service.graph_train - INFO - SAVE YOUR MODEL AT: /home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/model/gckan/gckan_v2.pt
+2024-07-24 13:31:26,127 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 22.1056s
+2024-07-24 14:39:34,009 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3997s
+2024-07-24 14:39:34,050 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 14:39:34,050 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 14:39:34,050 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 14:39:34,436 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3855s
+2024-07-24 14:39:34,437 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 14:45:36,754 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4033s
+2024-07-24 14:45:36,801 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 14:45:36,801 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 14:45:36,801 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 14:45:37,186 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3852s
+2024-07-24 14:45:37,188 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 14:45:42,338 - src.service.graph_train - INFO - Loss: 0.2278003129694197
+2024-07-24 14:45:42,338 - src.service.graph_train - INFO - AP train: 0.671490393288451
+2024-07-24 14:45:42,338 - src.service.graph_train - INFO - AP val: 0.5636402281683558
+2024-07-24 14:45:42,338 - src.service.graph_train - INFO - AP test: 0.2655913787093941
+2024-07-24 14:45:46,443 - src.service.graph_train - INFO - Loss: 0.16628334475096296
+2024-07-24 14:45:46,443 - src.service.graph_train - INFO - AP train: 0.760093992495329
+2024-07-24 14:45:46,444 - src.service.graph_train - INFO - AP val: 0.6506776288151398
+2024-07-24 14:45:46,444 - src.service.graph_train - INFO - AP test: 0.3420327345343185
+2024-07-24 14:52:57,069 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4317s
+2024-07-24 14:52:57,110 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 14:52:57,111 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 14:52:57,111 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 14:52:57,562 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4509s
+2024-07-24 14:52:57,563 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 14:54:22,546 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4101s
+2024-07-24 14:54:22,576 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 14:54:22,576 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 14:54:22,576 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 14:54:22,961 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3848s
+2024-07-24 14:54:22,962 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 14:54:40,407 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3943s
+2024-07-24 14:54:40,455 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 14:54:40,455 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 14:54:40,455 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 14:54:40,845 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3892s
+2024-07-24 14:54:40,846 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 14:54:46,130 - src.service.graph_train - INFO - Loss: 0.222486213353521
+2024-07-24 14:54:46,131 - src.service.graph_train - INFO - AP train: 0.6887796212446544
+2024-07-24 14:54:46,131 - src.service.graph_train - INFO - AP val: 0.6000634020659185
+2024-07-24 14:54:46,131 - src.service.graph_train - INFO - AP test: 0.28064652271566987
+2024-07-24 14:55:28,348 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3960s
+2024-07-24 14:55:28,396 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 14:55:28,397 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 14:55:28,397 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 14:55:28,782 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3849s
+2024-07-24 14:55:28,783 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 14:55:59,125 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3985s
+2024-07-24 14:55:59,178 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 14:55:59,178 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 14:55:59,178 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 14:55:59,557 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3788s
+2024-07-24 14:55:59,558 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 15:34:21,506 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4056s
+2024-07-24 15:34:21,550 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 15:34:21,551 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 15:34:21,551 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 15:34:21,942 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3913s
+2024-07-24 15:34:21,943 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 15:34:31,349 - src.service.graph_experiments - ERROR - log_metric() got an unexpected keyword argument 'scalar_value'
+2024-07-24 15:34:31,349 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_train.py", line 198, in fit
+    mlflow.log_metric("loss/train",scalar_value=running_loss / len(loader), step=epoch)
+TypeError: log_metric() got an unexpected keyword argument 'scalar_value'
+
+2024-07-24 15:34:31,350 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 9.4064s
+2024-07-24 15:35:05,397 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3964s
+2024-07-24 15:35:05,431 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 15:35:05,431 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 15:35:05,431 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 15:35:05,821 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3895s
+2024-07-24 15:35:05,822 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 15:35:15,009 - src.service.graph_train - INFO - Loss: 0.2195156218421056
+2024-07-24 15:35:15,009 - src.service.graph_train - INFO - AP train: 0.6905243780923243
+2024-07-24 15:35:15,009 - src.service.graph_train - INFO - AP val: 0.5595647382067304
+2024-07-24 15:35:15,009 - src.service.graph_train - INFO - AP test: 0.2645562474971278
+2024-07-24 15:35:19,230 - src.service.graph_train - INFO - Loss: 0.17040678268469475
+2024-07-24 15:35:19,230 - src.service.graph_train - INFO - AP train: 0.7586556371283353
+2024-07-24 15:35:19,231 - src.service.graph_train - INFO - AP val: 0.6790631528587766
+2024-07-24 15:35:19,231 - src.service.graph_train - INFO - AP test: 0.3353756126293729
+2024-07-24 15:35:23,438 - src.service.graph_train - INFO - Loss: 0.1583370202117496
+2024-07-24 15:35:23,438 - src.service.graph_train - INFO - AP train: 0.7841832979476353
+2024-07-24 15:35:23,438 - src.service.graph_train - INFO - AP val: 0.6508357572094716
+2024-07-24 15:35:23,439 - src.service.graph_train - INFO - AP test: 0.36954903346362294
+2024-07-24 15:35:27,752 - src.service.graph_train - INFO - Loss: 0.1504246417954924
+2024-07-24 15:35:27,752 - src.service.graph_train - INFO - AP train: 0.794626785652679
+2024-07-24 15:35:27,753 - src.service.graph_train - INFO - AP val: 0.6856615786320839
+2024-07-24 15:35:27,753 - src.service.graph_train - INFO - AP test: 0.42534110513209233
+2024-07-24 15:35:32,149 - src.service.graph_train - INFO - Loss: 0.14536321616691092
+2024-07-24 15:35:32,150 - src.service.graph_train - INFO - AP train: 0.8060005828981187
+2024-07-24 15:35:32,150 - src.service.graph_train - INFO - AP val: 0.7553459016707064
+2024-07-24 15:35:32,150 - src.service.graph_train - INFO - AP test: 0.4352948911596227
+2024-07-24 15:35:32,150 - src.service.graph_train - INFO - DONE PHASE TRAIN !
+2024-07-24 15:35:34,616 - src.service.graph_train - INFO - SAVE YOUR MODEL AT: /home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/model/gckan/gckan_v2.pt
+2024-07-24 15:35:34,617 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 28.7950s
+2024-07-24 15:45:13,830 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4043s
+2024-07-24 15:45:13,878 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 15:45:13,878 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 15:45:13,878 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 15:45:14,270 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3916s
+2024-07-24 15:45:14,271 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 15:45:23,646 - src.service.graph_train - INFO - Loss: 0.22617734407169232
+2024-07-24 15:45:23,646 - src.service.graph_train - INFO - AP train: 0.6570358255215161
+2024-07-24 15:45:23,646 - src.service.graph_train - INFO - AP val: 0.5679526265922755
+2024-07-24 15:45:23,646 - src.service.graph_train - INFO - AP test: 0.2743513972689907
+2024-07-24 15:45:27,868 - src.service.graph_train - INFO - Loss: 0.1750469148374986
+2024-07-24 15:45:27,868 - src.service.graph_train - INFO - AP train: 0.7573526456514845
+2024-07-24 15:45:27,868 - src.service.graph_train - INFO - AP val: 0.5853177564825485
+2024-07-24 15:45:27,869 - src.service.graph_train - INFO - AP test: 0.2982081438220128
+2024-07-24 15:45:32,079 - src.service.graph_train - INFO - Loss: 0.16064401759185654
+2024-07-24 15:45:32,080 - src.service.graph_train - INFO - AP train: 0.7713091758119339
+2024-07-24 15:45:32,080 - src.service.graph_train - INFO - AP val: 0.6992567787708239
+2024-07-24 15:45:32,080 - src.service.graph_train - INFO - AP test: 0.3793872192705478
+2024-07-24 15:45:36,443 - src.service.graph_train - INFO - Loss: 0.1519222086034535
+2024-07-24 15:45:36,443 - src.service.graph_train - INFO - AP train: 0.7915968508584399
+2024-07-24 15:45:36,444 - src.service.graph_train - INFO - AP val: 0.7460661580137975
+2024-07-24 15:45:36,444 - src.service.graph_train - INFO - AP test: 0.44570769649851727
+2024-07-24 15:45:40,873 - src.service.graph_train - INFO - Loss: 0.14533669083122758
+2024-07-24 15:45:40,873 - src.service.graph_train - INFO - AP train: 0.8050098258387296
+2024-07-24 15:45:40,873 - src.service.graph_train - INFO - AP val: 0.7144212878702237
+2024-07-24 15:45:40,873 - src.service.graph_train - INFO - AP test: 0.42837925294277013
+2024-07-24 15:45:45,278 - src.service.graph_train - INFO - Loss: 0.13980559490009206
+2024-07-24 15:45:45,278 - src.service.graph_train - INFO - AP train: 0.8158153100377561
+2024-07-24 15:45:45,278 - src.service.graph_train - INFO - AP val: 0.7335876521542908
+2024-07-24 15:45:45,279 - src.service.graph_train - INFO - AP test: 0.44603560980814033
+2024-07-24 15:45:49,635 - src.service.graph_train - INFO - Loss: 0.13670619094861303
+2024-07-24 15:45:49,635 - src.service.graph_train - INFO - AP train: 0.8271110366400021
+2024-07-24 15:45:49,636 - src.service.graph_train - INFO - AP val: 0.7297263466078219
+2024-07-24 15:45:49,636 - src.service.graph_train - INFO - AP test: 0.42975716466224717
+2024-07-24 15:45:54,054 - src.service.graph_train - INFO - Loss: 0.1311193507272696
+2024-07-24 15:45:54,054 - src.service.graph_train - INFO - AP train: 0.8370025541717915
+2024-07-24 15:45:54,054 - src.service.graph_train - INFO - AP val: 0.7170410761347225
+2024-07-24 15:45:54,054 - src.service.graph_train - INFO - AP test: 0.39298997196883634
+2024-07-24 15:45:58,403 - src.service.graph_train - INFO - Loss: 0.12888206070028066
+2024-07-24 15:45:58,404 - src.service.graph_train - INFO - AP train: 0.8421394101400582
+2024-07-24 15:45:58,404 - src.service.graph_train - INFO - AP val: 0.713811904120136
+2024-07-24 15:45:58,404 - src.service.graph_train - INFO - AP test: 0.3685899404614121
+2024-07-24 15:46:02,790 - src.service.graph_train - INFO - Loss: 0.1257605891008884
+2024-07-24 15:46:02,791 - src.service.graph_train - INFO - AP train: 0.8528275151286395
+2024-07-24 15:46:02,791 - src.service.graph_train - INFO - AP val: 0.6805129729236845
+2024-07-24 15:46:02,791 - src.service.graph_train - INFO - AP test: 0.35098594215785367
+2024-07-24 15:46:07,183 - src.service.graph_train - INFO - Loss: 0.12205251525178695
+2024-07-24 15:46:07,183 - src.service.graph_train - INFO - AP train: 0.8572084120578002
+2024-07-24 15:46:07,183 - src.service.graph_train - INFO - AP val: 0.6908250553542572
+2024-07-24 15:46:07,183 - src.service.graph_train - INFO - AP test: 0.3528908734462314
+2024-07-24 15:46:11,537 - src.service.graph_train - INFO - Loss: 0.12038385340772965
+2024-07-24 15:46:11,537 - src.service.graph_train - INFO - AP train: 0.8625003541454195
+2024-07-24 15:46:11,537 - src.service.graph_train - INFO - AP val: 0.6691711441526887
+2024-07-24 15:46:11,537 - src.service.graph_train - INFO - AP test: 0.3588475894710534
+2024-07-24 15:46:15,864 - src.service.graph_train - INFO - Loss: 0.11752263305411823
+2024-07-24 15:46:15,864 - src.service.graph_train - INFO - AP train: 0.8722503679166992
+2024-07-24 15:46:15,864 - src.service.graph_train - INFO - AP val: 0.7150964068177375
+2024-07-24 15:46:15,864 - src.service.graph_train - INFO - AP test: 0.3270844762285243
+2024-07-24 15:46:20,247 - src.service.graph_train - INFO - Loss: 0.11583737658273771
+2024-07-24 15:46:20,248 - src.service.graph_train - INFO - AP train: 0.8760516386469481
+2024-07-24 15:46:20,248 - src.service.graph_train - INFO - AP val: 0.7088325678590905
+2024-07-24 15:46:20,248 - src.service.graph_train - INFO - AP test: 0.35331386440872437
+2024-07-24 15:46:24,599 - src.service.graph_train - INFO - Loss: 0.11257616794951585
+2024-07-24 15:46:24,599 - src.service.graph_train - INFO - AP train: 0.8837100821179859
+2024-07-24 15:46:24,599 - src.service.graph_train - INFO - AP val: 0.7254378622642701
+2024-07-24 15:46:24,599 - src.service.graph_train - INFO - AP test: 0.33349381637286724
+2024-07-24 15:46:29,111 - src.service.graph_train - INFO - Loss: 0.11028351292805971
+2024-07-24 15:46:29,111 - src.service.graph_train - INFO - AP train: 0.8872746628584404
+2024-07-24 15:46:29,111 - src.service.graph_train - INFO - AP val: 0.7011766961106944
+2024-07-24 15:46:29,111 - src.service.graph_train - INFO - AP test: 0.35028986974085
+2024-07-24 15:46:33,763 - src.service.graph_train - INFO - Loss: 0.109452525432703
+2024-07-24 15:46:33,764 - src.service.graph_train - INFO - AP train: 0.887834096776439
+2024-07-24 15:46:33,764 - src.service.graph_train - INFO - AP val: 0.7230049917860731
+2024-07-24 15:46:33,764 - src.service.graph_train - INFO - AP test: 0.3373895910783726
+2024-07-24 15:46:38,179 - src.service.graph_train - INFO - Loss: 0.10706014168147304
+2024-07-24 15:46:38,179 - src.service.graph_train - INFO - AP train: 0.8962390738979041
+2024-07-24 15:46:38,179 - src.service.graph_train - INFO - AP val: 0.6911586638488041
+2024-07-24 15:46:38,180 - src.service.graph_train - INFO - AP test: 0.30418715004778535
+2024-07-24 15:46:42,685 - src.service.graph_train - INFO - Loss: 0.10446720932056938
+2024-07-24 15:46:42,685 - src.service.graph_train - INFO - AP train: 0.8988272716307357
+2024-07-24 15:46:42,685 - src.service.graph_train - INFO - AP val: 0.5813989321011336
+2024-07-24 15:46:42,685 - src.service.graph_train - INFO - AP test: 0.30174179735793294
+2024-07-24 15:46:47,615 - src.service.graph_train - INFO - Loss: 0.103572820317774
+2024-07-24 15:46:47,615 - src.service.graph_train - INFO - AP train: 0.9036927952443395
+2024-07-24 15:46:47,615 - src.service.graph_train - INFO - AP val: 0.7102598344943581
+2024-07-24 15:46:47,615 - src.service.graph_train - INFO - AP test: 0.33112469359919083
+2024-07-24 15:46:52,194 - src.service.graph_train - INFO - Loss: 0.10110043871086001
+2024-07-24 15:46:52,195 - src.service.graph_train - INFO - AP train: 0.905390387131177
+2024-07-24 15:46:52,195 - src.service.graph_train - INFO - AP val: 0.706496020789088
+2024-07-24 15:46:52,195 - src.service.graph_train - INFO - AP test: 0.31013764786039816
+2024-07-24 15:46:56,808 - src.service.graph_train - INFO - Loss: 0.09922836888311566
+2024-07-24 15:46:56,809 - src.service.graph_train - INFO - AP train: 0.9103153250129123
+2024-07-24 15:46:56,809 - src.service.graph_train - INFO - AP val: 0.7199585251431083
+2024-07-24 15:46:56,809 - src.service.graph_train - INFO - AP test: 0.3561409697897534
+2024-07-24 15:47:01,374 - src.service.graph_train - INFO - Loss: 0.09689758187114904
+2024-07-24 15:47:01,374 - src.service.graph_train - INFO - AP train: 0.903546076357117
+2024-07-24 15:47:01,374 - src.service.graph_train - INFO - AP val: 0.6970015056907136
+2024-07-24 15:47:01,374 - src.service.graph_train - INFO - AP test: 0.33317997753198464
+2024-07-24 15:47:05,808 - src.service.graph_train - INFO - Loss: 0.09629666455234019
+2024-07-24 15:47:05,808 - src.service.graph_train - INFO - AP train: 0.9175065004091038
+2024-07-24 15:47:05,808 - src.service.graph_train - INFO - AP val: 0.6832159361004149
+2024-07-24 15:47:05,808 - src.service.graph_train - INFO - AP test: 0.32891216050424604
+2024-07-24 15:47:10,499 - src.service.graph_train - INFO - Loss: 0.09565172702577955
+2024-07-24 15:47:10,499 - src.service.graph_train - INFO - AP train: 0.9182106942381483
+2024-07-24 15:47:10,499 - src.service.graph_train - INFO - AP val: 0.6762178043846887
+2024-07-24 15:47:10,499 - src.service.graph_train - INFO - AP test: 0.3241846166099296
+2024-07-24 15:47:15,092 - src.service.graph_train - INFO - Loss: 0.09287168629071563
+2024-07-24 15:47:15,092 - src.service.graph_train - INFO - AP train: 0.9186355628437476
+2024-07-24 15:47:15,092 - src.service.graph_train - INFO - AP val: 0.7481505008250813
+2024-07-24 15:47:15,092 - src.service.graph_train - INFO - AP test: 0.3180871366595008
+2024-07-24 15:47:19,560 - src.service.graph_train - INFO - Loss: 0.09213466819933647
+2024-07-24 15:47:19,560 - src.service.graph_train - INFO - AP train: 0.9185343847465346
+2024-07-24 15:47:19,560 - src.service.graph_train - INFO - AP val: 0.7079939521315185
+2024-07-24 15:47:19,560 - src.service.graph_train - INFO - AP test: 0.3153973575783459
+2024-07-24 15:47:23,973 - src.service.graph_train - INFO - Loss: 0.09013957169428828
+2024-07-24 15:47:23,973 - src.service.graph_train - INFO - AP train: 0.9230136987210144
+2024-07-24 15:47:23,973 - src.service.graph_train - INFO - AP val: 0.6846072360040281
+2024-07-24 15:47:23,973 - src.service.graph_train - INFO - AP test: 0.28892177859771306
+2024-07-24 15:47:28,499 - src.service.graph_train - INFO - Loss: 0.08916792380601024
+2024-07-24 15:47:28,499 - src.service.graph_train - INFO - AP train: 0.9263472413882273
+2024-07-24 15:47:28,499 - src.service.graph_train - INFO - AP val: 0.7895676092073282
+2024-07-24 15:47:28,499 - src.service.graph_train - INFO - AP test: 0.35829971624920876
+2024-07-24 15:47:32,984 - src.service.graph_train - INFO - Loss: 0.08685192918395938
+2024-07-24 15:47:32,985 - src.service.graph_train - INFO - AP train: 0.9299487659679673
+2024-07-24 15:47:32,985 - src.service.graph_train - INFO - AP val: 0.7611443222786755
+2024-07-24 15:47:32,985 - src.service.graph_train - INFO - AP test: 0.36546221763162284
+2024-07-24 15:47:37,568 - src.service.graph_train - INFO - Loss: 0.08677393988062794
+2024-07-24 15:47:37,568 - src.service.graph_train - INFO - AP train: 0.9275778687268792
+2024-07-24 15:47:37,568 - src.service.graph_train - INFO - AP val: 0.7310375563450695
+2024-07-24 15:47:37,568 - src.service.graph_train - INFO - AP test: 0.404111099190035
+2024-07-24 15:47:42,051 - src.service.graph_train - INFO - Loss: 0.08429275555671126
+2024-07-24 15:47:42,051 - src.service.graph_train - INFO - AP train: 0.9327278157217643
+2024-07-24 15:47:42,051 - src.service.graph_train - INFO - AP val: 0.7490856745184937
+2024-07-24 15:47:42,052 - src.service.graph_train - INFO - AP test: 0.3809427427307227
+2024-07-24 15:47:46,565 - src.service.graph_train - INFO - Loss: 0.08453059317049197
+2024-07-24 15:47:46,565 - src.service.graph_train - INFO - AP train: 0.9385956967402574
+2024-07-24 15:47:46,565 - src.service.graph_train - INFO - AP val: 0.5084550602643572
+2024-07-24 15:47:46,565 - src.service.graph_train - INFO - AP test: 0.2637433753480364
+2024-07-24 15:47:51,033 - src.service.graph_train - INFO - Loss: 0.08428408643725702
+2024-07-24 15:47:51,033 - src.service.graph_train - INFO - AP train: 0.9333771147137208
+2024-07-24 15:47:51,033 - src.service.graph_train - INFO - AP val: 0.7311398031806946
+2024-07-24 15:47:51,033 - src.service.graph_train - INFO - AP test: 0.29595715822411706
+2024-07-24 15:47:55,500 - src.service.graph_train - INFO - Loss: 0.08063802103273535
+2024-07-24 15:47:55,501 - src.service.graph_train - INFO - AP train: 0.9406685514976029
+2024-07-24 15:47:55,501 - src.service.graph_train - INFO - AP val: 0.7449919788250519
+2024-07-24 15:47:55,501 - src.service.graph_train - INFO - AP test: 0.3129671472892081
+2024-07-24 15:48:00,030 - src.service.graph_train - INFO - Loss: 0.08195194709092235
+2024-07-24 15:48:00,030 - src.service.graph_train - INFO - AP train: 0.9384593990868538
+2024-07-24 15:48:00,031 - src.service.graph_train - INFO - AP val: 0.7482410140419286
+2024-07-24 15:48:00,031 - src.service.graph_train - INFO - AP test: 0.3080590466411716
+2024-07-24 15:48:04,675 - src.service.graph_train - INFO - Loss: 0.07828936113943323
+2024-07-24 15:48:04,675 - src.service.graph_train - INFO - AP train: 0.9367911284261009
+2024-07-24 15:48:04,676 - src.service.graph_train - INFO - AP val: 0.7111222983290222
+2024-07-24 15:48:04,676 - src.service.graph_train - INFO - AP test: 0.3373948643670016
+2024-07-24 15:48:09,288 - src.service.graph_train - INFO - Loss: 0.0787580411269325
+2024-07-24 15:48:09,289 - src.service.graph_train - INFO - AP train: 0.9449392369602769
+2024-07-24 15:48:09,289 - src.service.graph_train - INFO - AP val: 0.7072472534012084
+2024-07-24 15:48:09,289 - src.service.graph_train - INFO - AP test: 0.3080396403692083
+2024-07-24 15:48:13,901 - src.service.graph_train - INFO - Loss: 0.07632962477523923
+2024-07-24 15:48:13,901 - src.service.graph_train - INFO - AP train: 0.9442311117156997
+2024-07-24 15:48:13,901 - src.service.graph_train - INFO - AP val: 0.6273087074580254
+2024-07-24 15:48:13,901 - src.service.graph_train - INFO - AP test: 0.37186479920698784
+2024-07-24 15:48:18,421 - src.service.graph_train - INFO - Loss: 0.07637680652168925
+2024-07-24 15:48:18,421 - src.service.graph_train - INFO - AP train: 0.9464365542794694
+2024-07-24 15:48:18,421 - src.service.graph_train - INFO - AP val: 0.7052382262871275
+2024-07-24 15:48:18,421 - src.service.graph_train - INFO - AP test: 0.3417369430307318
+2024-07-24 15:48:22,971 - src.service.graph_train - INFO - Loss: 0.07434368985682582
+2024-07-24 15:48:22,971 - src.service.graph_train - INFO - AP train: 0.9459585834915958
+2024-07-24 15:48:22,972 - src.service.graph_train - INFO - AP val: 0.6499361020321403
+2024-07-24 15:48:22,972 - src.service.graph_train - INFO - AP test: 0.2876937341648847
+2024-07-24 15:48:27,519 - src.service.graph_train - INFO - Loss: 0.07383654413267898
+2024-07-24 15:48:27,519 - src.service.graph_train - INFO - AP train: 0.9487976048690997
+2024-07-24 15:48:27,520 - src.service.graph_train - INFO - AP val: 0.6884363254357028
+2024-07-24 15:48:27,520 - src.service.graph_train - INFO - AP test: 0.36609934444858305
+2024-07-24 15:48:32,057 - src.service.graph_train - INFO - Loss: 0.07235859647609186
+2024-07-24 15:48:32,057 - src.service.graph_train - INFO - AP train: 0.9502852233343531
+2024-07-24 15:48:32,057 - src.service.graph_train - INFO - AP val: 0.7040137810113765
+2024-07-24 15:48:32,057 - src.service.graph_train - INFO - AP test: 0.31653508680551634
+2024-07-24 15:48:36,632 - src.service.graph_train - INFO - Loss: 0.07220648566557877
+2024-07-24 15:48:36,632 - src.service.graph_train - INFO - AP train: 0.9548534889429633
+2024-07-24 15:48:36,632 - src.service.graph_train - INFO - AP val: 0.692750105753839
+2024-07-24 15:48:36,632 - src.service.graph_train - INFO - AP test: 0.28016301535725113
+2024-07-24 15:48:41,336 - src.service.graph_train - INFO - Loss: 0.07125909545049432
+2024-07-24 15:48:41,336 - src.service.graph_train - INFO - AP train: 0.9543299116401847
+2024-07-24 15:48:41,336 - src.service.graph_train - INFO - AP val: 0.7119112222112498
+2024-07-24 15:48:41,336 - src.service.graph_train - INFO - AP test: 0.36596734537524317
+2024-07-24 15:48:45,849 - src.service.graph_train - INFO - Loss: 0.07009519740561213
+2024-07-24 15:48:45,849 - src.service.graph_train - INFO - AP train: 0.9548755975593655
+2024-07-24 15:48:45,849 - src.service.graph_train - INFO - AP val: 0.7062149709713312
+2024-07-24 15:48:45,849 - src.service.graph_train - INFO - AP test: 0.35364937950115777
+2024-07-24 15:48:50,381 - src.service.graph_train - INFO - Loss: 0.06876540556550026
+2024-07-24 15:48:50,381 - src.service.graph_train - INFO - AP train: 0.9506063276317315
+2024-07-24 15:48:50,382 - src.service.graph_train - INFO - AP val: 0.7699824052531496
+2024-07-24 15:48:50,382 - src.service.graph_train - INFO - AP test: 0.35821450662241866
+2024-07-24 15:48:54,894 - src.service.graph_train - INFO - Loss: 0.06928917926686685
+2024-07-24 15:48:54,894 - src.service.graph_train - INFO - AP train: 0.9520107498999968
+2024-07-24 15:48:54,894 - src.service.graph_train - INFO - AP val: 0.7403661034444737
+2024-07-24 15:48:54,894 - src.service.graph_train - INFO - AP test: 0.3744011633401401
+2024-07-24 15:48:59,363 - src.service.graph_train - INFO - Loss: 0.06693130812567213
+2024-07-24 15:48:59,363 - src.service.graph_train - INFO - AP train: 0.9556458699407053
+2024-07-24 15:48:59,363 - src.service.graph_train - INFO - AP val: 0.5816028311603516
+2024-07-24 15:48:59,363 - src.service.graph_train - INFO - AP test: 0.3248263599220772
+2024-07-24 15:49:03,862 - src.service.graph_train - INFO - Loss: 0.06628632172042333
+2024-07-24 15:49:03,862 - src.service.graph_train - INFO - AP train: 0.9603044661217129
+2024-07-24 15:49:03,862 - src.service.graph_train - INFO - AP val: 0.6747391699427377
+2024-07-24 15:49:03,862 - src.service.graph_train - INFO - AP test: 0.36100535486782787
+2024-07-24 15:49:08,326 - src.service.graph_train - INFO - Loss: 0.06749991909713272
+2024-07-24 15:49:08,327 - src.service.graph_train - INFO - AP train: 0.9540566356336975
+2024-07-24 15:49:08,327 - src.service.graph_train - INFO - AP val: 0.783078772818043
+2024-07-24 15:49:08,327 - src.service.graph_train - INFO - AP test: 0.37705854562523905
+2024-07-24 15:49:12,795 - src.service.graph_train - INFO - Loss: 0.064313063128055
+2024-07-24 15:49:12,795 - src.service.graph_train - INFO - AP train: 0.9611997070410034
+2024-07-24 15:49:12,795 - src.service.graph_train - INFO - AP val: 0.6172101153546997
+2024-07-24 15:49:12,795 - src.service.graph_train - INFO - AP test: 0.35050898257955104
+2024-07-24 15:49:17,300 - src.service.graph_train - INFO - Loss: 0.06365538165783105
+2024-07-24 15:49:17,300 - src.service.graph_train - INFO - AP train: 0.9567659628938735
+2024-07-24 15:49:17,300 - src.service.graph_train - INFO - AP val: 0.7207988282495918
+2024-07-24 15:49:17,300 - src.service.graph_train - INFO - AP test: 0.3674189873084381
+2024-07-24 15:49:21,756 - src.service.graph_train - INFO - Loss: 0.06361833526100513
+2024-07-24 15:49:21,756 - src.service.graph_train - INFO - AP train: 0.9648574271704472
+2024-07-24 15:49:21,756 - src.service.graph_train - INFO - AP val: 0.6661411093362837
+2024-07-24 15:49:21,756 - src.service.graph_train - INFO - AP test: 0.35199031021555005
+2024-07-24 15:49:26,238 - src.service.graph_train - INFO - Loss: 0.06218261948386252
+2024-07-24 15:49:26,238 - src.service.graph_train - INFO - AP train: 0.9609920629605235
+2024-07-24 15:49:26,238 - src.service.graph_train - INFO - AP val: 0.607172171939627
+2024-07-24 15:49:26,238 - src.service.graph_train - INFO - AP test: 0.3476284100999502
+2024-07-24 15:49:30,741 - src.service.graph_train - INFO - Loss: 0.06264393041382774
+2024-07-24 15:49:30,741 - src.service.graph_train - INFO - AP train: 0.9646939072535191
+2024-07-24 15:49:30,741 - src.service.graph_train - INFO - AP val: 0.7345542248315393
+2024-07-24 15:49:30,741 - src.service.graph_train - INFO - AP test: 0.37486773490458625
+2024-07-24 15:49:35,213 - src.service.graph_train - INFO - Loss: 0.06146963436048532
+2024-07-24 15:49:35,213 - src.service.graph_train - INFO - AP train: 0.9595333230644162
+2024-07-24 15:49:35,213 - src.service.graph_train - INFO - AP val: 0.6907893410704277
+2024-07-24 15:49:35,213 - src.service.graph_train - INFO - AP test: 0.27572232069168395
+2024-07-24 15:49:39,939 - src.service.graph_train - INFO - Loss: 0.06739693962865406
+2024-07-24 15:49:39,939 - src.service.graph_train - INFO - AP train: 0.9632046635265253
+2024-07-24 15:49:39,939 - src.service.graph_train - INFO - AP val: 0.5762249605613687
+2024-07-24 15:49:39,939 - src.service.graph_train - INFO - AP test: 0.23123725312309595
+2024-07-24 15:49:44,486 - src.service.graph_train - INFO - Loss: 0.060459366266206266
+2024-07-24 15:49:44,486 - src.service.graph_train - INFO - AP train: 0.9645148472999376
+2024-07-24 15:49:44,487 - src.service.graph_train - INFO - AP val: 0.7242971245148542
+2024-07-24 15:49:44,487 - src.service.graph_train - INFO - AP test: 0.3841757856439044
+2024-07-24 15:49:48,990 - src.service.graph_train - INFO - Loss: 0.0596818681716343
+2024-07-24 15:49:48,990 - src.service.graph_train - INFO - AP train: 0.9673485480378617
+2024-07-24 15:49:48,990 - src.service.graph_train - INFO - AP val: 0.711307586275037
+2024-07-24 15:49:48,990 - src.service.graph_train - INFO - AP test: 0.4119310422267391
+2024-07-24 15:49:53,470 - src.service.graph_train - INFO - Loss: 0.057498759266151035
+2024-07-24 15:49:53,470 - src.service.graph_train - INFO - AP train: 0.967061996210107
+2024-07-24 15:49:53,470 - src.service.graph_train - INFO - AP val: 0.7870639254366096
+2024-07-24 15:49:53,470 - src.service.graph_train - INFO - AP test: 0.29696012715798825
+2024-07-24 15:49:57,991 - src.service.graph_train - INFO - Loss: 0.05749321401632135
+2024-07-24 15:49:57,992 - src.service.graph_train - INFO - AP train: 0.965147086571111
+2024-07-24 15:49:57,992 - src.service.graph_train - INFO - AP val: 0.7872755825008098
+2024-07-24 15:49:57,992 - src.service.graph_train - INFO - AP test: 0.34533209963573586
+2024-07-24 15:50:02,492 - src.service.graph_train - INFO - Loss: 0.055585279961786985
+2024-07-24 15:50:02,493 - src.service.graph_train - INFO - AP train: 0.9730230722454258
+2024-07-24 15:50:02,493 - src.service.graph_train - INFO - AP val: 0.7319431986381895
+2024-07-24 15:50:02,493 - src.service.graph_train - INFO - AP test: 0.38718923612796896
+2024-07-24 15:50:07,015 - src.service.graph_train - INFO - Loss: 0.05640487591083643
+2024-07-24 15:50:07,015 - src.service.graph_train - INFO - AP train: 0.9687893887573914
+2024-07-24 15:50:07,015 - src.service.graph_train - INFO - AP val: 0.7827103612918954
+2024-07-24 15:50:07,015 - src.service.graph_train - INFO - AP test: 0.35185080701065996
+2024-07-24 15:50:11,472 - src.service.graph_train - INFO - Loss: 0.05826905632958464
+2024-07-24 15:50:11,472 - src.service.graph_train - INFO - AP train: 0.9683274212668527
+2024-07-24 15:50:11,472 - src.service.graph_train - INFO - AP val: 0.8053365966110541
+2024-07-24 15:50:11,472 - src.service.graph_train - INFO - AP test: 0.42078348255712766
+2024-07-24 15:50:15,941 - src.service.graph_train - INFO - Loss: 0.05553122172874493
+2024-07-24 15:50:15,941 - src.service.graph_train - INFO - AP train: 0.9677803128209505
+2024-07-24 15:50:15,941 - src.service.graph_train - INFO - AP val: 0.8167527009964365
+2024-07-24 15:50:15,941 - src.service.graph_train - INFO - AP test: 0.4033009159462187
+2024-07-24 15:50:20,420 - src.service.graph_train - INFO - Loss: 0.05294105570745353
+2024-07-24 15:50:20,420 - src.service.graph_train - INFO - AP train: 0.9686237780002865
+2024-07-24 15:50:20,420 - src.service.graph_train - INFO - AP val: 0.8330855935694752
+2024-07-24 15:50:20,420 - src.service.graph_train - INFO - AP test: 0.3790785755858611
+2024-07-24 15:50:24,911 - src.service.graph_train - INFO - Loss: 0.0522628500652702
+2024-07-24 15:50:24,911 - src.service.graph_train - INFO - AP train: 0.9728805918203387
+2024-07-24 15:50:24,911 - src.service.graph_train - INFO - AP val: 0.7656985978219274
+2024-07-24 15:50:24,912 - src.service.graph_train - INFO - AP test: 0.3024443497101973
+2024-07-24 15:50:29,374 - src.service.graph_train - INFO - Loss: 0.054315800319655216
+2024-07-24 15:50:29,374 - src.service.graph_train - INFO - AP train: 0.9732469292909457
+2024-07-24 15:50:29,375 - src.service.graph_train - INFO - AP val: 0.7859150471414407
+2024-07-24 15:50:29,375 - src.service.graph_train - INFO - AP test: 0.4320881934143942
+2024-07-24 15:50:33,830 - src.service.graph_train - INFO - Loss: 0.051483103075258184
+2024-07-24 15:50:33,831 - src.service.graph_train - INFO - AP train: 0.9709106405009852
+2024-07-24 15:50:33,831 - src.service.graph_train - INFO - AP val: 0.8032549668187927
+2024-07-24 15:50:33,831 - src.service.graph_train - INFO - AP test: 0.39070854936160077
+2024-07-24 15:50:38,342 - src.service.graph_train - INFO - Loss: 0.051515487477111356
+2024-07-24 15:50:38,342 - src.service.graph_train - INFO - AP train: 0.9767317884289894
+2024-07-24 15:50:38,342 - src.service.graph_train - INFO - AP val: 0.7963952014410496
+2024-07-24 15:50:38,342 - src.service.graph_train - INFO - AP test: 0.39455568069022356
+2024-07-24 15:50:42,851 - src.service.graph_train - INFO - Loss: 0.048938115815753525
+2024-07-24 15:50:42,851 - src.service.graph_train - INFO - AP train: 0.9774811523384425
+2024-07-24 15:50:42,852 - src.service.graph_train - INFO - AP val: 0.8267543205442387
+2024-07-24 15:50:42,852 - src.service.graph_train - INFO - AP test: 0.39606028816878974
+2024-07-24 15:50:47,346 - src.service.graph_train - INFO - Loss: 0.0490089169419978
+2024-07-24 15:50:47,346 - src.service.graph_train - INFO - AP train: 0.9728996034161284
+2024-07-24 15:50:47,346 - src.service.graph_train - INFO - AP val: 0.8231068395946108
+2024-07-24 15:50:47,346 - src.service.graph_train - INFO - AP test: 0.3998867912023625
+2024-07-24 15:50:51,820 - src.service.graph_train - INFO - Loss: 0.0502913120261209
+2024-07-24 15:50:51,820 - src.service.graph_train - INFO - AP train: 0.9768684797381566
+2024-07-24 15:50:51,820 - src.service.graph_train - INFO - AP val: 0.7937393003365159
+2024-07-24 15:50:51,820 - src.service.graph_train - INFO - AP test: 0.40225015290111726
+2024-07-24 15:50:56,313 - src.service.graph_train - INFO - Loss: 0.04666390268644993
+2024-07-24 15:50:56,313 - src.service.graph_train - INFO - AP train: 0.9775272401205436
+2024-07-24 15:50:56,313 - src.service.graph_train - INFO - AP val: 0.792538560984877
+2024-07-24 15:50:56,313 - src.service.graph_train - INFO - AP test: 0.3304146731612746
+2024-07-24 15:51:00,834 - src.service.graph_train - INFO - Loss: 0.04854802752435567
+2024-07-24 15:51:00,834 - src.service.graph_train - INFO - AP train: 0.9763463602224925
+2024-07-24 15:51:00,835 - src.service.graph_train - INFO - AP val: 0.8008720215495444
+2024-07-24 15:51:00,835 - src.service.graph_train - INFO - AP test: 0.4295971546456464
+2024-07-24 15:51:05,331 - src.service.graph_train - INFO - Loss: 0.047386413638070585
+2024-07-24 15:51:05,331 - src.service.graph_train - INFO - AP train: 0.97757246529467
+2024-07-24 15:51:05,331 - src.service.graph_train - INFO - AP val: 0.7211418427327939
+2024-07-24 15:51:05,331 - src.service.graph_train - INFO - AP test: 0.3858044738549713
+2024-07-24 15:51:09,880 - src.service.graph_train - INFO - Loss: 0.045955382798155
+2024-07-24 15:51:09,880 - src.service.graph_train - INFO - AP train: 0.9783480819318838
+2024-07-24 15:51:09,880 - src.service.graph_train - INFO - AP val: 0.8130125565747792
+2024-07-24 15:51:09,880 - src.service.graph_train - INFO - AP test: 0.4303810543650506
+2024-07-24 15:51:14,472 - src.service.graph_train - INFO - Loss: 0.0473100221912705
+2024-07-24 15:51:14,472 - src.service.graph_train - INFO - AP train: 0.9800770237309144
+2024-07-24 15:51:14,472 - src.service.graph_train - INFO - AP val: 0.8110433396018599
+2024-07-24 15:51:14,472 - src.service.graph_train - INFO - AP test: 0.4050500697498332
+2024-07-24 15:51:18,988 - src.service.graph_train - INFO - Loss: 0.04632763211628881
+2024-07-24 15:51:18,989 - src.service.graph_train - INFO - AP train: 0.9799790036376206
+2024-07-24 15:51:18,989 - src.service.graph_train - INFO - AP val: 0.7852209649861428
+2024-07-24 15:51:18,989 - src.service.graph_train - INFO - AP test: 0.3713213088084933
+2024-07-24 15:51:23,619 - src.service.graph_train - INFO - Loss: 0.043515039333434785
+2024-07-24 15:51:23,619 - src.service.graph_train - INFO - AP train: 0.98220387167907
+2024-07-24 15:51:23,619 - src.service.graph_train - INFO - AP val: 0.7880247782941002
+2024-07-24 15:51:23,619 - src.service.graph_train - INFO - AP test: 0.402788293049843
+2024-07-24 15:51:28,170 - src.service.graph_train - INFO - Loss: 0.045233655003335885
+2024-07-24 15:51:28,170 - src.service.graph_train - INFO - AP train: 0.979859569118982
+2024-07-24 15:51:28,170 - src.service.graph_train - INFO - AP val: 0.8278359007537991
+2024-07-24 15:51:28,170 - src.service.graph_train - INFO - AP test: 0.4500484873115752
+2024-07-24 15:51:32,646 - src.service.graph_train - INFO - Loss: 0.044486047124157206
+2024-07-24 15:51:32,646 - src.service.graph_train - INFO - AP train: 0.9812717130097482
+2024-07-24 15:51:32,646 - src.service.graph_train - INFO - AP val: 0.8000128577048785
+2024-07-24 15:51:32,646 - src.service.graph_train - INFO - AP test: 0.3565749807393572
+2024-07-24 15:51:37,140 - src.service.graph_train - INFO - Loss: 0.045999776990409344
+2024-07-24 15:51:37,141 - src.service.graph_train - INFO - AP train: 0.9755234354074975
+2024-07-24 15:51:37,141 - src.service.graph_train - INFO - AP val: 0.8212551778063275
+2024-07-24 15:51:37,141 - src.service.graph_train - INFO - AP test: 0.34832542445106124
+2024-07-24 15:51:41,661 - src.service.graph_train - INFO - Loss: 0.043750472278654765
+2024-07-24 15:51:41,662 - src.service.graph_train - INFO - AP train: 0.9798203138098251
+2024-07-24 15:51:41,662 - src.service.graph_train - INFO - AP val: 0.81364646606754
+2024-07-24 15:51:41,662 - src.service.graph_train - INFO - AP test: 0.42982795142542446
+2024-07-24 15:51:46,164 - src.service.graph_train - INFO - Loss: 0.04121086474031138
+2024-07-24 15:51:46,165 - src.service.graph_train - INFO - AP train: 0.9824213528958838
+2024-07-24 15:51:46,165 - src.service.graph_train - INFO - AP val: 0.770777551150751
+2024-07-24 15:51:46,165 - src.service.graph_train - INFO - AP test: 0.40307872830155533
+2024-07-24 15:51:50,684 - src.service.graph_train - INFO - Loss: 0.0422058901142167
+2024-07-24 15:51:50,684 - src.service.graph_train - INFO - AP train: 0.9839201624809156
+2024-07-24 15:51:50,684 - src.service.graph_train - INFO - AP val: 0.7907790004268036
+2024-07-24 15:51:50,684 - src.service.graph_train - INFO - AP test: 0.38290162761032315
+2024-07-24 15:51:55,175 - src.service.graph_train - INFO - Loss: 0.04084590125091122
+2024-07-24 15:51:55,175 - src.service.graph_train - INFO - AP train: 0.9825733418760676
+2024-07-24 15:51:55,175 - src.service.graph_train - INFO - AP val: 0.7934407649397299
+2024-07-24 15:51:55,175 - src.service.graph_train - INFO - AP test: 0.36070678012518653
+2024-07-24 15:51:59,728 - src.service.graph_train - INFO - Loss: 0.03945294334800635
+2024-07-24 15:51:59,728 - src.service.graph_train - INFO - AP train: 0.9851711730855729
+2024-07-24 15:51:59,729 - src.service.graph_train - INFO - AP val: 0.7911717534230218
+2024-07-24 15:51:59,729 - src.service.graph_train - INFO - AP test: 0.3613594596150216
+2024-07-24 15:52:04,186 - src.service.graph_train - INFO - Loss: 0.040486389638379146
+2024-07-24 15:52:04,186 - src.service.graph_train - INFO - AP train: 0.9855984395970516
+2024-07-24 15:52:04,186 - src.service.graph_train - INFO - AP val: 0.7534686685581495
+2024-07-24 15:52:04,187 - src.service.graph_train - INFO - AP test: 0.39429184231582926
+2024-07-24 15:52:08,689 - src.service.graph_train - INFO - Loss: 0.04026339452315554
+2024-07-24 15:52:08,689 - src.service.graph_train - INFO - AP train: 0.980514934983146
+2024-07-24 15:52:08,689 - src.service.graph_train - INFO - AP val: 0.7821239869139389
+2024-07-24 15:52:08,689 - src.service.graph_train - INFO - AP test: 0.376130384940569
+2024-07-24 15:52:13,218 - src.service.graph_train - INFO - Loss: 0.03918320174297489
+2024-07-24 15:52:13,218 - src.service.graph_train - INFO - AP train: 0.9870054732616955
+2024-07-24 15:52:13,218 - src.service.graph_train - INFO - AP val: 0.7857630567811867
+2024-07-24 15:52:13,218 - src.service.graph_train - INFO - AP test: 0.38475787527944555
+2024-07-24 15:52:17,701 - src.service.graph_train - INFO - Loss: 0.039407225222223334
+2024-07-24 15:52:17,701 - src.service.graph_train - INFO - AP train: 0.9862115663224983
+2024-07-24 15:52:17,701 - src.service.graph_train - INFO - AP val: 0.8104142155538826
+2024-07-24 15:52:17,702 - src.service.graph_train - INFO - AP test: 0.37494812693175855
+2024-07-24 15:52:22,206 - src.service.graph_train - INFO - Loss: 0.037254953747930156
+2024-07-24 15:52:22,206 - src.service.graph_train - INFO - AP train: 0.9865318484137415
+2024-07-24 15:52:22,207 - src.service.graph_train - INFO - AP val: 0.6986884764855398
+2024-07-24 15:52:22,207 - src.service.graph_train - INFO - AP test: 0.3302595145215642
+2024-07-24 15:52:26,700 - src.service.graph_train - INFO - Loss: 0.03440442186631802
+2024-07-24 15:52:26,700 - src.service.graph_train - INFO - AP train: 0.9868978491742845
+2024-07-24 15:52:26,700 - src.service.graph_train - INFO - AP val: 0.7179865864400754
+2024-07-24 15:52:26,700 - src.service.graph_train - INFO - AP test: 0.28506225312955785
+2024-07-24 15:52:31,209 - src.service.graph_train - INFO - Loss: 0.035332455441517675
+2024-07-24 15:52:31,209 - src.service.graph_train - INFO - AP train: 0.9873698995144449
+2024-07-24 15:52:31,209 - src.service.graph_train - INFO - AP val: 0.7454992953238225
+2024-07-24 15:52:31,209 - src.service.graph_train - INFO - AP test: 0.37772069177452794
+2024-07-24 15:52:35,724 - src.service.graph_train - INFO - Loss: 0.036824026763673134
+2024-07-24 15:52:35,724 - src.service.graph_train - INFO - AP train: 0.9866317360201569
+2024-07-24 15:52:35,724 - src.service.graph_train - INFO - AP val: 0.8062964894270102
+2024-07-24 15:52:35,724 - src.service.graph_train - INFO - AP test: 0.3809019567096237
+2024-07-24 15:52:40,247 - src.service.graph_train - INFO - Loss: 0.03597791030792664
+2024-07-24 15:52:40,248 - src.service.graph_train - INFO - AP train: 0.9871711586092685
+2024-07-24 15:52:40,248 - src.service.graph_train - INFO - AP val: 0.7707312154407239
+2024-07-24 15:52:40,248 - src.service.graph_train - INFO - AP test: 0.3566604774304252
+2024-07-24 15:52:44,804 - src.service.graph_train - INFO - Loss: 0.03433270050788631
+2024-07-24 15:52:44,804 - src.service.graph_train - INFO - AP train: 0.9902397448475561
+2024-07-24 15:52:44,805 - src.service.graph_train - INFO - AP val: 0.7891041200172709
+2024-07-24 15:52:44,805 - src.service.graph_train - INFO - AP test: 0.3835537677140146
+2024-07-24 15:52:49,273 - src.service.graph_train - INFO - Loss: 0.03683369480391766
+2024-07-24 15:52:49,273 - src.service.graph_train - INFO - AP train: 0.9879832115455802
+2024-07-24 15:52:49,273 - src.service.graph_train - INFO - AP val: 0.7787419688116346
+2024-07-24 15:52:49,273 - src.service.graph_train - INFO - AP test: 0.3622541929024895
+2024-07-24 15:52:53,727 - src.service.graph_train - INFO - Loss: 0.03553053399925862
+2024-07-24 15:52:53,727 - src.service.graph_train - INFO - AP train: 0.988765991327612
+2024-07-24 15:52:53,727 - src.service.graph_train - INFO - AP val: 0.8054891013383526
+2024-07-24 15:52:53,727 - src.service.graph_train - INFO - AP test: 0.4205802545790697
+2024-07-24 15:52:58,247 - src.service.graph_train - INFO - Loss: 0.0341327549993164
+2024-07-24 15:52:58,248 - src.service.graph_train - INFO - AP train: 0.989413532404704
+2024-07-24 15:52:58,248 - src.service.graph_train - INFO - AP val: 0.8226409548650135
+2024-07-24 15:52:58,248 - src.service.graph_train - INFO - AP test: 0.4260513233838786
+2024-07-24 15:53:02,684 - src.service.graph_train - INFO - Loss: 0.03338136994009973
+2024-07-24 15:53:02,684 - src.service.graph_train - INFO - AP train: 0.9901695343645194
+2024-07-24 15:53:02,685 - src.service.graph_train - INFO - AP val: 0.8030818409551337
+2024-07-24 15:53:02,685 - src.service.graph_train - INFO - AP test: 0.39702219125679117
+2024-07-24 15:53:07,174 - src.service.graph_train - INFO - Loss: 0.033958133073593376
+2024-07-24 15:53:07,174 - src.service.graph_train - INFO - AP train: 0.9899231617599612
+2024-07-24 15:53:07,174 - src.service.graph_train - INFO - AP val: 0.7699440024979811
+2024-07-24 15:53:07,175 - src.service.graph_train - INFO - AP test: 0.3753629800000284
+2024-07-24 15:53:12,112 - src.service.graph_train - INFO - Loss: 0.032975897664240236
+2024-07-24 15:53:12,112 - src.service.graph_train - INFO - AP train: 0.9893629439978612
+2024-07-24 15:53:12,112 - src.service.graph_train - INFO - AP val: 0.7909692796552049
+2024-07-24 15:53:12,112 - src.service.graph_train - INFO - AP test: 0.3169287654847499
+2024-07-24 15:53:16,605 - src.service.graph_train - INFO - Loss: 0.034680601470352374
+2024-07-24 15:53:16,605 - src.service.graph_train - INFO - AP train: 0.9884277058718588
+2024-07-24 15:53:16,606 - src.service.graph_train - INFO - AP val: 0.8080854307918159
+2024-07-24 15:53:16,606 - src.service.graph_train - INFO - AP test: 0.40174798017795577
+2024-07-24 15:53:21,149 - src.service.graph_train - INFO - Loss: 0.0318010655976382
+2024-07-24 15:53:21,150 - src.service.graph_train - INFO - AP train: 0.9901616229342988
+2024-07-24 15:53:21,150 - src.service.graph_train - INFO - AP val: 0.8142488395215657
+2024-07-24 15:53:21,150 - src.service.graph_train - INFO - AP test: 0.3880609092699109
+2024-07-24 15:53:25,625 - src.service.graph_train - INFO - Loss: 0.032573186857670834
+2024-07-24 15:53:25,626 - src.service.graph_train - INFO - AP train: 0.9857936046893709
+2024-07-24 15:53:25,626 - src.service.graph_train - INFO - AP val: 0.794616685591112
+2024-07-24 15:53:25,626 - src.service.graph_train - INFO - AP test: 0.3758877451683574
+2024-07-24 15:53:30,201 - src.service.graph_train - INFO - Loss: 0.03324177215136768
+2024-07-24 15:53:30,201 - src.service.graph_train - INFO - AP train: 0.9844064097906138
+2024-07-24 15:53:30,201 - src.service.graph_train - INFO - AP val: 0.7956164182110861
+2024-07-24 15:53:30,201 - src.service.graph_train - INFO - AP test: 0.41644396466252087
+2024-07-24 15:53:34,760 - src.service.graph_train - INFO - Loss: 0.0309835661906785
+2024-07-24 15:53:34,760 - src.service.graph_train - INFO - AP train: 0.9851653157532716
+2024-07-24 15:53:34,760 - src.service.graph_train - INFO - AP val: 0.8147985034659554
+2024-07-24 15:53:34,760 - src.service.graph_train - INFO - AP test: 0.4013016624137994
+2024-07-24 15:53:39,416 - src.service.graph_train - INFO - Loss: 0.03046361643006656
+2024-07-24 15:53:39,416 - src.service.graph_train - INFO - AP train: 0.9906347375856946
+2024-07-24 15:53:39,416 - src.service.graph_train - INFO - AP val: 0.8240838820833701
+2024-07-24 15:53:39,416 - src.service.graph_train - INFO - AP test: 0.35925938040670446
+2024-07-24 15:53:43,873 - src.service.graph_train - INFO - Loss: 0.029968620142966942
+2024-07-24 15:53:43,873 - src.service.graph_train - INFO - AP train: 0.985242176352511
+2024-07-24 15:53:43,873 - src.service.graph_train - INFO - AP val: 0.8161734495540389
+2024-07-24 15:53:43,873 - src.service.graph_train - INFO - AP test: 0.3760046321518932
+2024-07-24 15:53:48,469 - src.service.graph_train - INFO - Loss: 0.031279951727674636
+2024-07-24 15:53:48,470 - src.service.graph_train - INFO - AP train: 0.9897223050182677
+2024-07-24 15:53:48,470 - src.service.graph_train - INFO - AP val: 0.8301684532783798
+2024-07-24 15:53:48,470 - src.service.graph_train - INFO - AP test: 0.37457469019719397
+2024-07-24 15:53:52,991 - src.service.graph_train - INFO - Loss: 0.0364214893338239
+2024-07-24 15:53:52,991 - src.service.graph_train - INFO - AP train: 0.9891151009970381
+2024-07-24 15:53:52,991 - src.service.graph_train - INFO - AP val: 0.7643635181526954
+2024-07-24 15:53:52,992 - src.service.graph_train - INFO - AP test: 0.35571125072355814
+2024-07-24 15:53:57,402 - src.service.graph_train - INFO - Loss: 0.03874866993521939
+2024-07-24 15:53:57,402 - src.service.graph_train - INFO - AP train: 0.987407421769363
+2024-07-24 15:53:57,402 - src.service.graph_train - INFO - AP val: 0.7875203441734004
+2024-07-24 15:53:57,403 - src.service.graph_train - INFO - AP test: 0.40981585025032835
+2024-07-24 15:54:01,914 - src.service.graph_train - INFO - Loss: 0.03229112159078356
+2024-07-24 15:54:01,914 - src.service.graph_train - INFO - AP train: 0.989460215290081
+2024-07-24 15:54:01,914 - src.service.graph_train - INFO - AP val: 0.7944279267890003
+2024-07-24 15:54:01,914 - src.service.graph_train - INFO - AP test: 0.36937863823217754
+2024-07-24 15:54:06,422 - src.service.graph_train - INFO - Loss: 0.029451908820403227
+2024-07-24 15:54:06,422 - src.service.graph_train - INFO - AP train: 0.9923324169585167
+2024-07-24 15:54:06,422 - src.service.graph_train - INFO - AP val: 0.7546002959796841
+2024-07-24 15:54:06,422 - src.service.graph_train - INFO - AP test: 0.3892341793270016
+2024-07-24 15:54:11,063 - src.service.graph_train - INFO - Loss: 0.029339414724297283
+2024-07-24 15:54:11,063 - src.service.graph_train - INFO - AP train: 0.9872534448403721
+2024-07-24 15:54:11,063 - src.service.graph_train - INFO - AP val: 0.7763367663191761
+2024-07-24 15:54:11,064 - src.service.graph_train - INFO - AP test: 0.37263895618789655
+2024-07-24 15:54:15,775 - src.service.graph_train - INFO - Loss: 0.028362419637334015
+2024-07-24 15:54:15,775 - src.service.graph_train - INFO - AP train: 0.9872813797973281
+2024-07-24 15:54:15,775 - src.service.graph_train - INFO - AP val: 0.7967177104078663
+2024-07-24 15:54:15,775 - src.service.graph_train - INFO - AP test: 0.39574954669439494
+2024-07-24 15:54:20,481 - src.service.graph_train - INFO - Loss: 0.027273247390760532
+2024-07-24 15:54:20,481 - src.service.graph_train - INFO - AP train: 0.992712509178516
+2024-07-24 15:54:20,481 - src.service.graph_train - INFO - AP val: 0.7231548303499842
+2024-07-24 15:54:20,481 - src.service.graph_train - INFO - AP test: 0.35469328418495033
+2024-07-24 15:54:25,181 - src.service.graph_train - INFO - Loss: 0.027824451235811346
+2024-07-24 15:54:25,181 - src.service.graph_train - INFO - AP train: 0.9922504485678806
+2024-07-24 15:54:25,181 - src.service.graph_train - INFO - AP val: 0.8199814806691968
+2024-07-24 15:54:25,181 - src.service.graph_train - INFO - AP test: 0.38783664259771927
+2024-07-24 15:54:29,913 - src.service.graph_train - INFO - Loss: 0.02639288739143794
+2024-07-24 15:54:29,913 - src.service.graph_train - INFO - AP train: 0.988402216436517
+2024-07-24 15:54:29,913 - src.service.graph_train - INFO - AP val: 0.8047558562723454
+2024-07-24 15:54:29,913 - src.service.graph_train - INFO - AP test: 0.38679331890294805
+2024-07-24 15:54:34,452 - src.service.graph_train - INFO - Loss: 0.03022070671206763
+2024-07-24 15:54:34,452 - src.service.graph_train - INFO - AP train: 0.9922795682219764
+2024-07-24 15:54:34,452 - src.service.graph_train - INFO - AP val: 0.8147165510940951
+2024-07-24 15:54:34,452 - src.service.graph_train - INFO - AP test: 0.37709708031899486
+2024-07-24 15:54:38,971 - src.service.graph_train - INFO - Loss: 0.026467632491069572
+2024-07-24 15:54:38,972 - src.service.graph_train - INFO - AP train: 0.9935038458828838
+2024-07-24 15:54:38,972 - src.service.graph_train - INFO - AP val: 0.8020719629203659
+2024-07-24 15:54:38,972 - src.service.graph_train - INFO - AP test: 0.37601690521432257
+2024-07-24 15:54:43,503 - src.service.graph_train - INFO - Loss: 0.02594303345343701
+2024-07-24 15:54:43,503 - src.service.graph_train - INFO - AP train: 0.9937842839686524
+2024-07-24 15:54:43,503 - src.service.graph_train - INFO - AP val: 0.8048059744688599
+2024-07-24 15:54:43,504 - src.service.graph_train - INFO - AP test: 0.32035894531093384
+2024-07-24 15:54:48,088 - src.service.graph_train - INFO - Loss: 0.026530865805925452
+2024-07-24 15:54:48,088 - src.service.graph_train - INFO - AP train: 0.9942586956796502
+2024-07-24 15:54:48,088 - src.service.graph_train - INFO - AP val: 0.7859940802280672
+2024-07-24 15:54:48,088 - src.service.graph_train - INFO - AP test: 0.3803578961211741
+2024-07-24 15:54:52,573 - src.service.graph_train - INFO - Loss: 0.024475051331950198
+2024-07-24 15:54:52,574 - src.service.graph_train - INFO - AP train: 0.9941370494263806
+2024-07-24 15:54:52,574 - src.service.graph_train - INFO - AP val: 0.8125354080920817
+2024-07-24 15:54:52,574 - src.service.graph_train - INFO - AP test: 0.3585328552953634
+2024-07-24 15:54:57,064 - src.service.graph_train - INFO - Loss: 0.02342445929723135
+2024-07-24 15:54:57,064 - src.service.graph_train - INFO - AP train: 0.9948631222701262
+2024-07-24 15:54:57,064 - src.service.graph_train - INFO - AP val: 0.7987311126369778
+2024-07-24 15:54:57,064 - src.service.graph_train - INFO - AP test: 0.4022179208410437
+2024-07-24 15:55:01,563 - src.service.graph_train - INFO - Loss: 0.024252049172756033
+2024-07-24 15:55:01,563 - src.service.graph_train - INFO - AP train: 0.9944297057192013
+2024-07-24 15:55:01,563 - src.service.graph_train - INFO - AP val: 0.8077289994832887
+2024-07-24 15:55:01,563 - src.service.graph_train - INFO - AP test: 0.3484516365628429
+2024-07-24 15:55:06,062 - src.service.graph_train - INFO - Loss: 0.023914663965818313
+2024-07-24 15:55:06,062 - src.service.graph_train - INFO - AP train: 0.9951688206099072
+2024-07-24 15:55:06,063 - src.service.graph_train - INFO - AP val: 0.7827645980069444
+2024-07-24 15:55:06,063 - src.service.graph_train - INFO - AP test: 0.3632496063050045
+2024-07-24 15:55:10,608 - src.service.graph_train - INFO - Loss: 0.02509872540426643
+2024-07-24 15:55:10,608 - src.service.graph_train - INFO - AP train: 0.9935701995869091
+2024-07-24 15:55:10,608 - src.service.graph_train - INFO - AP val: 0.8098667258431312
+2024-07-24 15:55:10,608 - src.service.graph_train - INFO - AP test: 0.3424450780530065
+2024-07-24 15:55:15,068 - src.service.graph_train - INFO - Loss: 0.025742310233153223
+2024-07-24 15:55:15,068 - src.service.graph_train - INFO - AP train: 0.9946443606189737
+2024-07-24 15:55:15,068 - src.service.graph_train - INFO - AP val: 0.8123888868597502
+2024-07-24 15:55:15,068 - src.service.graph_train - INFO - AP test: 0.40580294075547224
+2024-07-24 15:55:19,627 - src.service.graph_train - INFO - Loss: 0.026458873038387135
+2024-07-24 15:55:19,627 - src.service.graph_train - INFO - AP train: 0.9947983628767894
+2024-07-24 15:55:19,627 - src.service.graph_train - INFO - AP val: 0.7351136720363667
+2024-07-24 15:55:19,627 - src.service.graph_train - INFO - AP test: 0.30997267029865455
+2024-07-24 15:55:24,207 - src.service.graph_train - INFO - Loss: 0.02146066035198021
+2024-07-24 15:55:24,207 - src.service.graph_train - INFO - AP train: 0.9958680033336865
+2024-07-24 15:55:24,207 - src.service.graph_train - INFO - AP val: 0.6646479092879194
+2024-07-24 15:55:24,207 - src.service.graph_train - INFO - AP test: 0.32997703068686646
+2024-07-24 15:55:28,756 - src.service.graph_train - INFO - Loss: 0.027138095917090196
+2024-07-24 15:55:28,756 - src.service.graph_train - INFO - AP train: 0.9929555797333552
+2024-07-24 15:55:28,756 - src.service.graph_train - INFO - AP val: 0.7661331137146032
+2024-07-24 15:55:28,756 - src.service.graph_train - INFO - AP test: 0.309643187546556
+2024-07-24 15:55:33,327 - src.service.graph_train - INFO - Loss: 0.023293428968502224
+2024-07-24 15:55:33,327 - src.service.graph_train - INFO - AP train: 0.989960713013415
+2024-07-24 15:55:33,327 - src.service.graph_train - INFO - AP val: 0.7607853025309448
+2024-07-24 15:55:33,327 - src.service.graph_train - INFO - AP test: 0.414266738919264
+2024-07-24 15:55:37,812 - src.service.graph_train - INFO - Loss: 0.02253148166107347
+2024-07-24 15:55:37,812 - src.service.graph_train - INFO - AP train: 0.9951216488700316
+2024-07-24 15:55:37,812 - src.service.graph_train - INFO - AP val: 0.6546428886866631
+2024-07-24 15:55:37,812 - src.service.graph_train - INFO - AP test: 0.27224173391996165
+2024-07-24 15:55:42,346 - src.service.graph_train - INFO - Loss: 0.02324331363051194
+2024-07-24 15:55:42,347 - src.service.graph_train - INFO - AP train: 0.9947642255596043
+2024-07-24 15:55:42,347 - src.service.graph_train - INFO - AP val: 0.7898318908989774
+2024-07-24 15:55:42,347 - src.service.graph_train - INFO - AP test: 0.3699937758271741
+2024-07-24 15:55:46,869 - src.service.graph_train - INFO - Loss: 0.02382299172464794
+2024-07-24 15:55:46,870 - src.service.graph_train - INFO - AP train: 0.9954546610985451
+2024-07-24 15:55:46,870 - src.service.graph_train - INFO - AP val: 0.7977587961184751
+2024-07-24 15:55:46,870 - src.service.graph_train - INFO - AP test: 0.3735630957487907
+2024-07-24 15:55:51,419 - src.service.graph_train - INFO - Loss: 0.02343190649236386
+2024-07-24 15:55:51,419 - src.service.graph_train - INFO - AP train: 0.9906284502466232
+2024-07-24 15:55:51,419 - src.service.graph_train - INFO - AP val: 0.7787531513956776
+2024-07-24 15:55:51,419 - src.service.graph_train - INFO - AP test: 0.3463240705785884
+2024-07-24 15:55:55,920 - src.service.graph_train - INFO - Loss: 0.021162910922317976
+2024-07-24 15:55:55,920 - src.service.graph_train - INFO - AP train: 0.9952191840178854
+2024-07-24 15:55:55,920 - src.service.graph_train - INFO - AP val: 0.7647104471157836
+2024-07-24 15:55:55,920 - src.service.graph_train - INFO - AP test: 0.35300472209477607
+2024-07-24 15:56:00,434 - src.service.graph_train - INFO - Loss: 0.02134788053161982
+2024-07-24 15:56:00,434 - src.service.graph_train - INFO - AP train: 0.9955797218089955
+2024-07-24 15:56:00,434 - src.service.graph_train - INFO - AP val: 0.7341730974394571
+2024-07-24 15:56:00,435 - src.service.graph_train - INFO - AP test: 0.32407740644222893
+2024-07-24 15:56:04,966 - src.service.graph_train - INFO - Loss: 0.023485013080202944
+2024-07-24 15:56:04,966 - src.service.graph_train - INFO - AP train: 0.9897703408084497
+2024-07-24 15:56:04,966 - src.service.graph_train - INFO - AP val: 0.8071945198697527
+2024-07-24 15:56:04,967 - src.service.graph_train - INFO - AP test: 0.361039648264212
+2024-07-24 15:56:09,506 - src.service.graph_train - INFO - Loss: 0.022496688176297408
+2024-07-24 15:56:09,506 - src.service.graph_train - INFO - AP train: 0.9943006864749955
+2024-07-24 15:56:09,506 - src.service.graph_train - INFO - AP val: 0.7755165831065857
+2024-07-24 15:56:09,506 - src.service.graph_train - INFO - AP test: 0.3449969795724143
+2024-07-24 15:56:14,008 - src.service.graph_train - INFO - Loss: 0.026080575441224007
+2024-07-24 15:56:14,008 - src.service.graph_train - INFO - AP train: 0.9943435252128177
+2024-07-24 15:56:14,008 - src.service.graph_train - INFO - AP val: 0.8127234921788874
+2024-07-24 15:56:14,008 - src.service.graph_train - INFO - AP test: 0.34177562582891813
+2024-07-24 15:56:18,581 - src.service.graph_train - INFO - Loss: 0.019623689052585856
+2024-07-24 15:56:18,581 - src.service.graph_train - INFO - AP train: 0.9962660145911374
+2024-07-24 15:56:18,581 - src.service.graph_train - INFO - AP val: 0.7911718652631048
+2024-07-24 15:56:18,582 - src.service.graph_train - INFO - AP test: 0.3620936301178722
+2024-07-24 15:56:23,233 - src.service.graph_train - INFO - Loss: 0.020481662578421874
+2024-07-24 15:56:23,233 - src.service.graph_train - INFO - AP train: 0.9963143677868567
+2024-07-24 15:56:23,233 - src.service.graph_train - INFO - AP val: 0.7904786242285317
+2024-07-24 15:56:23,233 - src.service.graph_train - INFO - AP test: 0.3376150301626293
+2024-07-24 15:56:27,867 - src.service.graph_train - INFO - Loss: 0.02166672275066466
+2024-07-24 15:56:27,868 - src.service.graph_train - INFO - AP train: 0.9959227480436555
+2024-07-24 15:56:27,868 - src.service.graph_train - INFO - AP val: 0.7791285910390224
+2024-07-24 15:56:27,868 - src.service.graph_train - INFO - AP test: 0.35934971497748186
+2024-07-24 15:56:45,192 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4010s
+2024-07-24 15:56:45,242 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 15:56:45,242 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 15:56:45,243 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 15:56:45,636 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3932s
+2024-07-24 15:56:45,637 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 15:56:54,578 - src.service.graph_train - INFO - Loss: 0.22538389107167434
+2024-07-24 15:56:54,578 - src.service.graph_train - INFO - AP train: 0.6711486325620495
+2024-07-24 15:56:54,578 - src.service.graph_train - INFO - AP val: 0.613462220231364
+2024-07-24 15:56:54,579 - src.service.graph_train - INFO - AP test: 0.23581838619644782
+2024-07-24 15:56:58,827 - src.service.graph_train - INFO - Loss: 0.17022985061585616
+2024-07-24 15:56:58,827 - src.service.graph_train - INFO - AP train: 0.7608829403799001
+2024-07-24 15:56:58,827 - src.service.graph_train - INFO - AP val: 0.6982957328882546
+2024-07-24 15:56:58,827 - src.service.graph_train - INFO - AP test: 0.32377222238815817
+2024-07-24 15:57:03,130 - src.service.graph_train - INFO - Loss: 0.15653425231935897
+2024-07-24 15:57:03,130 - src.service.graph_train - INFO - AP train: 0.7859815034003024
+2024-07-24 15:57:03,130 - src.service.graph_train - INFO - AP val: 0.7125079227227124
+2024-07-24 15:57:03,130 - src.service.graph_train - INFO - AP test: 0.35855908025551647
+2024-07-24 15:57:07,532 - src.service.graph_train - INFO - Loss: 0.14686614237185838
+2024-07-24 15:57:07,533 - src.service.graph_train - INFO - AP train: 0.8048580323213059
+2024-07-24 15:57:07,533 - src.service.graph_train - INFO - AP val: 0.7138754155707734
+2024-07-24 15:57:07,533 - src.service.graph_train - INFO - AP test: 0.40665657434955277
+2024-07-24 15:57:11,955 - src.service.graph_train - INFO - Loss: 0.1409509814330849
+2024-07-24 15:57:11,956 - src.service.graph_train - INFO - AP train: 0.8105911716012212
+2024-07-24 15:57:11,956 - src.service.graph_train - INFO - AP val: 0.7430596563805352
+2024-07-24 15:57:11,956 - src.service.graph_train - INFO - AP test: 0.45444813919287763
+2024-07-24 15:57:54,411 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4030s
+2024-07-24 15:57:54,462 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 15:57:54,462 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 15:57:54,462 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 15:57:54,841 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3780s
+2024-07-24 15:57:54,842 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 15:57:56,623 - src.service.graph_experiments - ERROR - Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat2 in method wrapper_CUDA_mm)
+2024-07-24 15:57:56,624 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_train.py", line 137, in fit
+    out, h = self.model(
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_model/gckan.py", line 280, in forward
+    h = self.gcn1(x, edge_index)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch_geometric/nn/conv/gcn_conv.py", line 260, in forward
+    x = self.lin(x)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch_geometric/nn/dense/linear.py", line 147, in forward
+    return F.linear(x, self.weight, self.bias)
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat2 in method wrapper_CUDA_mm)
+
+2024-07-24 15:57:56,625 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 1.7829s
+2024-07-24 15:58:18,751 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4114s
+2024-07-24 15:58:18,802 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 15:58:18,802 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 15:58:18,802 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 15:58:19,198 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3959s
+2024-07-24 15:58:19,199 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 15:58:20,999 - src.service.graph_experiments - ERROR - Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat2 in method wrapper_CUDA_mm)
+2024-07-24 15:58:21,000 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_train.py", line 137, in fit
+    out, h = self.model(
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_model/gckan.py", line 280, in forward
+    h = self.gcn1(x, edge_index)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch_geometric/nn/conv/gcn_conv.py", line 260, in forward
+    x = self.lin(x)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch_geometric/nn/dense/linear.py", line 147, in forward
+    return F.linear(x, self.weight, self.bias)
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat2 in method wrapper_CUDA_mm)
+
+2024-07-24 15:58:21,001 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 1.8019s
+2024-07-24 15:58:49,154 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4088s
+2024-07-24 15:58:49,205 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 15:58:49,206 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 15:58:49,206 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 15:58:49,591 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3847s
+2024-07-24 15:58:49,592 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 15:58:51,386 - src.service.graph_experiments - ERROR - Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat2 in method wrapper_CUDA_mm)
+2024-07-24 15:58:51,387 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_train.py", line 137, in fit
+    out, h = self.model(
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_model/gckan.py", line 280, in forward
+    h = self.gcn1(x, edge_index)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch_geometric/nn/conv/gcn_conv.py", line 260, in forward
+    x = self.lin(x)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch_geometric/nn/dense/linear.py", line 147, in forward
+    return F.linear(x, self.weight, self.bias)
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat2 in method wrapper_CUDA_mm)
+
+2024-07-24 15:58:51,387 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 1.7956s
+2024-07-24 15:59:33,728 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4083s
+2024-07-24 15:59:33,777 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 15:59:33,778 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 15:59:33,778 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 15:59:34,161 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3834s
+2024-07-24 15:59:34,162 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 15:59:36,007 - src.service.graph_experiments - ERROR - Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat2 in method wrapper_CUDA_mm)
+2024-07-24 15:59:36,008 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_train.py", line 137, in fit
+    out, h = self.model(
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_model/gckan.py", line 280, in forward
+    h = self.gcn1(x, edge_index)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch_geometric/nn/conv/gcn_conv.py", line 260, in forward
+    x = self.lin(x)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch_geometric/nn/dense/linear.py", line 147, in forward
+    return F.linear(x, self.weight, self.bias)
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat2 in method wrapper_CUDA_mm)
+
+2024-07-24 15:59:36,008 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 1.8459s
+2024-07-24 16:00:56,205 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3979s
+2024-07-24 16:00:56,252 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:00:56,252 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:00:56,252 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:00:56,648 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3958s
+2024-07-24 16:00:56,649 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:00:58,484 - src.service.graph_experiments - ERROR - Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat2 in method wrapper_CUDA_mm)
+2024-07-24 16:00:58,485 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_train.py", line 137, in fit
+    out, h = self.model(
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_model/gckan.py", line 280, in forward
+    h = self.gcn1(x, edge_index)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch_geometric/nn/conv/gcn_conv.py", line 260, in forward
+    x = self.lin(x)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch_geometric/nn/dense/linear.py", line 147, in forward
+    return F.linear(x, self.weight, self.bias)
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat2 in method wrapper_CUDA_mm)
+
+2024-07-24 16:00:58,485 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 1.8364s
+2024-07-24 16:01:15,631 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3954s
+2024-07-24 16:01:15,692 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:01:15,692 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:01:15,692 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:01:16,087 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3943s
+2024-07-24 16:01:16,088 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:01:17,894 - src.service.graph_experiments - ERROR - Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat2 in method wrapper_CUDA_mm)
+2024-07-24 16:01:17,895 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_train.py", line 137, in fit
+    out, h = self.model(
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_model/gckan.py", line 280, in forward
+    h = self.gcn1(x, edge_index)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch_geometric/nn/conv/gcn_conv.py", line 260, in forward
+    x = self.lin(x)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/torch_geometric/nn/dense/linear.py", line 147, in forward
+    return F.linear(x, self.weight, self.bias)
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat2 in method wrapper_CUDA_mm)
+
+2024-07-24 16:01:17,895 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 1.8077s
+2024-07-24 16:01:56,370 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4122s
+2024-07-24 16:01:56,422 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:01:56,422 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:01:56,422 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:01:56,812 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3896s
+2024-07-24 16:01:56,813 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:02:06,215 - src.service.graph_train - INFO - Loss: 0.2304605779008589
+2024-07-24 16:02:06,216 - src.service.graph_train - INFO - AP train: 0.6851533296130599
+2024-07-24 16:02:06,216 - src.service.graph_train - INFO - AP val: 0.5200702794735451
+2024-07-24 16:02:06,216 - src.service.graph_train - INFO - AP test: 0.2414136707825148
+2024-07-24 16:02:10,457 - src.service.graph_train - INFO - Loss: 0.17323049391813325
+2024-07-24 16:02:10,457 - src.service.graph_train - INFO - AP train: 0.7537204356144959
+2024-07-24 16:02:10,457 - src.service.graph_train - INFO - AP val: 0.6418106274632907
+2024-07-24 16:02:10,457 - src.service.graph_train - INFO - AP test: 0.3097435463562419
+2024-07-24 16:05:58,377 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4142s
+2024-07-24 16:05:58,440 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:05:58,441 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:05:58,441 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:05:58,826 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3850s
+2024-07-24 16:05:58,827 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:06:08,267 - src.service.graph_train - INFO - Loss: 0.22269440499912713
+2024-07-24 16:06:08,268 - src.service.graph_train - INFO - AP train: 0.6803571653521991
+2024-07-24 16:06:08,268 - src.service.graph_train - INFO - AP val: 0.5647490803659001
+2024-07-24 16:06:08,268 - src.service.graph_train - INFO - AP test: 0.2588808053593862
+2024-07-24 16:06:41,566 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4170s
+2024-07-24 16:06:41,625 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:06:41,625 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:06:41,625 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:06:42,014 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3882s
+2024-07-24 16:06:42,015 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:06:51,009 - src.service.graph_train - INFO - Loss: 0.22261245134803984
+2024-07-24 16:06:51,010 - src.service.graph_train - INFO - AP train: 0.703002544044678
+2024-07-24 16:06:51,010 - src.service.graph_train - INFO - AP val: 0.5667433157690538
+2024-07-24 16:06:51,010 - src.service.graph_train - INFO - AP test: 0.265074268994273
+2024-07-24 16:06:55,389 - src.service.graph_train - INFO - Loss: 0.16981490751827397
+2024-07-24 16:06:55,389 - src.service.graph_train - INFO - AP train: 0.7642372118831777
+2024-07-24 16:06:55,389 - src.service.graph_train - INFO - AP val: 0.6448972175152102
+2024-07-24 16:06:55,389 - src.service.graph_train - INFO - AP test: 0.3160673487383591
+2024-07-24 16:08:07,105 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4023s
+2024-07-24 16:08:07,173 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:08:07,173 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:08:07,173 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:08:07,560 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3868s
+2024-07-24 16:08:07,561 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:08:16,806 - src.service.graph_train - INFO - Loss: 0.22456993220221017
+2024-07-24 16:08:16,806 - src.service.graph_train - INFO - AP train: 0.6699992077522031
+2024-07-24 16:08:16,806 - src.service.graph_train - INFO - AP val: 0.5698455754412949
+2024-07-24 16:08:16,806 - src.service.graph_train - INFO - AP test: 0.25347512283291285
+2024-07-24 16:08:21,237 - src.service.graph_train - INFO - Loss: 0.17223742856207677
+2024-07-24 16:08:21,237 - src.service.graph_train - INFO - AP train: 0.7502045224280055
+2024-07-24 16:08:21,237 - src.service.graph_train - INFO - AP val: 0.6015735974032954
+2024-07-24 16:08:21,237 - src.service.graph_train - INFO - AP test: 0.2796982256764252
+2024-07-24 16:08:25,538 - src.service.graph_train - INFO - Loss: 0.15911984180914607
+2024-07-24 16:08:25,539 - src.service.graph_train - INFO - AP train: 0.7731777488239513
+2024-07-24 16:08:25,539 - src.service.graph_train - INFO - AP val: 0.6801333426740992
+2024-07-24 16:08:25,539 - src.service.graph_train - INFO - AP test: 0.3741798591300925
+2024-07-24 16:19:23,334 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4005s
+2024-07-24 16:19:23,392 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:19:23,392 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 500 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:19:23,392 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:19:23,777 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3847s
+2024-07-24 16:19:23,778 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:19:33,317 - src.service.graph_train - INFO - Loss: 0.2201018795227083
+2024-07-24 16:19:33,317 - src.service.graph_train - INFO - AP train: 0.6837597701451001
+2024-07-24 16:19:33,317 - src.service.graph_train - INFO - AP val: 0.5645065082384254
+2024-07-24 16:19:33,317 - src.service.graph_train - INFO - AP test: 0.26398848589013396
+2024-07-24 16:19:37,713 - src.service.graph_train - INFO - Loss: 0.16930761558998034
+2024-07-24 16:19:37,713 - src.service.graph_train - INFO - AP train: 0.7548565885809381
+2024-07-24 16:19:37,713 - src.service.graph_train - INFO - AP val: 0.6076062575513652
+2024-07-24 16:19:37,713 - src.service.graph_train - INFO - AP test: 0.306985726092173
+2024-07-24 16:19:42,073 - src.service.graph_train - INFO - Loss: 0.15826799950881856
+2024-07-24 16:19:42,073 - src.service.graph_train - INFO - AP train: 0.7796113717874801
+2024-07-24 16:19:42,073 - src.service.graph_train - INFO - AP val: 0.5617857976082754
+2024-07-24 16:19:42,073 - src.service.graph_train - INFO - AP test: 0.3092738715374683
+2024-07-24 16:19:46,618 - src.service.graph_train - INFO - Loss: 0.1499595611495672
+2024-07-24 16:19:46,618 - src.service.graph_train - INFO - AP train: 0.7989676272186548
+2024-07-24 16:19:46,618 - src.service.graph_train - INFO - AP val: 0.686155210030215
+2024-07-24 16:19:46,618 - src.service.graph_train - INFO - AP test: 0.4088187643584392
+2024-07-24 16:19:51,368 - src.service.graph_train - INFO - Loss: 0.1438894522362861
+2024-07-24 16:19:51,368 - src.service.graph_train - INFO - AP train: 0.8110618752593426
+2024-07-24 16:19:51,368 - src.service.graph_train - INFO - AP val: 0.720108543221796
+2024-07-24 16:19:51,368 - src.service.graph_train - INFO - AP test: 0.4529926104561932
+2024-07-24 16:19:55,918 - src.service.graph_train - INFO - Loss: 0.1393296757829938
+2024-07-24 16:19:55,919 - src.service.graph_train - INFO - AP train: 0.823109045645109
+2024-07-24 16:19:55,919 - src.service.graph_train - INFO - AP val: 0.644084415263041
+2024-07-24 16:19:55,919 - src.service.graph_train - INFO - AP test: 0.38530296699734007
+2024-07-24 16:20:00,509 - src.service.graph_train - INFO - Loss: 0.13487458808554542
+2024-07-24 16:20:00,509 - src.service.graph_train - INFO - AP train: 0.8279187247864163
+2024-07-24 16:20:00,509 - src.service.graph_train - INFO - AP val: 0.7118140084074798
+2024-07-24 16:20:00,510 - src.service.graph_train - INFO - AP test: 0.4112363154802584
+2024-07-24 16:20:05,147 - src.service.graph_train - INFO - Loss: 0.13072964201730805
+2024-07-24 16:20:05,147 - src.service.graph_train - INFO - AP train: 0.8449977637748708
+2024-07-24 16:20:05,147 - src.service.graph_train - INFO - AP val: 0.6752818485758749
+2024-07-24 16:20:05,147 - src.service.graph_train - INFO - AP test: 0.4014504591112176
+2024-07-24 16:20:09,855 - src.service.graph_train - INFO - Loss: 0.12867645908525024
+2024-07-24 16:20:09,855 - src.service.graph_train - INFO - AP train: 0.847564513896966
+2024-07-24 16:20:09,856 - src.service.graph_train - INFO - AP val: 0.6709193351762521
+2024-07-24 16:20:09,856 - src.service.graph_train - INFO - AP test: 0.3322236686151931
+2024-07-24 16:20:14,562 - src.service.graph_train - INFO - Loss: 0.12565854960233694
+2024-07-24 16:20:14,562 - src.service.graph_train - INFO - AP train: 0.8613333304119161
+2024-07-24 16:20:14,563 - src.service.graph_train - INFO - AP val: 0.6553895027572424
+2024-07-24 16:20:14,563 - src.service.graph_train - INFO - AP test: 0.35230748885633756
+2024-07-24 16:20:19,295 - src.service.graph_train - INFO - Loss: 0.12251549982578282
+2024-07-24 16:20:19,296 - src.service.graph_train - INFO - AP train: 0.8582597327609779
+2024-07-24 16:20:19,296 - src.service.graph_train - INFO - AP val: 0.7284270517259449
+2024-07-24 16:20:19,296 - src.service.graph_train - INFO - AP test: 0.37944458022305744
+2024-07-24 16:20:23,982 - src.service.graph_train - INFO - Loss: 0.11911450218463289
+2024-07-24 16:20:23,982 - src.service.graph_train - INFO - AP train: 0.8722791142629549
+2024-07-24 16:20:23,982 - src.service.graph_train - INFO - AP val: 0.6756761552849515
+2024-07-24 16:20:23,982 - src.service.graph_train - INFO - AP test: 0.3492341898323471
+2024-07-24 16:20:28,682 - src.service.graph_train - INFO - Loss: 0.11728736324514744
+2024-07-24 16:20:28,683 - src.service.graph_train - INFO - AP train: 0.8748254547553478
+2024-07-24 16:20:28,683 - src.service.graph_train - INFO - AP val: 0.7183656388699202
+2024-07-24 16:20:28,683 - src.service.graph_train - INFO - AP test: 0.3327628171244847
+2024-07-24 16:20:33,258 - src.service.graph_train - INFO - Loss: 0.11507126311029213
+2024-07-24 16:20:33,258 - src.service.graph_train - INFO - AP train: 0.8777650618297502
+2024-07-24 16:20:33,258 - src.service.graph_train - INFO - AP val: 0.6657729012157753
+2024-07-24 16:20:33,258 - src.service.graph_train - INFO - AP test: 0.33869421956849427
+2024-07-24 16:20:37,888 - src.service.graph_train - INFO - Loss: 0.11266916261419006
+2024-07-24 16:20:37,888 - src.service.graph_train - INFO - AP train: 0.8836189291036857
+2024-07-24 16:20:37,889 - src.service.graph_train - INFO - AP val: 0.6745454167082953
+2024-07-24 16:20:37,889 - src.service.graph_train - INFO - AP test: 0.2854187652097909
+2024-07-24 16:20:42,617 - src.service.graph_train - INFO - Loss: 0.11151962345780958
+2024-07-24 16:20:42,617 - src.service.graph_train - INFO - AP train: 0.8880008315846878
+2024-07-24 16:20:42,617 - src.service.graph_train - INFO - AP val: 0.687538608963021
+2024-07-24 16:20:42,617 - src.service.graph_train - INFO - AP test: 0.3468314976886991
+2024-07-24 16:20:47,389 - src.service.graph_train - INFO - Loss: 0.10645939198498061
+2024-07-24 16:20:47,389 - src.service.graph_train - INFO - AP train: 0.887168730239095
+2024-07-24 16:20:47,389 - src.service.graph_train - INFO - AP val: 0.7315650228298638
+2024-07-24 16:20:47,389 - src.service.graph_train - INFO - AP test: 0.3668418397338008
+2024-07-24 16:20:52,105 - src.service.graph_train - INFO - Loss: 0.10632162578943846
+2024-07-24 16:20:52,105 - src.service.graph_train - INFO - AP train: 0.8911342012349324
+2024-07-24 16:20:52,106 - src.service.graph_train - INFO - AP val: 0.7341447142775523
+2024-07-24 16:20:52,106 - src.service.graph_train - INFO - AP test: 0.3326077874246446
+2024-07-24 16:20:56,862 - src.service.graph_train - INFO - Loss: 0.10328112088215811
+2024-07-24 16:20:56,863 - src.service.graph_train - INFO - AP train: 0.8982442539431108
+2024-07-24 16:20:56,863 - src.service.graph_train - INFO - AP val: 0.7155044759878929
+2024-07-24 16:20:56,863 - src.service.graph_train - INFO - AP test: 0.39583974912906844
+2024-07-24 16:21:01,561 - src.service.graph_train - INFO - Loss: 0.10119016734874191
+2024-07-24 16:21:01,561 - src.service.graph_train - INFO - AP train: 0.9038907129422407
+2024-07-24 16:21:01,561 - src.service.graph_train - INFO - AP val: 0.7083573719094587
+2024-07-24 16:21:01,561 - src.service.graph_train - INFO - AP test: 0.3170616921226201
+2024-07-24 16:21:06,167 - src.service.graph_train - INFO - Loss: 0.10133371129631996
+2024-07-24 16:21:06,167 - src.service.graph_train - INFO - AP train: 0.9111444505184907
+2024-07-24 16:21:06,167 - src.service.graph_train - INFO - AP val: 0.6857588434033928
+2024-07-24 16:21:06,167 - src.service.graph_train - INFO - AP test: 0.33622336887902265
+2024-07-24 16:21:10,781 - src.service.graph_train - INFO - Loss: 0.09750436071828368
+2024-07-24 16:21:10,781 - src.service.graph_train - INFO - AP train: 0.9118480670966161
+2024-07-24 16:21:10,781 - src.service.graph_train - INFO - AP val: 0.7289581238961909
+2024-07-24 16:21:10,781 - src.service.graph_train - INFO - AP test: 0.3788467305721108
+2024-07-24 16:21:15,541 - src.service.graph_train - INFO - Loss: 0.09810400527456532
+2024-07-24 16:21:15,541 - src.service.graph_train - INFO - AP train: 0.9079532928139203
+2024-07-24 16:21:15,541 - src.service.graph_train - INFO - AP val: 0.7749994837902565
+2024-07-24 16:21:15,541 - src.service.graph_train - INFO - AP test: 0.36144586783343924
+2024-07-24 16:21:20,276 - src.service.graph_train - INFO - Loss: 0.0951115924804269
+2024-07-24 16:21:20,276 - src.service.graph_train - INFO - AP train: 0.9102129043695257
+2024-07-24 16:21:20,276 - src.service.graph_train - INFO - AP val: 0.7883888378269268
+2024-07-24 16:21:20,276 - src.service.graph_train - INFO - AP test: 0.4029242090579029
+2024-07-24 16:26:35,404 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4055s
+2024-07-24 16:26:35,455 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:26:35,456 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:26:35,456 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:26:35,836 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3795s
+2024-07-24 16:26:35,837 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:26:44,798 - src.service.graph_train - INFO - Loss: 0.22389936058417612
+2024-07-24 16:26:44,798 - src.service.graph_train - INFO - AP train: 0.677821123930972
+2024-07-24 16:26:44,798 - src.service.graph_train - INFO - AP val: 0.5901417154938399
+2024-07-24 16:26:44,798 - src.service.graph_train - INFO - AP test: 0.298987429638616
+2024-07-24 16:26:49,129 - src.service.graph_train - INFO - Loss: 0.1731414478182217
+2024-07-24 16:26:49,129 - src.service.graph_train - INFO - AP train: 0.7514667832206661
+2024-07-24 16:26:49,129 - src.service.graph_train - INFO - AP val: 0.6259001633387992
+2024-07-24 16:26:49,129 - src.service.graph_train - INFO - AP test: 0.34311368083950167
+2024-07-24 16:26:53,456 - src.service.graph_train - INFO - Loss: 0.15900549814464965
+2024-07-24 16:26:53,456 - src.service.graph_train - INFO - AP train: 0.780777453525912
+2024-07-24 16:26:53,456 - src.service.graph_train - INFO - AP val: 0.7160839869887183
+2024-07-24 16:26:53,456 - src.service.graph_train - INFO - AP test: 0.42485375998650127
+2024-07-24 16:26:58,310 - src.service.graph_train - INFO - Loss: 0.1513417450990078
+2024-07-24 16:26:58,310 - src.service.graph_train - INFO - AP train: 0.8002776838959405
+2024-07-24 16:26:58,310 - src.service.graph_train - INFO - AP val: 0.7021189832360085
+2024-07-24 16:26:58,310 - src.service.graph_train - INFO - AP test: 0.4281916792635289
+2024-07-24 16:27:03,057 - src.service.graph_train - INFO - Loss: 0.14452504251458217
+2024-07-24 16:27:03,057 - src.service.graph_train - INFO - AP train: 0.8139974084564888
+2024-07-24 16:27:03,058 - src.service.graph_train - INFO - AP val: 0.7123488659662868
+2024-07-24 16:27:03,058 - src.service.graph_train - INFO - AP test: 0.4620575937458672
+2024-07-24 16:27:03,058 - src.service.graph_train - INFO - DONE PHASE TRAIN !
+2024-07-24 16:27:05,616 - src.service.graph_train - INFO - SAVE YOUR MODEL AT: /home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/model/gckan/gckan_v2.pt
+2024-07-24 16:27:05,617 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 29.7799s
+2024-07-24 16:37:33,654 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4032s
+2024-07-24 16:37:33,701 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:37:33,701 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:37:33,701 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:37:34,090 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3891s
+2024-07-24 16:37:34,091 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:37:38,675 - src.service.graph_experiments - ERROR - Registered Model with name=GCKanV2 not found
+2024-07-24 16:37:38,676 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_train.py", line 114, in fit
+    model_version = client.get_latest_versions(name=self.model_name, stages=["None"])[0].version
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/mlflow/utils/annotations.py", line 145, in deprecated_func
+    return func(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/mlflow/tracking/client.py", line 3468, in get_latest_versions
+    return self._get_registry_client().get_latest_versions(name, stages)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/mlflow/tracking/_model_registry/client.py", line 152, in get_latest_versions
+    return self.store.get_latest_versions(name, stages)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/mlflow/store/model_registry/file_store.py", line 425, in get_latest_versions
+    raise MlflowException(
+mlflow.exceptions.MlflowException: Registered Model with name=GCKanV2 not found
+
+2024-07-24 16:37:38,676 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 4.5845s
+2024-07-24 16:38:40,568 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4002s
+2024-07-24 16:38:40,618 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:38:40,618 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:38:40,618 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:38:41,011 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3926s
+2024-07-24 16:38:41,012 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:38:49,978 - src.service.graph_train - INFO - Loss: 0.22291864422352417
+2024-07-24 16:38:49,978 - src.service.graph_train - INFO - AP train: 0.6655152307712607
+2024-07-24 16:38:49,978 - src.service.graph_train - INFO - AP val: 0.5805034723670889
+2024-07-24 16:38:49,979 - src.service.graph_train - INFO - AP test: 0.2686571599306954
+2024-07-24 16:38:54,351 - src.service.graph_train - INFO - Loss: 0.17280132665438352
+2024-07-24 16:38:54,351 - src.service.graph_train - INFO - AP train: 0.7572659031153042
+2024-07-24 16:38:54,351 - src.service.graph_train - INFO - AP val: 0.6213572666477545
+2024-07-24 16:38:54,352 - src.service.graph_train - INFO - AP test: 0.29258784323523723
+2024-07-24 16:38:58,971 - src.service.graph_train - INFO - Loss: 0.15822941507550253
+2024-07-24 16:38:58,971 - src.service.graph_train - INFO - AP train: 0.7833344798474103
+2024-07-24 16:38:58,971 - src.service.graph_train - INFO - AP val: 0.6793967061447858
+2024-07-24 16:38:58,971 - src.service.graph_train - INFO - AP test: 0.3657013544089309
+2024-07-24 16:39:03,573 - src.service.graph_train - INFO - Loss: 0.15089150317517167
+2024-07-24 16:39:03,573 - src.service.graph_train - INFO - AP train: 0.7917060639504049
+2024-07-24 16:39:03,573 - src.service.graph_train - INFO - AP val: 0.7050635371903825
+2024-07-24 16:39:03,573 - src.service.graph_train - INFO - AP test: 0.4073614728691557
+2024-07-24 16:39:08,259 - src.service.graph_train - INFO - Loss: 0.14429916875157955
+2024-07-24 16:39:08,259 - src.service.graph_train - INFO - AP train: 0.8126891918820063
+2024-07-24 16:39:08,260 - src.service.graph_train - INFO - AP val: 0.6852060812668739
+2024-07-24 16:39:08,260 - src.service.graph_train - INFO - AP test: 0.4103071491857386
+2024-07-24 16:39:08,260 - src.service.graph_train - INFO - DONE PHASE TRAIN !
+2024-07-24 16:39:10,804 - src.service.graph_train - INFO - SAVE YOUR MODEL AT: /home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/model/gckan/gckan_v2.pt
+2024-07-24 16:39:10,804 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 29.7923s
+2024-07-24 16:39:45,713 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4081s
+2024-07-24 16:39:45,747 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:39:45,747 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:39:45,747 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:39:46,140 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3931s
+2024-07-24 16:39:46,141 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:39:55,122 - src.service.graph_train - INFO - Loss: 0.228772326943955
+2024-07-24 16:39:55,122 - src.service.graph_train - INFO - AP train: 0.6881789454494118
+2024-07-24 16:39:55,122 - src.service.graph_train - INFO - AP val: 0.5996570830032717
+2024-07-24 16:39:55,123 - src.service.graph_train - INFO - AP test: 0.2991604194544758
+2024-07-24 16:39:59,628 - src.service.graph_train - INFO - Loss: 0.17214209406416198
+2024-07-24 16:39:59,628 - src.service.graph_train - INFO - AP train: 0.7626703326211576
+2024-07-24 16:39:59,628 - src.service.graph_train - INFO - AP val: 0.6356040409314186
+2024-07-24 16:39:59,628 - src.service.graph_train - INFO - AP test: 0.3177499361258849
+2024-07-24 16:40:04,095 - src.service.graph_train - INFO - Loss: 0.15837644648868682
+2024-07-24 16:40:04,095 - src.service.graph_train - INFO - AP train: 0.7822315206139265
+2024-07-24 16:40:04,095 - src.service.graph_train - INFO - AP val: 0.7138364638584388
+2024-07-24 16:40:04,096 - src.service.graph_train - INFO - AP test: 0.3964702007742785
+2024-07-24 16:40:08,680 - src.service.graph_train - INFO - Loss: 0.15112476461175559
+2024-07-24 16:40:08,680 - src.service.graph_train - INFO - AP train: 0.8020033174419154
+2024-07-24 16:40:08,680 - src.service.graph_train - INFO - AP val: 0.7135406227421232
+2024-07-24 16:40:08,680 - src.service.graph_train - INFO - AP test: 0.44306800753432823
+2024-07-24 16:40:13,275 - src.service.graph_train - INFO - Loss: 0.14557939184748608
+2024-07-24 16:40:13,275 - src.service.graph_train - INFO - AP train: 0.8132672026919557
+2024-07-24 16:40:13,275 - src.service.graph_train - INFO - AP val: 0.7245129706840033
+2024-07-24 16:40:13,275 - src.service.graph_train - INFO - AP test: 0.441691599508434
+2024-07-24 16:40:13,275 - src.service.graph_train - INFO - DONE PHASE TRAIN !
+2024-07-24 16:40:15,942 - src.service.graph_train - INFO - SAVE YOUR MODEL AT: /home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/model/gckan/gckan_v2.pt
+2024-07-24 16:40:15,943 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 29.8015s
+2024-07-24 16:41:15,546 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4010s
+2024-07-24 16:41:15,604 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:41:15,604 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:41:15,604 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:41:16,002 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3978s
+2024-07-24 16:41:16,003 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:41:20,473 - src.service.graph_experiments - ERROR - Registered Model with name=GCKanV2 not found
+2024-07-24 16:41:20,474 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_train.py", line 114, in fit
+    model_version = client.get_latest_versions(name=self.model_name, stages=["None"])[0].version
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/mlflow/utils/annotations.py", line 145, in deprecated_func
+    return func(*args, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/mlflow/tracking/client.py", line 3468, in get_latest_versions
+    return self._get_registry_client().get_latest_versions(name, stages)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/mlflow/tracking/_model_registry/client.py", line 152, in get_latest_versions
+    return self.store.get_latest_versions(name, stages)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/mlflow/store/model_registry/file_store.py", line 425, in get_latest_versions
+    raise MlflowException(
+mlflow.exceptions.MlflowException: Registered Model with name=GCKanV2 not found
+
+2024-07-24 16:41:20,474 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 4.4709s
+2024-07-24 16:43:04,438 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4236s
+2024-07-24 16:43:04,472 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:43:04,472 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:43:04,472 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:43:04,865 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3932s
+2024-07-24 16:43:04,866 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:43:06,073 - src.service.graph_experiments - ERROR - save() got an unexpected keyword argument 'registered_models'
+2024-07-24 16:43:06,074 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_train.py", line 111, in fit
+    mlflow.pytorch.log_model(self.model, self.artifact_path, registered_models=self.model_name)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/mlflow/pytorch/__init__.py", line 295, in log_model
+    return Model.log(
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/mlflow/models/model.py", line 683, in log
+    flavor.save_model(path=local_path, mlflow_model=mlflow_model, **kwargs)
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/mlflow/pytorch/__init__.py", line 479, in save_model
+    torch.save(pytorch_model, model_path, pickle_module=pickle_module, **kwargs)
+TypeError: save() got an unexpected keyword argument 'registered_models'
+
+2024-07-24 16:43:06,074 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 1.2079s
+2024-07-24 16:43:22,167 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4066s
+2024-07-24 16:43:22,218 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:43:22,218 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:43:22,219 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:43:22,602 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3830s
+2024-07-24 16:43:22,603 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:43:27,109 - src.service.graph_experiments - ERROR - Attempting to update model version with no new field values.
+2024-07-24 16:43:27,110 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_train.py", line 115, in fit
+    client.update_model_version(name= self.model_name,
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/mlflow/tracking/client.py", line 3861, in update_model_version
+    raise MlflowException("Attempting to update model version with no new field values.")
+mlflow.exceptions.MlflowException: Attempting to update model version with no new field values.
+
+2024-07-24 16:43:27,110 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 4.5072s
+2024-07-24 16:44:07,708 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3980s
+2024-07-24 16:44:07,758 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:44:07,758 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:44:07,759 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:44:08,146 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3876s
+2024-07-24 16:44:08,147 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:44:12,536 - src.service.graph_experiments - ERROR - Attempting to update model version with no new field values.
+2024-07-24 16:44:12,538 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_train.py", line 114, in fit
+    client.update_model_version(name= self.model_name,
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/mlflow/tracking/client.py", line 3861, in update_model_version
+    raise MlflowException("Attempting to update model version with no new field values.")
+mlflow.exceptions.MlflowException: Attempting to update model version with no new field values.
+
+2024-07-24 16:44:12,538 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 4.3909s
+2024-07-24 16:45:23,213 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4006s
+2024-07-24 16:45:23,262 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:45:23,262 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:45:23,262 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:45:23,653 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3911s
+2024-07-24 16:45:23,654 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:45:28,095 - src.service.graph_experiments - ERROR - Attempting to update model version with no new field values.
+2024-07-24 16:45:28,095 - src.service.graph_experiments - ERROR - Traceback (most recent call last):
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_experiments.py", line 43, in run
+    self.trainer.fit()
+  File "/home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/src/service/graph_train.py", line 114, in fit
+    client.update_model_version(name= self.model_name,
+  File "/home/hoangtv/Desktop/Long/myenv/lib/python3.9/site-packages/mlflow/tracking/client.py", line 3861, in update_model_version
+    raise MlflowException("Attempting to update model version with no new field values.")
+mlflow.exceptions.MlflowException: Attempting to update model version with no new field values.
+
+2024-07-24 16:45:28,096 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 4.4410s
+2024-07-24 16:50:41,124 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3998s
+2024-07-24 16:50:41,154 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:50:41,154 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:50:41,154 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:50:41,539 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3847s
+2024-07-24 16:50:41,540 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:50:50,398 - src.service.graph_train - INFO - Loss: 0.22083637852599655
+2024-07-24 16:50:50,398 - src.service.graph_train - INFO - AP train: 0.6924594797089549
+2024-07-24 16:50:50,398 - src.service.graph_train - INFO - AP val: 0.6401997406242877
+2024-07-24 16:50:50,398 - src.service.graph_train - INFO - AP test: 0.29212032354453477
+2024-07-24 16:51:03,879 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4312s
+2024-07-24 16:51:03,929 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:51:03,930 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0864 
+                          batch-size: 128
+2024-07-24 16:51:03,930 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:51:04,336 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4063s
+2024-07-24 16:51:04,337 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:51:13,401 - src.service.graph_train - INFO - Loss: 0.22353315814105784
+2024-07-24 16:51:13,401 - src.service.graph_train - INFO - AP train: 0.6732190585146894
+2024-07-24 16:51:13,401 - src.service.graph_train - INFO - AP val: 0.5830420823078923
+2024-07-24 16:51:13,401 - src.service.graph_train - INFO - AP test: 0.267029194324255
+2024-07-24 16:51:17,871 - src.service.graph_train - INFO - Loss: 0.169825228974943
+2024-07-24 16:51:17,872 - src.service.graph_train - INFO - AP train: 0.762095307879637
+2024-07-24 16:51:17,872 - src.service.graph_train - INFO - AP val: 0.6589861134569754
+2024-07-24 16:51:17,872 - src.service.graph_train - INFO - AP test: 0.3318039054311221
+2024-07-24 16:51:22,113 - src.service.graph_train - INFO - Loss: 0.15597535244184704
+2024-07-24 16:51:22,114 - src.service.graph_train - INFO - AP train: 0.7803644115510434
+2024-07-24 16:51:22,114 - src.service.graph_train - INFO - AP val: 0.6907142491984022
+2024-07-24 16:51:22,114 - src.service.graph_train - INFO - AP test: 0.3800883855111364
+2024-07-24 16:51:26,599 - src.service.graph_train - INFO - Loss: 0.14868274125931918
+2024-07-24 16:51:26,599 - src.service.graph_train - INFO - AP train: 0.798117094168143
+2024-07-24 16:51:26,599 - src.service.graph_train - INFO - AP val: 0.6867091660849616
+2024-07-24 16:51:26,599 - src.service.graph_train - INFO - AP test: 0.412823215571241
+2024-07-24 16:51:31,045 - src.service.graph_train - INFO - Loss: 0.14217697400689702
+2024-07-24 16:51:31,045 - src.service.graph_train - INFO - AP train: 0.8074729723434612
+2024-07-24 16:51:31,045 - src.service.graph_train - INFO - AP val: 0.7241869003148702
+2024-07-24 16:51:31,045 - src.service.graph_train - INFO - AP test: 0.4093268603405264
+2024-07-24 16:51:31,046 - src.service.graph_train - INFO - DONE PHASE TRAIN !
+2024-07-24 16:51:33,543 - src.service.graph_train - INFO - SAVE YOUR MODEL AT: /home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/model/gckan/gckan_v2.pt
+2024-07-24 16:51:33,543 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 29.2058s
+2024-07-24 16:52:19,805 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4193s
+2024-07-24 16:52:19,838 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 16:52:19,838 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 50 
+                          learning-rate: 0.001 
+                          batch-size: 128
+2024-07-24 16:52:19,838 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 16:52:20,251 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4129s
+2024-07-24 16:52:20,252 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 16:52:29,262 - src.service.graph_train - INFO - Loss: 0.5560044895335672
+2024-07-24 16:52:29,262 - src.service.graph_train - INFO - AP train: 0.2553959254414754
+2024-07-24 16:52:29,262 - src.service.graph_train - INFO - AP val: 0.22888654727446928
+2024-07-24 16:52:29,262 - src.service.graph_train - INFO - AP test: 0.08315898930197506
+2024-07-24 16:52:33,533 - src.service.graph_train - INFO - Loss: 0.4113481233373356
+2024-07-24 16:52:33,533 - src.service.graph_train - INFO - AP train: 0.3548451727640737
+2024-07-24 16:52:33,533 - src.service.graph_train - INFO - AP val: 0.25213767390621655
+2024-07-24 16:52:33,533 - src.service.graph_train - INFO - AP test: 0.10052987003336862
+2024-07-24 16:52:37,874 - src.service.graph_train - INFO - Loss: 0.344407788509332
+2024-07-24 16:52:37,874 - src.service.graph_train - INFO - AP train: 0.40487319950323664
+2024-07-24 16:52:37,874 - src.service.graph_train - INFO - AP val: 0.26808474802143534
+2024-07-24 16:52:37,874 - src.service.graph_train - INFO - AP test: 0.11620009481439322
+2024-07-24 16:52:42,341 - src.service.graph_train - INFO - Loss: 0.3096427192578569
+2024-07-24 16:52:42,342 - src.service.graph_train - INFO - AP train: 0.4247122061463725
+2024-07-24 16:52:42,342 - src.service.graph_train - INFO - AP val: 0.2742575961562875
+2024-07-24 16:52:42,342 - src.service.graph_train - INFO - AP test: 0.12477055592582412
+2024-07-24 16:52:46,834 - src.service.graph_train - INFO - Loss: 0.2879147801710212
+2024-07-24 16:52:46,834 - src.service.graph_train - INFO - AP train: 0.4447526444179646
+2024-07-24 16:52:46,834 - src.service.graph_train - INFO - AP val: 0.28938183932642375
+2024-07-24 16:52:46,834 - src.service.graph_train - INFO - AP test: 0.13273412080327446
+2024-07-24 16:52:51,276 - src.service.graph_train - INFO - Loss: 0.27643736145922526
+2024-07-24 16:52:51,276 - src.service.graph_train - INFO - AP train: 0.4639331789210409
+2024-07-24 16:52:51,276 - src.service.graph_train - INFO - AP val: 0.294943393947532
+2024-07-24 16:52:51,276 - src.service.graph_train - INFO - AP test: 0.14626482315035186
+2024-07-24 16:52:55,781 - src.service.graph_train - INFO - Loss: 0.2678785906465733
+2024-07-24 16:52:55,781 - src.service.graph_train - INFO - AP train: 0.47993236629065944
+2024-07-24 16:52:55,781 - src.service.graph_train - INFO - AP val: 0.3114995705841007
+2024-07-24 16:52:55,781 - src.service.graph_train - INFO - AP test: 0.15265123380056522
+2024-07-24 16:53:00,345 - src.service.graph_train - INFO - Loss: 0.26329583584686406
+2024-07-24 16:53:00,345 - src.service.graph_train - INFO - AP train: 0.4895488851615849
+2024-07-24 16:53:00,345 - src.service.graph_train - INFO - AP val: 0.3159708208474322
+2024-07-24 16:53:00,346 - src.service.graph_train - INFO - AP test: 0.17031900389857293
+2024-07-24 16:53:04,829 - src.service.graph_train - INFO - Loss: 0.25879528675822244
+2024-07-24 16:53:04,830 - src.service.graph_train - INFO - AP train: 0.5040801252590742
+2024-07-24 16:53:04,830 - src.service.graph_train - INFO - AP val: 0.33014231441191744
+2024-07-24 16:53:04,830 - src.service.graph_train - INFO - AP test: 0.17202201784128518
+2024-07-24 16:53:09,317 - src.service.graph_train - INFO - Loss: 0.2566312391688858
+2024-07-24 16:53:09,317 - src.service.graph_train - INFO - AP train: 0.5208598916920406
+2024-07-24 16:53:09,317 - src.service.graph_train - INFO - AP val: 0.35296713818769665
+2024-07-24 16:53:09,317 - src.service.graph_train - INFO - AP test: 0.1788328768064892
+2024-07-24 16:53:13,866 - src.service.graph_train - INFO - Loss: 0.25372802422962326
+2024-07-24 16:53:13,866 - src.service.graph_train - INFO - AP train: 0.526986058110738
+2024-07-24 16:53:13,866 - src.service.graph_train - INFO - AP val: 0.3671742031091476
+2024-07-24 16:53:13,866 - src.service.graph_train - INFO - AP test: 0.20364066953039778
+2024-07-24 16:53:18,631 - src.service.graph_train - INFO - Loss: 0.2523200975524055
+2024-07-24 16:53:18,631 - src.service.graph_train - INFO - AP train: 0.5437622973159316
+2024-07-24 16:53:18,631 - src.service.graph_train - INFO - AP val: 0.37798126105417856
+2024-07-24 16:53:18,631 - src.service.graph_train - INFO - AP test: 0.21231774845637788
+2024-07-24 16:53:23,700 - src.service.graph_train - INFO - Loss: 0.24918966546006824
+2024-07-24 16:53:23,700 - src.service.graph_train - INFO - AP train: 0.5516809275017511
+2024-07-24 16:53:23,701 - src.service.graph_train - INFO - AP val: 0.3827421950179687
+2024-07-24 16:53:23,701 - src.service.graph_train - INFO - AP test: 0.22012334497385716
+2024-07-24 16:53:28,545 - src.service.graph_train - INFO - Loss: 0.24778761084816883
+2024-07-24 16:53:28,545 - src.service.graph_train - INFO - AP train: 0.5719377225790411
+2024-07-24 16:53:28,545 - src.service.graph_train - INFO - AP val: 0.4006689797175972
+2024-07-24 16:53:28,545 - src.service.graph_train - INFO - AP test: 0.23535386389148705
+2024-07-24 16:53:33,071 - src.service.graph_train - INFO - Loss: 0.24600802707499353
+2024-07-24 16:53:33,071 - src.service.graph_train - INFO - AP train: 0.5812297832886458
+2024-07-24 16:53:33,071 - src.service.graph_train - INFO - AP val: 0.4135179054002577
+2024-07-24 16:53:33,071 - src.service.graph_train - INFO - AP test: 0.2336443422102927
+2024-07-24 16:53:37,816 - src.service.graph_train - INFO - Loss: 0.24440016356355326
+2024-07-24 16:53:37,816 - src.service.graph_train - INFO - AP train: 0.5934195749578546
+2024-07-24 16:53:37,816 - src.service.graph_train - INFO - AP val: 0.4242378291092159
+2024-07-24 16:53:37,816 - src.service.graph_train - INFO - AP test: 0.2518903122314411
+2024-07-24 16:53:42,398 - src.service.graph_train - INFO - Loss: 0.24312516460240174
+2024-07-24 16:53:42,398 - src.service.graph_train - INFO - AP train: 0.5921257583563906
+2024-07-24 16:53:42,398 - src.service.graph_train - INFO - AP val: 0.43867140984988967
+2024-07-24 16:53:42,398 - src.service.graph_train - INFO - AP test: 0.2592803216696397
+2024-07-24 16:53:47,029 - src.service.graph_train - INFO - Loss: 0.2412360881405752
+2024-07-24 16:53:47,029 - src.service.graph_train - INFO - AP train: 0.6026505741472985
+2024-07-24 16:53:47,029 - src.service.graph_train - INFO - AP val: 0.4460198712380191
+2024-07-24 16:53:47,029 - src.service.graph_train - INFO - AP test: 0.2613543983230102
+2024-07-24 16:53:51,697 - src.service.graph_train - INFO - Loss: 0.24044633156435502
+2024-07-24 16:53:51,697 - src.service.graph_train - INFO - AP train: 0.6087029488725829
+2024-07-24 16:53:51,698 - src.service.graph_train - INFO - AP val: 0.454465773673293
+2024-07-24 16:53:51,698 - src.service.graph_train - INFO - AP test: 0.2677413936169056
+2024-07-24 16:53:56,334 - src.service.graph_train - INFO - Loss: 0.23782932628755984
+2024-07-24 16:53:56,334 - src.service.graph_train - INFO - AP train: 0.6227420640430971
+2024-07-24 16:53:56,334 - src.service.graph_train - INFO - AP val: 0.46785025087725896
+2024-07-24 16:53:56,334 - src.service.graph_train - INFO - AP test: 0.25296558250825346
+2024-07-24 16:54:00,957 - src.service.graph_train - INFO - Loss: 0.23754273239829113
+2024-07-24 16:54:00,958 - src.service.graph_train - INFO - AP train: 0.6263358771826351
+2024-07-24 16:54:00,958 - src.service.graph_train - INFO - AP val: 0.48241568325985607
+2024-07-24 16:54:00,958 - src.service.graph_train - INFO - AP test: 0.26587360629943035
+2024-07-24 16:54:05,574 - src.service.graph_train - INFO - Loss: 0.23542451984496507
+2024-07-24 16:54:05,574 - src.service.graph_train - INFO - AP train: 0.6231416993358257
+2024-07-24 16:54:05,574 - src.service.graph_train - INFO - AP val: 0.4797851754478365
+2024-07-24 16:54:05,574 - src.service.graph_train - INFO - AP test: 0.2698644348487688
+2024-07-24 16:54:10,213 - src.service.graph_train - INFO - Loss: 0.23334466788359887
+2024-07-24 16:54:10,213 - src.service.graph_train - INFO - AP train: 0.6320767158392563
+2024-07-24 16:54:10,213 - src.service.graph_train - INFO - AP val: 0.48103835620889673
+2024-07-24 16:54:10,213 - src.service.graph_train - INFO - AP test: 0.27130611135932303
+2024-07-24 16:54:14,815 - src.service.graph_train - INFO - Loss: 0.23225769256624046
+2024-07-24 16:54:14,815 - src.service.graph_train - INFO - AP train: 0.638312767457133
+2024-07-24 16:54:14,816 - src.service.graph_train - INFO - AP val: 0.49579898964722646
+2024-07-24 16:54:14,816 - src.service.graph_train - INFO - AP test: 0.28162196887827196
+2024-07-24 16:54:19,590 - src.service.graph_train - INFO - Loss: 0.23166781959038427
+2024-07-24 16:54:19,590 - src.service.graph_train - INFO - AP train: 0.6485151759644218
+2024-07-24 16:54:19,590 - src.service.graph_train - INFO - AP val: 0.48950730361551564
+2024-07-24 16:54:19,591 - src.service.graph_train - INFO - AP test: 0.2822021736378118
+2024-07-24 16:54:24,389 - src.service.graph_train - INFO - Loss: 0.22910415377593846
+2024-07-24 16:54:24,389 - src.service.graph_train - INFO - AP train: 0.6514186027776171
+2024-07-24 16:54:24,389 - src.service.graph_train - INFO - AP val: 0.5051982800820094
+2024-07-24 16:54:24,389 - src.service.graph_train - INFO - AP test: 0.2725800143393107
+2024-07-24 16:54:28,925 - src.service.graph_train - INFO - Loss: 0.22782350889438593
+2024-07-24 16:54:28,925 - src.service.graph_train - INFO - AP train: 0.6503063663999883
+2024-07-24 16:54:28,925 - src.service.graph_train - INFO - AP val: 0.5059350562642053
+2024-07-24 16:54:28,925 - src.service.graph_train - INFO - AP test: 0.2797432258092495
+2024-07-24 16:54:33,773 - src.service.graph_train - INFO - Loss: 0.22719316580445295
+2024-07-24 16:54:33,773 - src.service.graph_train - INFO - AP train: 0.6631978124735054
+2024-07-24 16:54:33,773 - src.service.graph_train - INFO - AP val: 0.5065542337162542
+2024-07-24 16:54:33,773 - src.service.graph_train - INFO - AP test: 0.27001260057986876
+2024-07-24 16:54:38,375 - src.service.graph_train - INFO - Loss: 0.2253626067965215
+2024-07-24 16:54:38,375 - src.service.graph_train - INFO - AP train: 0.6624204918179059
+2024-07-24 16:54:38,375 - src.service.graph_train - INFO - AP val: 0.51174078129131
+2024-07-24 16:54:38,376 - src.service.graph_train - INFO - AP test: 0.2774239722603025
+2024-07-24 16:54:43,442 - src.service.graph_train - INFO - Loss: 0.22461170699573368
+2024-07-24 16:54:43,442 - src.service.graph_train - INFO - AP train: 0.6674889367843824
+2024-07-24 16:54:43,442 - src.service.graph_train - INFO - AP val: 0.5237374840959701
+2024-07-24 16:54:43,442 - src.service.graph_train - INFO - AP test: 0.27069610277576256
+2024-07-24 16:54:48,339 - src.service.graph_train - INFO - Loss: 0.2249067307310404
+2024-07-24 16:54:48,339 - src.service.graph_train - INFO - AP train: 0.6755546742425976
+2024-07-24 16:54:48,339 - src.service.graph_train - INFO - AP val: 0.5219374993023213
+2024-07-24 16:54:48,339 - src.service.graph_train - INFO - AP test: 0.2710680237868052
+2024-07-24 16:54:53,151 - src.service.graph_train - INFO - Loss: 0.22311336971855394
+2024-07-24 16:54:53,151 - src.service.graph_train - INFO - AP train: 0.6734431408171447
+2024-07-24 16:54:53,152 - src.service.graph_train - INFO - AP val: 0.5188603230117564
+2024-07-24 16:54:53,152 - src.service.graph_train - INFO - AP test: 0.2762765515552899
+2024-07-24 16:54:57,794 - src.service.graph_train - INFO - Loss: 0.2208365731769138
+2024-07-24 16:54:57,794 - src.service.graph_train - INFO - AP train: 0.6787506400711032
+2024-07-24 16:54:57,795 - src.service.graph_train - INFO - AP val: 0.5284498133879942
+2024-07-24 16:54:57,795 - src.service.graph_train - INFO - AP test: 0.26928907681672626
+2024-07-24 16:55:02,399 - src.service.graph_train - INFO - Loss: 0.22133132858552795
+2024-07-24 16:55:02,399 - src.service.graph_train - INFO - AP train: 0.6827389235308875
+2024-07-24 16:55:02,399 - src.service.graph_train - INFO - AP val: 0.5307314714039005
+2024-07-24 16:55:02,399 - src.service.graph_train - INFO - AP test: 0.2758870099154377
+2024-07-24 16:55:06,963 - src.service.graph_train - INFO - Loss: 0.21909466493820798
+2024-07-24 16:55:06,963 - src.service.graph_train - INFO - AP train: 0.6862614764844596
+2024-07-24 16:55:06,963 - src.service.graph_train - INFO - AP val: 0.5364047987523652
+2024-07-24 16:55:06,963 - src.service.graph_train - INFO - AP test: 0.2686052337714973
+2024-07-24 16:55:11,671 - src.service.graph_train - INFO - Loss: 0.2178846714289292
+2024-07-24 16:55:11,671 - src.service.graph_train - INFO - AP train: 0.692994194425365
+2024-07-24 16:55:11,672 - src.service.graph_train - INFO - AP val: 0.5341227227788188
+2024-07-24 16:55:11,672 - src.service.graph_train - INFO - AP test: 0.26924997469754497
+2024-07-24 16:55:16,289 - src.service.graph_train - INFO - Loss: 0.2173784158512014
+2024-07-24 16:55:16,289 - src.service.graph_train - INFO - AP train: 0.693541899072349
+2024-07-24 16:55:16,289 - src.service.graph_train - INFO - AP val: 0.5363692355017065
+2024-07-24 16:55:16,289 - src.service.graph_train - INFO - AP test: 0.2715741160290597
+2024-07-24 16:55:20,805 - src.service.graph_train - INFO - Loss: 0.21543532617138203
+2024-07-24 16:55:20,805 - src.service.graph_train - INFO - AP train: 0.6996314614300914
+2024-07-24 16:55:20,805 - src.service.graph_train - INFO - AP val: 0.5440948376943706
+2024-07-24 16:55:20,805 - src.service.graph_train - INFO - AP test: 0.2758858267925381
+2024-07-24 16:55:25,402 - src.service.graph_train - INFO - Loss: 0.21535755715508392
+2024-07-24 16:55:25,402 - src.service.graph_train - INFO - AP train: 0.6938280057632085
+2024-07-24 16:55:25,403 - src.service.graph_train - INFO - AP val: 0.5351767569685637
+2024-07-24 16:55:25,403 - src.service.graph_train - INFO - AP test: 0.26719389991847986
+2024-07-24 16:55:29,977 - src.service.graph_train - INFO - Loss: 0.21303551597295753
+2024-07-24 16:55:29,977 - src.service.graph_train - INFO - AP train: 0.6961297168258461
+2024-07-24 16:55:29,977 - src.service.graph_train - INFO - AP val: 0.5423806657946496
+2024-07-24 16:55:29,977 - src.service.graph_train - INFO - AP test: 0.27133745720764946
+2024-07-24 16:55:34,622 - src.service.graph_train - INFO - Loss: 0.2136354922960346
+2024-07-24 16:55:34,622 - src.service.graph_train - INFO - AP train: 0.7031137092372559
+2024-07-24 16:55:34,622 - src.service.graph_train - INFO - AP val: 0.5420527942142186
+2024-07-24 16:55:34,622 - src.service.graph_train - INFO - AP test: 0.2668180676740313
+2024-07-24 16:55:39,164 - src.service.graph_train - INFO - Loss: 0.21225435383941815
+2024-07-24 16:55:39,165 - src.service.graph_train - INFO - AP train: 0.7044748160727495
+2024-07-24 16:55:39,165 - src.service.graph_train - INFO - AP val: 0.5474564483545812
+2024-07-24 16:55:39,165 - src.service.graph_train - INFO - AP test: 0.2651360017119574
+2024-07-24 16:55:43,812 - src.service.graph_train - INFO - Loss: 0.2116827040478803
+2024-07-24 16:55:43,812 - src.service.graph_train - INFO - AP train: 0.7046451944338125
+2024-07-24 16:55:43,812 - src.service.graph_train - INFO - AP val: 0.5472063194892522
+2024-07-24 16:55:43,812 - src.service.graph_train - INFO - AP test: 0.2663117594399262
+2024-07-24 16:55:48,417 - src.service.graph_train - INFO - Loss: 0.20902926046491246
+2024-07-24 16:55:48,417 - src.service.graph_train - INFO - AP train: 0.7020590561106127
+2024-07-24 16:55:48,417 - src.service.graph_train - INFO - AP val: 0.555654357789319
+2024-07-24 16:55:48,417 - src.service.graph_train - INFO - AP test: 0.2677171577970258
+2024-07-24 16:55:53,116 - src.service.graph_train - INFO - Loss: 0.2091730565264605
+2024-07-24 16:55:53,116 - src.service.graph_train - INFO - AP train: 0.7064846803265075
+2024-07-24 16:55:53,116 - src.service.graph_train - INFO - AP val: 0.5571262819706627
+2024-07-24 16:55:53,116 - src.service.graph_train - INFO - AP test: 0.2660333695003978
+2024-07-24 16:55:57,771 - src.service.graph_train - INFO - Loss: 0.20743071259075893
+2024-07-24 16:55:57,771 - src.service.graph_train - INFO - AP train: 0.7102458488913275
+2024-07-24 16:55:57,771 - src.service.graph_train - INFO - AP val: 0.5597384367406409
+2024-07-24 16:55:57,771 - src.service.graph_train - INFO - AP test: 0.26823701322985666
+2024-07-24 16:56:02,387 - src.service.graph_train - INFO - Loss: 0.20708775801071222
+2024-07-24 16:56:02,387 - src.service.graph_train - INFO - AP train: 0.7083058005884387
+2024-07-24 16:56:02,387 - src.service.graph_train - INFO - AP val: 0.5600048918970675
+2024-07-24 16:56:02,387 - src.service.graph_train - INFO - AP test: 0.2688061131845333
+2024-07-24 16:56:06,924 - src.service.graph_train - INFO - Loss: 0.20636960241385705
+2024-07-24 16:56:06,924 - src.service.graph_train - INFO - AP train: 0.7184352845931755
+2024-07-24 16:56:06,924 - src.service.graph_train - INFO - AP val: 0.5557047684359558
+2024-07-24 16:56:06,924 - src.service.graph_train - INFO - AP test: 0.2656434697499032
+2024-07-24 16:56:11,534 - src.service.graph_train - INFO - Loss: 0.20644362882715492
+2024-07-24 16:56:11,534 - src.service.graph_train - INFO - AP train: 0.7097830061575136
+2024-07-24 16:56:11,534 - src.service.graph_train - INFO - AP val: 0.5576535185641371
+2024-07-24 16:56:11,534 - src.service.graph_train - INFO - AP test: 0.2624700639825371
+2024-07-24 16:56:16,077 - src.service.graph_train - INFO - Loss: 0.20593637796703745
+2024-07-24 16:56:16,077 - src.service.graph_train - INFO - AP train: 0.7148485514785962
+2024-07-24 16:56:16,078 - src.service.graph_train - INFO - AP val: 0.5632629543471395
+2024-07-24 16:56:16,078 - src.service.graph_train - INFO - AP test: 0.26078257055315335
+2024-07-24 16:56:16,078 - src.service.graph_train - INFO - DONE PHASE TRAIN !
+2024-07-24 16:56:18,572 - src.service.graph_train - INFO - SAVE YOUR MODEL AT: /home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/model/gckan/gckan_v2.pt
+2024-07-24 16:56:18,574 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 238.3219s
+2024-07-24 17:05:34,979 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3982s
+2024-07-24 17:05:35,028 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 17:05:35,028 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 5 
+                          learning-rate: 0.0002 
+                          batch-size: 128
+2024-07-24 17:05:35,028 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 17:05:35,412 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3838s
+2024-07-24 17:05:35,413 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 17:05:44,193 - src.service.graph_train - INFO - Loss: 0.6951814351450418
+2024-07-24 17:05:44,193 - src.service.graph_train - INFO - AP train: 0.08604313877544818
+2024-07-24 17:05:44,193 - src.service.graph_train - INFO - AP val: 0.12656834705357434
+2024-07-24 17:05:44,193 - src.service.graph_train - INFO - AP test: 0.06508683947839064
+2024-07-24 17:05:48,551 - src.service.graph_train - INFO - Loss: 0.641864323961562
+2024-07-24 17:05:48,551 - src.service.graph_train - INFO - AP train: 0.14884935113940506
+2024-07-24 17:05:48,551 - src.service.graph_train - INFO - AP val: 0.15017675471050274
+2024-07-24 17:05:48,551 - src.service.graph_train - INFO - AP test: 0.0798302007742748
+2024-07-24 17:05:52,835 - src.service.graph_train - INFO - Loss: 0.6001138692892692
+2024-07-24 17:05:52,835 - src.service.graph_train - INFO - AP train: 0.21194347387511514
+2024-07-24 17:05:52,835 - src.service.graph_train - INFO - AP val: 0.174355651717524
+2024-07-24 17:05:52,835 - src.service.graph_train - INFO - AP test: 0.0938406748446026
+2024-07-24 17:05:57,263 - src.service.graph_train - INFO - Loss: 0.5659224488884931
+2024-07-24 17:05:57,263 - src.service.graph_train - INFO - AP train: 0.27205204753586437
+2024-07-24 17:05:57,263 - src.service.graph_train - INFO - AP val: 0.20171553065368755
+2024-07-24 17:05:57,263 - src.service.graph_train - INFO - AP test: 0.09457006949662151
+2024-07-24 17:06:01,729 - src.service.graph_train - INFO - Loss: 0.5369923134932771
+2024-07-24 17:06:01,729 - src.service.graph_train - INFO - AP train: 0.31127152858377427
+2024-07-24 17:06:01,729 - src.service.graph_train - INFO - AP val: 0.21003254703747043
+2024-07-24 17:06:01,729 - src.service.graph_train - INFO - AP test: 0.10356331482419712
+2024-07-24 17:06:01,730 - src.service.graph_train - INFO - DONE PHASE TRAIN !
+2024-07-24 17:06:04,185 - src.service.graph_train - INFO - SAVE YOUR MODEL AT: /home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/model/gckan/gckan_v2.pt
+2024-07-24 17:06:04,185 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 28.7723s
+2024-07-24 17:06:45,988 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.4071s
+2024-07-24 17:06:46,046 - src.service.graph_train - INFO - MODEL: 
+ GCKAN(
+  (gcn_hidden): ModuleList(
+    (0): GCNConv(217, 217)
+  )
+  (dropout): Dropout(p=0.057, inplace=False)
+  (ln1): LayerNorm(93, affine=True, mode=graph)
+  (gcn1): GCNConv(93, 217)
+  (gcn2): GCNConv(217, 87)
+  (out): KANLinear(
+    (base_activation): SiLU()
+  )
+)
+2024-07-24 17:06:46,047 - src.service.graph_train - INFO - HYPERPARAMETERS: 
+                          epochs: 50 
+                          learning-rate: 0.0002 
+                          batch-size: 128
+2024-07-24 17:06:46,047 - src.service.graph_train - INFO - DEVICE: cuda:0
+2024-07-24 17:06:46,445 - src.utils.timer - INFO - DONE PROCESS PHASE ELLIPTIC LOADER IN 0.3976s
+2024-07-24 17:06:46,446 - src.service.graph_experiments - INFO - Start training !
+2024-07-24 17:06:55,500 - src.service.graph_train - INFO - Loss: 0.7009908418724502
+2024-07-24 17:06:55,500 - src.service.graph_train - INFO - AP train: 0.11340106160079864
+2024-07-24 17:06:55,500 - src.service.graph_train - INFO - AP val: 0.19144683700549397
+2024-07-24 17:06:55,500 - src.service.graph_train - INFO - AP test: 0.09747538987645216
+2024-07-24 17:06:59,855 - src.service.graph_train - INFO - Loss: 0.6387348428440555
+2024-07-24 17:06:59,855 - src.service.graph_train - INFO - AP train: 0.3231819292498368
+2024-07-24 17:06:59,855 - src.service.graph_train - INFO - AP val: 0.41074562689525584
+2024-07-24 17:06:59,855 - src.service.graph_train - INFO - AP test: 0.20627257405990823
+2024-07-24 17:07:04,132 - src.service.graph_train - INFO - Loss: 0.5922320882479349
+2024-07-24 17:07:04,132 - src.service.graph_train - INFO - AP train: 0.49486968749185273
+2024-07-24 17:07:04,132 - src.service.graph_train - INFO - AP val: 0.4981724422780824
+2024-07-24 17:07:04,132 - src.service.graph_train - INFO - AP test: 0.2762950438954016
+2024-07-24 17:07:08,703 - src.service.graph_train - INFO - Loss: 0.5555683653711697
+2024-07-24 17:07:08,703 - src.service.graph_train - INFO - AP train: 0.5381401485089052
+2024-07-24 17:07:08,703 - src.service.graph_train - INFO - AP val: 0.5110611458382042
+2024-07-24 17:07:08,703 - src.service.graph_train - INFO - AP test: 0.2915234928832316
+2024-07-24 17:07:13,303 - src.service.graph_train - INFO - Loss: 0.5252268474171127
+2024-07-24 17:07:13,303 - src.service.graph_train - INFO - AP train: 0.5543442481056069
+2024-07-24 17:07:13,304 - src.service.graph_train - INFO - AP val: 0.49401579061461304
+2024-07-24 17:07:13,304 - src.service.graph_train - INFO - AP test: 0.3059519777709049
+2024-07-24 17:07:17,815 - src.service.graph_train - INFO - Loss: 0.4992152872868782
+2024-07-24 17:07:17,816 - src.service.graph_train - INFO - AP train: 0.5616943683814809
+2024-07-24 17:07:17,816 - src.service.graph_train - INFO - AP val: 0.5074145640212067
+2024-07-24 17:07:17,816 - src.service.graph_train - INFO - AP test: 0.3269089398397775
+2024-07-24 17:07:22,314 - src.service.graph_train - INFO - Loss: 0.4767133055101846
+2024-07-24 17:07:22,314 - src.service.graph_train - INFO - AP train: 0.5689187892825393
+2024-07-24 17:07:22,314 - src.service.graph_train - INFO - AP val: 0.5028611227525429
+2024-07-24 17:07:22,314 - src.service.graph_train - INFO - AP test: 0.32245335156644367
+2024-07-24 17:07:26,940 - src.service.graph_train - INFO - Loss: 0.4569059685232559
+2024-07-24 17:07:26,940 - src.service.graph_train - INFO - AP train: 0.5664285096043677
+2024-07-24 17:07:26,940 - src.service.graph_train - INFO - AP val: 0.5038912811096907
+2024-07-24 17:07:26,940 - src.service.graph_train - INFO - AP test: 0.3231264708369041
+2024-07-24 17:07:31,460 - src.service.graph_train - INFO - Loss: 0.4389865959900013
+2024-07-24 17:07:31,460 - src.service.graph_train - INFO - AP train: 0.5672055202654719
+2024-07-24 17:07:31,460 - src.service.graph_train - INFO - AP val: 0.4953736573302455
+2024-07-24 17:07:31,460 - src.service.graph_train - INFO - AP test: 0.3235481389998469
+2024-07-24 17:07:35,950 - src.service.graph_train - INFO - Loss: 0.4230692121717665
+2024-07-24 17:07:35,950 - src.service.graph_train - INFO - AP train: 0.5644361918213957
+2024-07-24 17:07:35,950 - src.service.graph_train - INFO - AP val: 0.49514551929953615
+2024-07-24 17:07:35,950 - src.service.graph_train - INFO - AP test: 0.33383385174576724
+2024-07-24 17:07:40,422 - src.service.graph_train - INFO - Loss: 0.40850546250596714
+2024-07-24 17:07:40,423 - src.service.graph_train - INFO - AP train: 0.5732761148708536
+2024-07-24 17:07:40,423 - src.service.graph_train - INFO - AP val: 0.5007517607943893
+2024-07-24 17:07:40,423 - src.service.graph_train - INFO - AP test: 0.33435290326006417
+2024-07-24 17:07:44,956 - src.service.graph_train - INFO - Loss: 0.3949714711898767
+2024-07-24 17:07:44,956 - src.service.graph_train - INFO - AP train: 0.5697510567049194
+2024-07-24 17:07:44,956 - src.service.graph_train - INFO - AP val: 0.49695608739222313
+2024-07-24 17:07:44,956 - src.service.graph_train - INFO - AP test: 0.3332920380156587
+2024-07-24 17:07:49,462 - src.service.graph_train - INFO - Loss: 0.38371437096941297
+2024-07-24 17:07:49,463 - src.service.graph_train - INFO - AP train: 0.5667529536753266
+2024-07-24 17:07:49,463 - src.service.graph_train - INFO - AP val: 0.4914114543161027
+2024-07-24 17:07:49,463 - src.service.graph_train - INFO - AP test: 0.31545961576156845
+2024-07-24 17:07:54,024 - src.service.graph_train - INFO - Loss: 0.37213823616792613
+2024-07-24 17:07:54,024 - src.service.graph_train - INFO - AP train: 0.5665075737876221
+2024-07-24 17:07:54,024 - src.service.graph_train - INFO - AP val: 0.4977647550931724
+2024-07-24 17:07:54,024 - src.service.graph_train - INFO - AP test: 0.33537376531488405
+2024-07-24 17:07:58,658 - src.service.graph_train - INFO - Loss: 0.3629216155856128
+2024-07-24 17:07:58,658 - src.service.graph_train - INFO - AP train: 0.5714665753485181
+2024-07-24 17:07:58,658 - src.service.graph_train - INFO - AP val: 0.4961069897906699
+2024-07-24 17:07:58,658 - src.service.graph_train - INFO - AP test: 0.3334485657382238
+2024-07-24 17:08:03,338 - src.service.graph_train - INFO - Loss: 0.35396743684575177
+2024-07-24 17:08:03,338 - src.service.graph_train - INFO - AP train: 0.575787895415269
+2024-07-24 17:08:03,338 - src.service.graph_train - INFO - AP val: 0.48921092758184975
+2024-07-24 17:08:03,339 - src.service.graph_train - INFO - AP test: 0.3238393905164937
+2024-07-24 17:08:07,893 - src.service.graph_train - INFO - Loss: 0.3456714362050024
+2024-07-24 17:08:07,893 - src.service.graph_train - INFO - AP train: 0.5665373625755988
+2024-07-24 17:08:07,893 - src.service.graph_train - INFO - AP val: 0.48566907333548304
+2024-07-24 17:08:07,893 - src.service.graph_train - INFO - AP test: 0.3363741856738603
+2024-07-24 17:08:12,463 - src.service.graph_train - INFO - Loss: 0.3379272789770854
+2024-07-24 17:08:12,463 - src.service.graph_train - INFO - AP train: 0.580585270416654
+2024-07-24 17:08:12,463 - src.service.graph_train - INFO - AP val: 0.48038813558033794
+2024-07-24 17:08:12,463 - src.service.graph_train - INFO - AP test: 0.34392367954014585
+2024-07-24 17:08:17,020 - src.service.graph_train - INFO - Loss: 0.331156587543119
+2024-07-24 17:08:17,020 - src.service.graph_train - INFO - AP train: 0.5703539700623816
+2024-07-24 17:08:17,020 - src.service.graph_train - INFO - AP val: 0.4858669659544145
+2024-07-24 17:08:17,020 - src.service.graph_train - INFO - AP test: 0.34092313107189054
+2024-07-24 17:08:21,664 - src.service.graph_train - INFO - Loss: 0.3242160389964707
+2024-07-24 17:08:21,665 - src.service.graph_train - INFO - AP train: 0.5768510809610947
+2024-07-24 17:08:21,665 - src.service.graph_train - INFO - AP val: 0.490244159645129
+2024-07-24 17:08:21,665 - src.service.graph_train - INFO - AP test: 0.33923911300176224
+2024-07-24 17:08:26,297 - src.service.graph_train - INFO - Loss: 0.3183194959653173
+2024-07-24 17:08:26,298 - src.service.graph_train - INFO - AP train: 0.5714951911958825
+2024-07-24 17:08:26,298 - src.service.graph_train - INFO - AP val: 0.49501371393734783
+2024-07-24 17:08:26,298 - src.service.graph_train - INFO - AP test: 0.33585709751955284
+2024-07-24 17:08:30,885 - src.service.graph_train - INFO - Loss: 0.3134066052194955
+2024-07-24 17:08:30,885 - src.service.graph_train - INFO - AP train: 0.585878257537471
+2024-07-24 17:08:30,885 - src.service.graph_train - INFO - AP val: 0.4829196874302144
+2024-07-24 17:08:30,885 - src.service.graph_train - INFO - AP test: 0.3402554825146808
+2024-07-24 17:08:35,504 - src.service.graph_train - INFO - Loss: 0.3086996963922528
+2024-07-24 17:08:35,504 - src.service.graph_train - INFO - AP train: 0.5766071881197782
+2024-07-24 17:08:35,505 - src.service.graph_train - INFO - AP val: 0.49155475762433787
+2024-07-24 17:08:35,505 - src.service.graph_train - INFO - AP test: 0.34406158219686717
+2024-07-24 17:08:40,100 - src.service.graph_train - INFO - Loss: 0.3036351542973864
+2024-07-24 17:08:40,100 - src.service.graph_train - INFO - AP train: 0.5868473633501707
+2024-07-24 17:08:40,100 - src.service.graph_train - INFO - AP val: 0.4868503792097171
+2024-07-24 17:08:40,100 - src.service.graph_train - INFO - AP test: 0.34438989560310657
+2024-07-24 17:08:44,677 - src.service.graph_train - INFO - Loss: 0.29955019647084574
+2024-07-24 17:08:44,677 - src.service.graph_train - INFO - AP train: 0.5852774270370628
+2024-07-24 17:08:44,677 - src.service.graph_train - INFO - AP val: 0.4941570942810681
+2024-07-24 17:08:44,677 - src.service.graph_train - INFO - AP test: 0.34724337713546355
+2024-07-24 17:08:49,186 - src.service.graph_train - INFO - Loss: 0.29527675536807607
+2024-07-24 17:08:49,186 - src.service.graph_train - INFO - AP train: 0.5778758359058709
+2024-07-24 17:08:49,186 - src.service.graph_train - INFO - AP val: 0.47866136559941996
+2024-07-24 17:08:49,186 - src.service.graph_train - INFO - AP test: 0.34268625794385926
+2024-07-24 17:08:53,717 - src.service.graph_train - INFO - Loss: 0.2914196258581779
+2024-07-24 17:08:53,717 - src.service.graph_train - INFO - AP train: 0.5794967458566821
+2024-07-24 17:08:53,718 - src.service.graph_train - INFO - AP val: 0.4841676856432978
+2024-07-24 17:08:53,718 - src.service.graph_train - INFO - AP test: 0.33618869325827044
+2024-07-24 17:08:58,246 - src.service.graph_train - INFO - Loss: 0.2883386574505608
+2024-07-24 17:08:58,246 - src.service.graph_train - INFO - AP train: 0.5826906656393277
+2024-07-24 17:08:58,246 - src.service.graph_train - INFO - AP val: 0.48719409761866506
+2024-07-24 17:08:58,246 - src.service.graph_train - INFO - AP test: 0.3317643643051193
+2024-07-24 17:09:02,827 - src.service.graph_train - INFO - Loss: 0.28532739811473423
+2024-07-24 17:09:02,827 - src.service.graph_train - INFO - AP train: 0.5774477428647241
+2024-07-24 17:09:02,827 - src.service.graph_train - INFO - AP val: 0.4922096601172512
+2024-07-24 17:09:02,827 - src.service.graph_train - INFO - AP test: 0.3368135282372364
+2024-07-24 17:09:07,588 - src.service.graph_train - INFO - Loss: 0.2819693028782877
+2024-07-24 17:09:07,588 - src.service.graph_train - INFO - AP train: 0.5849919210251402
+2024-07-24 17:09:07,588 - src.service.graph_train - INFO - AP val: 0.48857544644586715
+2024-07-24 17:09:07,588 - src.service.graph_train - INFO - AP test: 0.34232888699363156
+2024-07-24 17:09:12,282 - src.service.graph_train - INFO - Loss: 0.2793644172845831
+2024-07-24 17:09:12,282 - src.service.graph_train - INFO - AP train: 0.5794663102870123
+2024-07-24 17:09:12,282 - src.service.graph_train - INFO - AP val: 0.49286800678369125
+2024-07-24 17:09:12,282 - src.service.graph_train - INFO - AP test: 0.3419631302796264
+2024-07-24 17:09:16,884 - src.service.graph_train - INFO - Loss: 0.2773982655742894
+2024-07-24 17:09:16,884 - src.service.graph_train - INFO - AP train: 0.5849329027034268
+2024-07-24 17:09:16,884 - src.service.graph_train - INFO - AP val: 0.4859531629629749
+2024-07-24 17:09:16,884 - src.service.graph_train - INFO - AP test: 0.3396447582690697
+2024-07-24 17:09:21,434 - src.service.graph_train - INFO - Loss: 0.27474267564821936
+2024-07-24 17:09:21,434 - src.service.graph_train - INFO - AP train: 0.5839828762690964
+2024-07-24 17:09:21,434 - src.service.graph_train - INFO - AP val: 0.48130933804402076
+2024-07-24 17:09:21,434 - src.service.graph_train - INFO - AP test: 0.3444756484923216
+2024-07-24 17:09:26,062 - src.service.graph_train - INFO - Loss: 0.27266482418573995
+2024-07-24 17:09:26,062 - src.service.graph_train - INFO - AP train: 0.5873350682437399
+2024-07-24 17:09:26,062 - src.service.graph_train - INFO - AP val: 0.496320360213572
+2024-07-24 17:09:26,062 - src.service.graph_train - INFO - AP test: 0.34516461721467334
+2024-07-24 17:09:30,695 - src.service.graph_train - INFO - Loss: 0.2706227232004709
+2024-07-24 17:09:30,696 - src.service.graph_train - INFO - AP train: 0.5913296857294125
+2024-07-24 17:09:30,696 - src.service.graph_train - INFO - AP val: 0.49705972540379206
+2024-07-24 17:09:30,696 - src.service.graph_train - INFO - AP test: 0.34999319651990374
+2024-07-24 17:09:35,397 - src.service.graph_train - INFO - Loss: 0.2687525538286725
+2024-07-24 17:09:35,397 - src.service.graph_train - INFO - AP train: 0.5861794994217038
+2024-07-24 17:09:35,398 - src.service.graph_train - INFO - AP val: 0.4955837888671723
+2024-07-24 17:09:35,398 - src.service.graph_train - INFO - AP test: 0.34856791776534396
+2024-07-24 17:09:39,991 - src.service.graph_train - INFO - Loss: 0.2666909694671631
+2024-07-24 17:09:39,991 - src.service.graph_train - INFO - AP train: 0.5872069174742847
+2024-07-24 17:09:39,991 - src.service.graph_train - INFO - AP val: 0.4964445210209001
+2024-07-24 17:09:39,992 - src.service.graph_train - INFO - AP test: 0.3456516720849885
+2024-07-24 17:09:44,490 - src.service.graph_train - INFO - Loss: 0.26547046581616146
+2024-07-24 17:09:44,490 - src.service.graph_train - INFO - AP train: 0.5868842175835763
+2024-07-24 17:09:44,490 - src.service.graph_train - INFO - AP val: 0.4895399695496352
+2024-07-24 17:09:44,491 - src.service.graph_train - INFO - AP test: 0.34588503980991253
+2024-07-24 17:09:49,020 - src.service.graph_train - INFO - Loss: 0.2645917113708413
+2024-07-24 17:09:49,020 - src.service.graph_train - INFO - AP train: 0.5900047165486846
+2024-07-24 17:09:49,020 - src.service.graph_train - INFO - AP val: 0.49512312283190435
+2024-07-24 17:09:49,020 - src.service.graph_train - INFO - AP test: 0.34179714200177547
+2024-07-24 17:09:53,540 - src.service.graph_train - INFO - Loss: 0.2633761087621468
+2024-07-24 17:09:53,540 - src.service.graph_train - INFO - AP train: 0.5890096134736474
+2024-07-24 17:09:53,541 - src.service.graph_train - INFO - AP val: 0.4892130249427534
+2024-07-24 17:09:53,541 - src.service.graph_train - INFO - AP test: 0.35469536605808244
+2024-07-24 17:09:58,074 - src.service.graph_train - INFO - Loss: 0.2626889954154618
+2024-07-24 17:09:58,074 - src.service.graph_train - INFO - AP train: 0.5902135585813948
+2024-07-24 17:09:58,074 - src.service.graph_train - INFO - AP val: 0.49571909273022
+2024-07-24 17:09:58,075 - src.service.graph_train - INFO - AP test: 0.3500060775746985
+2024-07-24 17:10:02,609 - src.service.graph_train - INFO - Loss: 0.2611720850646208
+2024-07-24 17:10:02,609 - src.service.graph_train - INFO - AP train: 0.5931728713843679
+2024-07-24 17:10:02,609 - src.service.graph_train - INFO - AP val: 0.5002250132725344
+2024-07-24 17:10:02,610 - src.service.graph_train - INFO - AP test: 0.3470967389461104
+2024-07-24 17:10:07,151 - src.service.graph_train - INFO - Loss: 0.2584950643173162
+2024-07-24 17:10:07,152 - src.service.graph_train - INFO - AP train: 0.5907546392432431
+2024-07-24 17:10:07,152 - src.service.graph_train - INFO - AP val: 0.49576999382921516
+2024-07-24 17:10:07,152 - src.service.graph_train - INFO - AP test: 0.3544439400887771
+2024-07-24 17:10:11,699 - src.service.graph_train - INFO - Loss: 0.25864399292906703
+2024-07-24 17:10:11,699 - src.service.graph_train - INFO - AP train: 0.5961712430937626
+2024-07-24 17:10:11,699 - src.service.graph_train - INFO - AP val: 0.49445278866412773
+2024-07-24 17:10:11,699 - src.service.graph_train - INFO - AP test: 0.3524097656390236
+2024-07-24 17:10:16,213 - src.service.graph_train - INFO - Loss: 0.2570922148688404
+2024-07-24 17:10:16,213 - src.service.graph_train - INFO - AP train: 0.5934050953038227
+2024-07-24 17:10:16,213 - src.service.graph_train - INFO - AP val: 0.506343980536071
+2024-07-24 17:10:16,213 - src.service.graph_train - INFO - AP test: 0.3546818851981015
+2024-07-24 17:10:20,717 - src.service.graph_train - INFO - Loss: 0.2567668748650574
+2024-07-24 17:10:20,717 - src.service.graph_train - INFO - AP train: 0.5974397843191338
+2024-07-24 17:10:20,717 - src.service.graph_train - INFO - AP val: 0.49872511923686264
+2024-07-24 17:10:20,718 - src.service.graph_train - INFO - AP test: 0.3583458238803475
+2024-07-24 17:10:25,254 - src.service.graph_train - INFO - Loss: 0.25614266090346993
+2024-07-24 17:10:25,254 - src.service.graph_train - INFO - AP train: 0.5986245616507214
+2024-07-24 17:10:25,254 - src.service.graph_train - INFO - AP val: 0.5009173414934772
+2024-07-24 17:10:25,254 - src.service.graph_train - INFO - AP test: 0.3497966441619905
+2024-07-24 17:10:30,010 - src.service.graph_train - INFO - Loss: 0.2544207356258291
+2024-07-24 17:10:30,010 - src.service.graph_train - INFO - AP train: 0.5972291883805049
+2024-07-24 17:10:30,010 - src.service.graph_train - INFO - AP val: 0.5005639979828764
+2024-07-24 17:10:30,010 - src.service.graph_train - INFO - AP test: 0.34926095894441406
+2024-07-24 17:10:34,590 - src.service.graph_train - INFO - Loss: 0.2535524637514842
+2024-07-24 17:10:34,591 - src.service.graph_train - INFO - AP train: 0.6023550482414646
+2024-07-24 17:10:34,591 - src.service.graph_train - INFO - AP val: 0.5078380191149922
+2024-07-24 17:10:34,591 - src.service.graph_train - INFO - AP test: 0.352388467260147
+2024-07-24 17:10:39,231 - src.service.graph_train - INFO - Loss: 0.2525122486738767
+2024-07-24 17:10:39,231 - src.service.graph_train - INFO - AP train: 0.5978783138592959
+2024-07-24 17:10:39,231 - src.service.graph_train - INFO - AP val: 0.5056277661786381
+2024-07-24 17:10:39,231 - src.service.graph_train - INFO - AP test: 0.353085089646798
+2024-07-24 17:10:39,231 - src.service.graph_train - INFO - DONE PHASE TRAIN !
+2024-07-24 17:10:41,806 - src.service.graph_train - INFO - SAVE YOUR MODEL AT: /home/hoangtv/Desktop/Nhan_CDT/elliptic-fraud-detection/model/gckan/gckan_v2.pt
+2024-07-24 17:10:41,807 - src.utils.timer - INFO - DONE PROCESS PHASE EXPERIMENT IN 235.3609s
