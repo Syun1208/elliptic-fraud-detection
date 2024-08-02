@@ -18,6 +18,7 @@ class DataNetWork:
         self, 
         df_features: pl.DataFrame, 
         df_edges: pl.DataFrame,  
+        df_classes: pl.DataFrame,
         train_mask: np.array, 
         val_mask: np.array, 
         test_mask: np.array, 
@@ -26,6 +27,8 @@ class DataNetWork:
         
         self.df_features = df_features
         self.df_edges = df_edges
+        self.df_classes = df_classes
+        
         self.directed = directed
         
         self.graph: Graph = self._set_up_network_info()
@@ -42,7 +45,38 @@ class DataNetWork:
         self.test_mask = test_mask
         
         
+    def __process_edge4link_prediction(self) -> List[torch.Tensor]:
         
+        self.df_edges = self.df_edges.rename({'current_transid': 'transid'})
+        self.df_edges = self.df_edges.join(self.df_classes, on='transid', how='left')
+        self.df_edges = self.df_edges.rename({'transid': 'current_transid', 'class': 'current_class', 'next_transid': 'transid'})
+        self.df_edges = self.df_edges.join(self.df_classes, on='transid', how='left')
+        self.df_edges = self.df_edges.rename({'transid': 'next_transid', 'class': 'next_class'})
+
+        edge_info = (self.df_edges.with_columns(
+                pl.when(pl.col('current_class') == pl.col('next_class'))
+                .then(1)
+                .otherwise(0)
+                .alias('edge_label')
+            )
+            .filter(
+                pl.col('edge_label') == 1
+            )
+            .drop(
+                ['current_class', 'next_class']
+            )
+        )
+        
+        edge_label_index = torch.from_numpy(
+            edge_info.select(['current_transid', 'next_transid']).to_numpy()
+        ).t()
+        
+        edge_label = torch.from_numpy(
+            edge_info.select(['edge_label']).to_numpy()
+        ).t()
+        
+        return edge_label, edge_label_index
+      
     def _set_up_network_info(self) -> Graph:
         nodes = self.df_features.select(
             pl.col('transid')
@@ -56,24 +90,15 @@ class DataNetWork:
             pl.col('current_transid'),
             pl.col('next_transid')
         )
-
+        edge_label, edge_label_index = self.__process_edge4link_prediction()
         if not self.directed:
             map_id = {j:i for i,j in enumerate((nodes
                                             .to_series()
                                             .to_list()))} 
             
-            # nodes = nodes.with_columns(
-            #     pl.col('transid').map_dict(map_id).cast(pl.Int64)
-            # )
-            
             nodes = nodes.to_pandas()
             nodes['transid'] = nodes['transid'].map(map_id).astype(np.int64)
             nodes = pl.from_pandas(nodes)
-            
-            # edges = edges.with_columns(
-            #     pl.col('current_transid').map_dict(map_id).cast(pl.Int64),
-            #     pl.col('next_transid').map_dict(map_id).cast(pl.Int64)
-            # )
             
             edges = edges.to_pandas()
             
@@ -92,7 +117,9 @@ class DataNetWork:
         return Graph(
             nodes=nodes,
             edges=edges,
-            map_id=map_id
+            map_id=map_id,
+            edge_label=edge_label,
+            edge_label_index=edge_label_index
         )
         
         
@@ -143,7 +170,13 @@ class DataNetWork:
         weights = torch.tensor([1]* edge_index.shape[1] , dtype=torch.float) 
         
         # Create pyG dataset
-        data = Data(x=x, y=y, edge_index=edge_index)
+        data = Data(
+            x=x, 
+            y=y, 
+            edge_index=edge_index, 
+            edge_label_index=self.graph.edge_label_index, 
+            edge_label=self.graph.edge_label
+        )
 
         if self.train_mask is not None:
             data.train_mask = torch.tensor(self.train_mask, dtype=torch.bool)

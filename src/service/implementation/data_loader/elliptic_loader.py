@@ -68,6 +68,7 @@ class EllipticLoader(DataLoader):
         network = DataNetWork(
             feat_df, 
             edge_df, 
+            class_df,
             train_mask=train_mask, 
             val_mask=val_mask, 
             test_mask=test_mask

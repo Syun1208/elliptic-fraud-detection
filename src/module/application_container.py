@@ -13,6 +13,7 @@ from src.service.implementation.graph_model.gin import GIN
 from src.service.implementation.graph_model.graph_sage import GraphSAGE
 from src.service.implementation.graph_model.graph_kan import KanGNN
 from src.service.implementation.graph_train.trainer import Trainer, TrainerImpl
+from src.service.implementation.graph_train.maxl_trainer import MAXLTrainerImpl
 from src.service.implementation.graph_predict.predictor import Predictor, TesterImpl
 from src.service.implementation.graph_eval.evaluator import Evaluator, EvaluatorImpl
 from src.service.implementation.graph_experiments.graph_experiments import Experiments, ExperimentsImpl
@@ -61,12 +62,12 @@ class ApplicationContainer(containers.DeclarativeContainer):
     
     gcn = providers.Singleton(
         GCN,
-        num_features=service_config.gat.n_features,
-        hidden_dim=service_config.gat.hidden_dim,
-        embedding_dim=service_config.gat.embedding_dim,
-        output_dim=service_config.gat.output_dim,
-        n_layers=service_config.gat.n_layers,
-        dropout_rate=service_config.gat.dropout_rate
+        num_features=service_config.gcn.n_features,
+        hidden_dim=service_config.gcn.hidden_dim,
+        embedding_dim=service_config.gcn.embedding_dim,
+        output_dim=service_config.gcn.output_dim,
+        n_layers=service_config.gcn.n_layers,
+        dropout_rate=service_config.gcn.dropout_rate
     )
 
     gin = providers.Singleton(
@@ -103,16 +104,16 @@ class ApplicationContainer(containers.DeclarativeContainer):
     trainer = providers.AbstractSingleton(Trainer)
     trainer.override(
         providers.Singleton(
-            TrainerImpl,
-            model=graph_kan,
+            MAXLTrainerImpl,
+            model=gcn,
             data_loader=elliptic_loader,
             logger=logger, 
-            epochs=service_config.kan_gnn.epochs,
-            lr=service_config.kan_gnn.lr,
-            batch_size=service_config.kan_gnn.batch_size,
+            epochs=service_config.gcn.epochs,
+            lr=service_config.gcn.lr,
+            batch_size=service_config.gcn.batch_size,
             device_id=service_config.device_id,
             path_logs_tensorboard=service_config.tensorboard.log_dir,
-            path_model=service_config.kan_gnn.path_model
+            path_model=service_config.gcn.path_model
         )
     )
     
@@ -125,9 +126,9 @@ class ApplicationContainer(containers.DeclarativeContainer):
             data_loader=elliptic_loader,
             logger=logger,
             device_id=service_config.device_id,
-            batch_size=service_config.kan_gnn.batch_size,
-            path_model=service_config.kan_gnn.path_model,
-            n_random_samples=service_config.kan_gnn.test.n_test
+            batch_size=service_config.gcn.batch_size,
+            path_model=service_config.gcn.path_model,
+            n_random_samples=service_config.gcn.test.n_test
         )
     )
     
@@ -137,7 +138,7 @@ class ApplicationContainer(containers.DeclarativeContainer):
             EvaluatorImpl,
             predictor=predictor,
             logger=logger,
-            path_results=service_config.gat.test.path_results
+            path_results=service_config.gcn.test.path_results
         )
     )
     

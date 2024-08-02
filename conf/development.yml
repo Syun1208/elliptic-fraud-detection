@@ -43,6 +43,26 @@ gcn:
     path_results: 'model/gat/results.csv'
 
 
+maxl:
+  hidden_dim: 217
+  embedding_dim: 87
+  n_layers: 3
+  n_features: 93
+  output_dim: 2
+  dropout_rate: 0.057
+  heads: 5
+
+  lr: 0.0864
+  epochs: 500
+  batch_size: 128
+
+  path_model: 'model/maxl/maxl.pt'
+
+  test:
+    n_test: 1000
+    path_results: 'model/maxl/results.csv'
+
+
 kan_gnn:
   hidden_dim: 256
   grid_dim: 200
@@ -60,8 +80,6 @@ kan_gnn:
   test:
     n_test: 1000
     path_results: 'model/kan_graph/results.csv'
-
-
 
 logger:
   log_dir: 'logs/'
