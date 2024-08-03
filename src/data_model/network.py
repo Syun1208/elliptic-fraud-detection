@@ -44,16 +44,16 @@ class DataNetWork:
         self.val_mask = val_mask
         self.test_mask = test_mask
         
-        
-    def __process_edge4link_prediction(self) -> List[torch.Tensor]:
-        
-        self.df_edges = self.df_edges.rename({'current_transid': 'transid'})
-        self.df_edges = self.df_edges.join(self.df_classes, on='transid', how='left')
-        self.df_edges = self.df_edges.rename({'transid': 'current_transid', 'class': 'current_class', 'next_transid': 'transid'})
-        self.df_edges = self.df_edges.join(self.df_classes, on='transid', how='left')
-        self.df_edges = self.df_edges.rename({'transid': 'next_transid', 'class': 'next_class'})
 
-        edge_info = (self.df_edges.with_columns(
+    def __process_edge4link_prediction(self, df_edges: pl.DataFrame) -> List[torch.Tensor]:
+        
+        df_edges = df_edges.rename({'current_transid': 'transid'})
+        df_edges = df_edges.join(self.df_classes, on='transid', how='left')
+        df_edges = df_edges.rename({'transid': 'current_transid', 'class': 'current_class', 'next_transid': 'transid'})
+        df_edges = df_edges.join(self.df_classes, on='transid', how='left')
+        df_edges = df_edges.rename({'transid': 'next_transid', 'class': 'next_class'})
+
+        edge_info = (df_edges.with_columns(
                 pl.when(pl.col('current_class') == pl.col('next_class'))
                 .then(1)
                 .otherwise(0)
@@ -90,7 +90,7 @@ class DataNetWork:
             pl.col('current_transid'),
             pl.col('next_transid')
         )
-        edge_label, edge_label_index = self.__process_edge4link_prediction()
+        edge_label, edge_label_index = self.__process_edge4link_prediction(df_edges=edges)
         if not self.directed:
             map_id = {j:i for i,j in enumerate((nodes
                                             .to_series()
@@ -107,6 +107,8 @@ class DataNetWork:
             edges_reverse.columns = ['current_transid', 'next_transid']
             
             edges = pd.concat([edges_direct, edges_reverse], axis=0)
+            
+            edge_label, edge_label_index = self.__process_edge4link_prediction(df_edges=edges)
             
             edges['current_transid'] = edges['current_transid'].map(map_id).astype(np.int64)
             edges['next_transid'] = edges['next_transid'].map(map_id).astype(np.int64)

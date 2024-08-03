@@ -130,15 +130,17 @@ class MAXLTrainerImpl(Trainer):
                 
                 # Link Prediction
                 neg_edge_index = negative_sampling(
-                    edge_index=batch.edge_index, num_nodes=batch.x.shape[0],
-                    num_neg_samples=batch.edge_label_index.size(1), method='sparse')
+                    edge_index=batch.edge_index, 
+                    num_nodes=batch.x.shape[0],
+                    num_neg_samples=batch.edge_label_index.size(1), method='sparse'
+                )
 
                 edge_label_index = torch.cat(
                     [batch.edge_label_index, neg_edge_index],
                     dim=-1,
                 )
                 edge_label = torch.cat([
-                    batch.edge_label,
+                    batch.edge_label.unsqueeze(dim=0),
                     batch.edge_label.new_zeros(neg_edge_index.size(1))
                 ], dim=0)
                 
