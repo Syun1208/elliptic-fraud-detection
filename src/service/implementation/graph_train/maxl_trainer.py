@@ -115,7 +115,7 @@ class MAXLTrainerImpl(Trainer):
             out_nc = self.model.node_classification(z)
             loss_nc = self.criterion( 
                 train.y[train.train_mask].cpu().detach().numpy(),
-                out_nc[train.train_mask].cpu().detach().numpy()[:1]
+                out_nc[train.train_mask].cpu().detach().numpy()[:, 1]
             )
             
             # Link Prediction
