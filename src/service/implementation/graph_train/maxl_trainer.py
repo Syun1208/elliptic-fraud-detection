@@ -114,8 +114,8 @@ class MAXLTrainerImpl(Trainer):
             # Node Classification
             out_nc = self.model.node_classification(z)
             loss_nc = self.criterion( 
-                train.y[train.train_mask].cpu().detach().numpy(),
-                out_nc[train.train_mask].cpu().detach().numpy()[:, 1]
+                train.y.to(self.device),
+                out_nc.to(self.device)[:, 1]
             )
             
             # Link Prediction
@@ -129,6 +129,7 @@ class MAXLTrainerImpl(Trainer):
                 [train.edge_label_index, neg_edge_index],
                 dim=-1,
             ).to(self.device)
+            
             edge_label = torch.cat([
                 train.edge_label,
                 train.edge_label.new_zeros(neg_edge_index.size(1))
@@ -194,8 +195,8 @@ class MAXLTrainerImpl(Trainer):
             )
             
             val_loss_nc = self.criterion(
-                val.y[val.val_mask].cpu().detach().numpy(), 
-                out_nc[val.val_mask].cpu().detach().numpy()[:, 1]
+                val.y[val.val_mask].to(self.device), 
+                out_nc[val.val_mask][:, 1].to(self.device)
             )
             
             val_loss_lp = self.criterion(
@@ -240,8 +241,8 @@ class MAXLTrainerImpl(Trainer):
                     )
             
             test_loss_nc = self.criterion(
-                test.y[test.test_mask].cpu().detach().numpy(), 
-                out_nc[test.test_mask].cpu().detach().numpy()[:, 1]
+                test.y[test.test_mask].to(self.device), 
+                out_nc[test.test_mask].to(self.device)[:, 1]
             )
             
             test_loss_lp = self.criterion(
