@@ -3,7 +3,7 @@ warnings.filterwarnings('ignore')
 
 from pathlib import Path
 import torch
-import torch.nn as nn
+import torch_geometric.transforms as T
 import torch
 import os
 import tqdm
@@ -58,8 +58,16 @@ class MAXLTrainerImpl(Trainer):
         self.writer = SummaryWriter(self.path_logs_tensorboard)
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=self.lr)
         self.adadw = AdaDWLoss(T=2)
-        self.criterion = FocalLoss(gamma=0)
-        
+        self.criterion = FocalLoss(gamma=0.5)
+        self.transform = T.Compose([
+            T.RandomLinkSplit(
+                num_val=0.05,
+                num_test=0.1,
+                is_undirected=True,
+                add_negative_train_samples=False,
+                neg_sampling_ratio=1.0,
+            )
+        ])
         
         self.device = get_device(self.device_id)
         
@@ -72,26 +80,9 @@ class MAXLTrainerImpl(Trainer):
         self.logger.info(f'DEVICE: {self.device}')
     
     @time_complexity(name_process='PHASE TRAIN')
-    def fit(self) -> None:
+    def fit(self) -> None: 
 
-        try:
-            loader = NeighborLoader(
-                data=self.data_loader.get_network_torch(), 
-                num_neighbors=[-1]*self.model.n_layers, 
-                input_nodes=self.data_loader.train_mask, 
-                batch_size=self.batch_size, 
-                shuffle=True, 
-                num_workers=Pool()._processes
-            )
-        except:
-            loader = NeighborLoader(
-                data=self.data_loader.get_network_torch(), 
-                num_neighbors=[-1]* self.model.n_layers, 
-                batch_size=self.batch_size, 
-                shuffle=True, 
-                num_workers=Pool()._processes
-            )
-
+        train, val, test = self.transform(self.data_loader.get_network_torch())
         
         self.model.to(self.device)
 
@@ -110,126 +101,152 @@ class MAXLTrainerImpl(Trainer):
             ap_lp_val = 0.0
             ap_lp_test = 0.0
             
-            
-            for i, batch in enumerate(loader):
-                
-                self.model.train()
-                self.optimizer.zero_grad()
-                
-                z = self.model.encode(
-                        batch.x.to(self.device), 
-                        batch.edge_index.to(self.device)
-                    ).to(self.device)
 
-                # Node Classification
-                out_nc = self.model.node_classification(z)
-                loss_nc = self.criterion(
-                    out_nc[:batch.batch_size].to(self.device), 
-                    batch.y[:batch.batch_size].to(self.device)
-                )
-                
-                # Link Prediction
-                neg_edge_index = negative_sampling(
-                    edge_index=batch.edge_index, 
-                    num_nodes=batch.x.shape[0],
-                    num_neg_samples=batch.edge_label_index.size(1), method='sparse'
-                )
-
-                edge_label_index = torch.cat(
-                    [batch.edge_label_index, neg_edge_index],
-                    dim=-1,
-                ).to(self.device)
-                edge_label = torch.cat([
-                    batch.edge_label.squeeze(dim=0),
-                    batch.edge_label.new_zeros(neg_edge_index.size(1))
-                ], dim=0).to(self.device)
-                
-                out_lp = self.model.link_prediction(z, edge_label_index).view(-1)
-                loss_lp = self.criterion(
-                    out_lp[:batch.batch_size].to(self.device), 
-                    edge_label[:batch.batch_size].to(self.device)
-                )
-                
-                # Append loss of tasks
-                running_loss_nc += loss_nc.item()
-                running_loss_lp += loss_lp.item()
-                
-                ap_nc_train += average_precision_score(
-                        out_nc[:batch.batch_size].to(self.device).cpu().detach().numpy(), 
-                        batch.y[:batch.batch_size].to(self.device).cpu().detach().numpy()[:, 1]
-                    )
-                
-                ap_lp_train += average_precision_score(
-                        out_lp[:batch.batch_size].to(self.device).cpu().detach().numpy(), 
-                        edge_label[:batch.batch_size].to(self.device)
-                    )
+            # PHASE: TRAIN
+            self.model.train()
+            self.optimizer.zero_grad()
             
-                loss_nc.backward()
-                loss_lp.backward()
-                
-                self.optimizer.step()
-        
             z = self.model.encode(
-                    self.data_loader.get_network_torch().x.to(self.device), 
-                    self.data_loader.get_network_torch().edge_index.to(self.device)
+                    train.x.to(self.device), 
+                    train.edge_index.to(self.device)
+                ).to(self.device)
+
+            # Node Classification
+            out_nc = self.model.node_classification(z)
+            loss_nc = self.criterion(
+                out_nc.to(self.device), 
+                train.y.to(self.device)
+            )
+            
+            # Link Prediction
+            neg_edge_index = negative_sampling(
+                edge_index=train.edge_index, 
+                num_nodes=train.num_nodes,
+                num_neg_samples=train.edge_label_index.size(1), method='sparse'
+            )
+
+            edge_label_index = torch.cat(
+                [train.edge_label_index, neg_edge_index],
+                dim=-1,
+            ).to(self.device)
+            edge_label = torch.cat([
+                train.edge_label,
+                train.edge_label.new_zeros(neg_edge_index.size(1))
+            ], dim=0).to(self.device)
+            
+            out_lp = self.model.link_prediction(z, edge_label_index).view(-1)
+            loss_lp = self.criterion(
+                out_lp.to(self.device), 
+                edge_label.to(self.device)
+            )
+            
+            running_loss_nc = loss_nc.item()
+            running_loss_lp = loss_lp.item()
+            
+            ap_nc_train += average_precision_score(
+                    out_nc.to(self.device).cpu().detach().numpy(), 
+                    train.y.to(self.device).cpu().detach().numpy()[:, 1]
+                )
+            
+            ap_lp_train += average_precision_score(
+                    out_lp.to(self.device).cpu().detach().numpy(), 
+                    edge_label.to(self.device)
+                )
+        
+            loss_nc.backward()
+            loss_lp.backward()
+            
+            self.optimizer.step()
+
+            
+            # Phase: EVAL
+            self.model.eval()
+            z = self.model.encode(
+                    val.x.to(self.device), 
+                    val.edge_index.to(self.device)
                 )
             
             out_nc = self.model.node_classification(z)
             
             neg_edge_index = negative_sampling(
-                    edge_index=self.data_loader.get_network_torch(), num_nodes=batch.x.shape[0],
-                    num_neg_samples=self.data_loader.get_network_torch().edge_label_index.size(1), method='sparse')
+                    edge_index=val.edge_index, num_nodes=val.num_nodes,
+                    num_neg_samples=val.edge_label_index.size(1), method='sparse')
 
             edge_label_index = torch.cat(
-                [self.data_loader.get_network_torch().edge_label_index, neg_edge_index],
+                [val.edge_label_index, neg_edge_index],
                 dim=-1,
             )
             edge_label = torch.cat([
-                self.data_loader.get_network_torch().edge_label.squeeze(dim=0),
-                self.data_loader.get_network_torch().edge_label.new_zeros(neg_edge_index.size(1))
+                val.edge_label,
+                val.edge_label.new_zeros(neg_edge_index.size(1))
             ], dim=0)
                 
             out_lp = self.model.link_prediction(z, edge_label_index)
             
-            
-             ap_nc_val = average_precision_score(
-                    self.data_loader.get_network_torch().y[self.data_loader.val_mask].cpu().detach().numpy(), 
-                    out_nc[self.data_loader.val_mask].cpu().detach().numpy()[:, 1]
+            ap_nc_val = average_precision_score(
+                    val.y[val.val_mask].cpu().detach().numpy(), 
+                    out_nc[val.val_mask].cpu().detach().numpy()[:, 1]
                 )
 
-            ap_nc_test = average_precision_score(
-                    self.data_loader.get_network_torch().y[self.data_loader.test_mask].cpu().detach().numpy(), 
-                    out_nc[self.data_loader.test_mask].cpu().detach().numpy()[:, 1]
-                )
-            
             ap_lp_val += average_precision_score(
                         out_lp[self.data_loader.val_mask].to(self.device).cpu().detach().numpy(), 
                         edge_label[self.data_loader.val_mask].to(self.device)
                     )
             
-            ap_lp_test += average_precision_score(
-                        out_lp[self.data_loader.test_mask].to(self.device).cpu().detach().numpy(), 
-                        edge_label[self.data_loader.test_mask].to(self.device)
-                    )
-            
             val_loss_nc = self.criterion(
-                self.data_loader.get_network_torch().y[self.data_loader.val_mask].to(self.device),
-                out_nc[self.data_loader.val_mask].to(self.device)
-            )
-            
-            test_loss_nc = self.criterion(
-                self.data_loader.get_network_torch().y[self.data_loader.test_mask].to(self.device),
-                out_nc[self.data_loader.test_mask].to(self.device)
+                val.y[val.val_mask].to(self.device),
+                out_nc[val.val_mask].to(self.device)
             )
             
             val_loss_lp = self.criterion(
-                    out_lp[self.data_loader.val_mask].to(self.device), 
-                    edge_label[self.data_loader.val_mask].to(self.device)
+                    out_lp[val.val_mask].to(self.device), 
+                    edge_label[val.val_mask].to(self.device)
+            )
+            
+            
+            # Phase: TEST
+            z = self.model.encode(
+                    test.x.to(self.device), 
+                    test.edge_index.to(self.device)
                 )
             
+            out_nc = self.model.node_classification(z)
+            
+            neg_edge_index = negative_sampling(
+                    edge_index=test.edge_index, num_nodes=test.num_nodes,
+                    num_neg_samples=test.edge_label_index.size(1), method='sparse')
+
+            edge_label_index = torch.cat(
+                [test.edge_label_index, neg_edge_index],
+                dim=-1,
+            )
+            edge_label = torch.cat([
+                test.edge_label,
+                test.edge_label.new_zeros(neg_edge_index.size(1))
+            ], dim=0)
+                
+            out_lp = self.model.link_prediction(z, edge_label_index)
+            
+            
+            ap_nc_test = average_precision_score(
+                    test.y[test.test_mask].cpu().detach().numpy(), 
+                    out_nc[test.test_mask].cpu().detach().numpy()[:, 1]
+                )
+            
+            
+            ap_lp_test += average_precision_score(
+                        out_lp[test.test_mask].to(self.device).cpu().detach().numpy(), 
+                        edge_label[test.test_mask].to(self.device)
+                    )
+            
+            test_loss_nc = self.criterion(
+                test.y[self.data_loader.test_mask].to(self.device),
+                out_nc[test.test_mask].to(self.device)
+            )
+            
             test_loss_lp = self.criterion(
-                    out_lp[self.data_loader.test_mask].to(self.device), 
-                    edge_label[self.data_loader.test_mask].to(self.device)
+                    out_lp[test.test_mask].to(self.device), 
+                    edge_label[test.test_mask].to(self.device)
                 )
             
             # Compute and update AdaDW loss
@@ -243,7 +260,7 @@ class MAXLTrainerImpl(Trainer):
             self.writer.add_scalars(
                 main_tag='Focal Loss - Node Classification', 
                 tag_scalar_dict={
-                    'Train': running_loss_nc / len(loader),
+                    'Train': running_loss_nc,
                     'Validation': val_loss_nc,
                     'Test': test_loss_nc
                 }, 
@@ -253,7 +270,7 @@ class MAXLTrainerImpl(Trainer):
             self.writer.add_scalars(
                 main_tag='Focal Loss - Link Prediction', 
                 tag_scalar_dict={
-                    'Train': running_loss_lp / len(loader),
+                    'Train': running_loss_lp,
                     'Validation': val_loss_lp,
                     'Test': test_loss_lp
                 }, 
@@ -263,7 +280,7 @@ class MAXLTrainerImpl(Trainer):
             self.writer.add_scalars(
                 main_tag='AUC-AP - Node Classification',
                 tag_scalar_dict={
-                    'Train': ap_nc_train / len(loader),
+                    'Train': ap_nc_train,
                     'Validation': ap_nc_val,
                     'Test': ap_nc_test
                     },
@@ -273,7 +290,7 @@ class MAXLTrainerImpl(Trainer):
             self.writer.add_scalars(
                 main_tag='AUC-AP - Link Prediction',
                 tag_scalar_dict={
-                    'Train': ap_lp_train / len(loader),
+                    'Train': ap_lp_train,
                     'Validation': ap_lp_val,
                     'Test': ap_lp_test
                     },
@@ -282,20 +299,20 @@ class MAXLTrainerImpl(Trainer):
             
             # Show the computed metrics
             self.logger.info('-' * 5 + 'NODE CLASSIFICATION METRICS' + '-' * 5)
-            self.logger.info(f'Loss: {running_loss_nc / len(loader)}')
-            self.logger.info(f'AP train: {ap_nc_train / len(loader)}')
+            self.logger.info(f'Loss: {running_loss_nc}')
+            self.logger.info(f'AP train: {ap_nc_train}')
             self.logger.info(f'AP val: {ap_nc_val}')
             self.logger.info(f'AP test: {ap_nc_test}')
             self.logger.info(10 * '-')
             
             self.logger.info('-' * 5 + 'LINK PREDICTION METRICS' + '-' * 5)
-            self.logger.info(f'Loss: {running_loss_lp / len(loader)}')
-            self.logger.info(f'AP train: {ap_lp_train / len(loader)}')
+            self.logger.info(f'Loss: {running_loss_lp}')
+            self.logger.info(f'AP train: {ap_lp_train}')
             self.logger.info(f'AP val: {ap_lp_val}')
             self.logger.info(f'AP test: {ap_lp_test}')
             self.logger.info(10 * '-')
-          
             
+                
         self.logger.info('DONE PHASE TRAIN !')
         
         # Save the trained model

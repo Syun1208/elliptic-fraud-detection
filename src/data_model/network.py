@@ -90,7 +90,7 @@ class DataNetWork:
             pl.col('current_transid'),
             pl.col('next_transid')
         )
-        edge_label, edge_label_index = self.__process_edge4link_prediction(df_edges=edges)
+        # edge_label, edge_label_index = self.__process_edge4link_prediction(df_edges=edges)
         if not self.directed:
             map_id = {j:i for i,j in enumerate((nodes
                                             .to_series()
@@ -108,7 +108,7 @@ class DataNetWork:
             
             edges = pd.concat([edges_direct, edges_reverse], axis=0)
 
-            edge_label, edge_label_index = self.__process_edge4link_prediction(df_edges=pl.from_pandas(edges))
+            # edge_label, edge_label_index = self.__process_edge4link_prediction(df_edges=pl.from_pandas(edges))
             
             edges['current_transid'] = edges['current_transid'].map(map_id).astype(np.int64)
             edges['next_transid'] = edges['next_transid'].map(map_id).astype(np.int64)
@@ -120,8 +120,8 @@ class DataNetWork:
             nodes=nodes,
             edges=edges,
             map_id=map_id,
-            edge_label=edge_label,
-            edge_label_index=edge_label_index
+            edge_label=None,
+            edge_label_index=None
         )
         
         
@@ -175,9 +175,7 @@ class DataNetWork:
         data = Data(
             x=x, 
             y=y, 
-            edge_index=edge_index, 
-            edge_label_index=self.graph.edge_label_index, 
-            edge_label=self.graph.edge_label
+            edge_index=edge_index
         )
 
         if self.train_mask is not None:
