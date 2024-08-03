@@ -10,7 +10,7 @@ from src.data_model.network import DataNetWork
 
 
 FILE = Path(__file__).resolve()
-WORK_DIR = FILE.parents[2]
+WORK_DIR = FILE.parents[4]
 
 
 

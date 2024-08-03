@@ -3,9 +3,9 @@ import traceback
 from src.utils.logger import Logger
 from src.service.abstraction.graph_experiments import Experiments
 from src.utils.timer import time_complexity
-from service.implementation.graph_train.trainer import Trainer
+from src.service.implementation.graph_train.trainer import Trainer
 from src.service.abstraction.graph_predict import Predictor
-from service.implementation.graph_eval.evaluator import Evaluator
+from src.service.implementation.graph_eval.evaluator import Evaluator
 
     
 

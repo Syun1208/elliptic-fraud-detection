@@ -67,7 +67,7 @@ class GCN(nn.Module):
         z: torch.Tensor,
         edge_label_index: torch.Tensor
         ) -> torch.Tensor:
-        
+
         output = (z[edge_label_index[0]] * z[edge_label_index[1]]).sum(dim=-1)
         
         return output

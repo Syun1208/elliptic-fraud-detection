@@ -119,7 +119,7 @@ class MAXLTrainerImpl(Trainer):
                 z = self.model.encode(
                         batch.x.to(self.device), 
                         batch.edge_index.to(self.device)
-                    )
+                    ).to(self.device)
 
                 # Node Classification
                 out_nc = self.model.node_classification(z)
@@ -138,11 +138,11 @@ class MAXLTrainerImpl(Trainer):
                 edge_label_index = torch.cat(
                     [batch.edge_label_index, neg_edge_index],
                     dim=-1,
-                )
+                ).to(self.device)
                 edge_label = torch.cat([
-                    batch.edge_label.unsqueeze(dim=0),
+                    batch.edge_label.squeeze(dim=0),
                     batch.edge_label.new_zeros(neg_edge_index.size(1))
-                ], dim=0)
+                ], dim=0).to(self.device)
                 
                 out_lp = self.model.link_prediction(z, edge_label_index).view(-1)
                 loss_lp = self.criterion(
@@ -185,14 +185,14 @@ class MAXLTrainerImpl(Trainer):
                 dim=-1,
             )
             edge_label = torch.cat([
-                self.data_loader.get_network_torch().edge_label,
+                self.data_loader.get_network_torch().edge_label.squeeze(dim=0),
                 self.data_loader.get_network_torch().edge_label.new_zeros(neg_edge_index.size(1))
             ], dim=0)
                 
             out_lp = self.model.link_prediction(z, edge_label_index)
             
             
-            ap_nc_val = average_precision_score(
+             ap_nc_val = average_precision_score(
                     self.data_loader.get_network_torch().y[self.data_loader.val_mask].cpu().detach().numpy(), 
                     out_nc[self.data_loader.val_mask].cpu().detach().numpy()[:, 1]
                 )

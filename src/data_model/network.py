@@ -76,7 +76,7 @@ class DataNetWork:
         ).t()
         
         return edge_label, edge_label_index
-      
+
     def _set_up_network_info(self) -> Graph:
         nodes = self.df_features.select(
             pl.col('transid')
@@ -107,8 +107,8 @@ class DataNetWork:
             edges_reverse.columns = ['current_transid', 'next_transid']
             
             edges = pd.concat([edges_direct, edges_reverse], axis=0)
-            
-            edge_label, edge_label_index = self.__process_edge4link_prediction(df_edges=edges)
+
+            edge_label, edge_label_index = self.__process_edge4link_prediction(df_edges=pl.from_pandas(edges))
             
             edges['current_transid'] = edges['current_transid'].map(map_id).astype(np.int64)
             edges['next_transid'] = edges['next_transid'].map(map_id).astype(np.int64)

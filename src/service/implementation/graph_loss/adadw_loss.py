@@ -4,7 +4,7 @@ from typing import List
 import torch.nn.functional as F
 
 
-class AdaDWLoss(nn.module):
+class AdaDWLoss(nn.Module):
     
     def __init__(
         self, 

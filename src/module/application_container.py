@@ -14,7 +14,7 @@ from src.service.implementation.graph_model.graph_sage import GraphSAGE
 from src.service.implementation.graph_model.graph_kan import KanGNN
 from src.service.implementation.graph_train.trainer import Trainer, TrainerImpl
 from src.service.implementation.graph_train.maxl_trainer import MAXLTrainerImpl
-from src.service.implementation.graph_predict.predictor import Predictor, TesterImpl
+from src.service.implementation.graph_predict.predictor import Predictor, PredictorImpl
 from src.service.implementation.graph_eval.evaluator import Evaluator, EvaluatorImpl
 from src.service.implementation.graph_experiments.graph_experiments import Experiments, ExperimentsImpl
 from src.utils.logger import Logger
@@ -25,7 +25,7 @@ WORK_DIR = FILE.parents[2]
 
 class ApplicationContainer(containers.DeclarativeContainer):
 
-    wiring_config = containers.WiringConfiguration(modules=["src.service.graph_experiments"])
+    wiring_config = containers.WiringConfiguration(modules=["src.service.implementation.graph_experiments"])
 
     service_config = providers.Configuration()
     service_config.from_yaml(filepath=os.path.join(WORK_DIR, CONFIG_FILE))
@@ -121,8 +121,8 @@ class ApplicationContainer(containers.DeclarativeContainer):
     predictor = providers.AbstractSingleton(Predictor)
     predictor.override(
         providers.Singleton(
-            TesterImpl,
-            model=graph_kan,
+            PredictorImpl,
+            model=gcn,
             data_loader=elliptic_loader,
             logger=logger,
             device_id=service_config.device_id,
