@@ -113,9 +113,9 @@ class MAXLTrainerImpl(Trainer):
 
             # Node Classification
             out_nc = self.model.node_classification(z)
-            loss_nc = self.criterion(
-                out_nc.to(self.device), 
-                train.y.to(self.device)
+            loss_nc = self.criterion( 
+                train.y[train.train_mask].cpu().detach().numpy(),
+                out_nc[train.train_mask].cpu().detach().numpy()[:1]
             )
             
             # Link Prediction
@@ -186,21 +186,21 @@ class MAXLTrainerImpl(Trainer):
             ap_nc_val = average_precision_score(
                     val.y[val.val_mask].cpu().detach().numpy(), 
                     out_nc[val.val_mask].cpu().detach().numpy()[:, 1]
-                )
+            )
 
             ap_lp_val += average_precision_score(
                         out_lp[self.data_loader.val_mask].to(self.device).cpu().detach().numpy(), 
                         edge_label[self.data_loader.val_mask].to(self.device)
-                    )
+            )
             
             val_loss_nc = self.criterion(
-                val.y[val.val_mask].to(self.device),
-                out_nc[val.val_mask].to(self.device)
+                val.y[val.val_mask].cpu().detach().numpy(), 
+                out_nc[val.val_mask].cpu().detach().numpy()[:, 1]
             )
             
             val_loss_lp = self.criterion(
-                    out_lp[val.val_mask].to(self.device), 
-                    edge_label[val.val_mask].to(self.device)
+                out_lp[val.val_mask].to(self.device), 
+                edge_label[val.val_mask].to(self.device)
             )
             
             
@@ -240,14 +240,14 @@ class MAXLTrainerImpl(Trainer):
                     )
             
             test_loss_nc = self.criterion(
-                test.y[self.data_loader.test_mask].to(self.device),
-                out_nc[test.test_mask].to(self.device)
+                test.y[test.test_mask].cpu().detach().numpy(), 
+                out_nc[test.test_mask].cpu().detach().numpy()[:, 1]
             )
             
             test_loss_lp = self.criterion(
-                    out_lp[test.test_mask].to(self.device), 
-                    edge_label[test.test_mask].to(self.device)
-                )
+                out_lp[test.test_mask].to(self.device), 
+                edge_label[test.test_mask].to(self.device)
+            )
             
             # Compute and update AdaDW loss
             loss_trains = torch.tensor([loss_nc, loss_lp])
