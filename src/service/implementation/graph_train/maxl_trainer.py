@@ -113,6 +113,8 @@ class MAXLTrainerImpl(Trainer):
 
             # Node Classification
             out_nc = self.model.node_classification(z)
+            print(out_nc[train.train_mask].to(self.device)[:, 1].shape)
+            print(train.y.to(self.device, dtype=torch.int64).reshape(-1, 1).shape)
             loss_nc = self.criterion( 
                 out_nc[train.train_mask].to(self.device)[:, 1],
                 train.y.to(self.device, dtype=torch.int64).reshape(-1, 1)
