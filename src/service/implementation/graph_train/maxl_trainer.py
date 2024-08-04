@@ -113,11 +113,9 @@ class MAXLTrainerImpl(Trainer):
 
             # Node Classification
             out_nc = self.model.node_classification(z)
-            print(out_nc[train.train_mask].to(self.device)[:, 1].shape)
-            print(train.y[train.train_mask].to(self.device, dtype=torch.int64).reshape(-1, 1).shape)
             loss_nc = self.criterion( 
-                out_nc[train.train_mask].to(self.device)[:, 1],
-                train.y[train.train_mask].to(self.device, dtype=torch.int64).reshape(-1, 1)
+                out_nc[train.train_mask].to(self.device),
+                train.y[train.train_mask].to(self.device, dtype=torch.int64)
             )
             
             # Link Prediction
@@ -139,8 +137,8 @@ class MAXLTrainerImpl(Trainer):
             
             out_lp = self.model.link_prediction(z, edge_label_index).view(-1)
             loss_lp = self.criterion(
-                out_lp.to(self.device), 
-                edge_label.to(self.device, dtype=torch.int64).reshape(-1, 1)
+                out_lp[train.train_mask].to(self.device), 
+                edge_label[train.train_mask].to(self.device, dtype=torch.int64)
             )
             
             running_loss_nc = loss_nc.item()
@@ -239,17 +237,17 @@ class MAXLTrainerImpl(Trainer):
             
             ap_lp_test += average_precision_score(
                         out_lp[test.test_mask].to(self.device).cpu().detach().numpy(), 
-                        edge_label[test.test_mask].to(self.device)
+                        edge_label[test.test_mask].to(self.device).cpu().detach().numpy()
                     )
             
             test_loss_nc = self.criterion(
-                out_nc[test.test_mask].to(self.device)[:, 1],
-                test.y[test.test_mask].to(self.device, dtype=torch.int64).reshape(-1, 1)
+                out_nc[test.test_mask].to(self.device),
+                test.y[test.test_mask].to(self.device, dtype=torch.int64)
             )
             
             test_loss_lp = self.criterion(
                 out_lp[test.test_mask].to(self.device), 
-                edge_label[test.test_mask].to(self.device, dtype=torch.int64).reshape(-1, 1)
+                edge_label[test.test_mask].to(self.device, dtype=torch.int64)
             )
             
             # Compute and update AdaDW loss
