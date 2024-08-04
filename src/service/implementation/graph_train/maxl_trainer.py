@@ -137,8 +137,8 @@ class MAXLTrainerImpl(Trainer):
             
             out_lp = self.model.link_prediction(z, edge_label_index).view(-1)
             loss_lp = self.criterion(
-                out_lp[train.train_mask].to(self.device), 
-                edge_label[train.train_mask].to(self.device, dtype=torch.int64)
+                out_lp.to(self.device), 
+                edge_label.to(self.device, dtype=torch.int64)
             )
             
             running_loss_nc = loss_nc.item()
@@ -151,7 +151,7 @@ class MAXLTrainerImpl(Trainer):
             
             ap_lp_train += average_precision_score(
                     out_lp.to(self.device).cpu().detach().numpy(), 
-                    edge_label.to(self.device)
+                    edge_label.to(self.device).cpu().detach().numpy()
                 )
         
             loss_nc.backward()
@@ -190,18 +190,18 @@ class MAXLTrainerImpl(Trainer):
             )
 
             ap_lp_val += average_precision_score(
-                        out_lp[val.val_mask].to(self.device).cpu().detach().numpy(), 
-                        edge_label[val.val_mask].to(self.device)
+                        out_lp.to(self.device).cpu().detach().numpy(), 
+                        edge_label.to(self.device).cpu().detach().numpy()
             )
             
             val_loss_nc = self.criterion(
-                out_nc[val.val_mask][:, 1].to(self.device),
-                val.y[val.val_mask].to(self.device, dtype=torch.int64).reshape(-1, 1)
+                out_nc[val.val_mask].to(self.device),
+                val.y[val.val_mask].to(self.device, dtype=torch.int64)
             )
             
             val_loss_lp = self.criterion(
-                out_lp[val.val_mask].to(self.device), 
-                edge_label[val.val_mask].to(self.device, dtype=torch.int64).reshape(-1, 1)
+                out_lp.to(self.device), 
+                edge_label.to(self.device, dtype=torch.int64)
             )
             
             
@@ -236,8 +236,8 @@ class MAXLTrainerImpl(Trainer):
             
             
             ap_lp_test += average_precision_score(
-                        out_lp[test.test_mask].to(self.device).cpu().detach().numpy(), 
-                        edge_label[test.test_mask].to(self.device).cpu().detach().numpy()
+                        out_lp.to(self.device).cpu().detach().numpy(), 
+                        edge_label.to(self.device).cpu().detach().numpy()
                     )
             
             test_loss_nc = self.criterion(
@@ -246,8 +246,8 @@ class MAXLTrainerImpl(Trainer):
             )
             
             test_loss_lp = self.criterion(
-                out_lp[test.test_mask].to(self.device), 
-                edge_label[test.test_mask].to(self.device, dtype=torch.int64)
+                out_lp.to(self.device), 
+                edge_label.to(self.device, dtype=torch.int64)
             )
             
             # Compute and update AdaDW loss
