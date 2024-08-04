@@ -18,7 +18,7 @@ WORK_DIR = FILE.parents[2]
     
     
     
-class PredictorImpl(Predictor):
+class MAXLPredictorImpl(Predictor):
     
     def __init__(
         self,

@@ -13,6 +13,7 @@ from src.service.implementation.graph_model.gin import GIN
 from src.service.implementation.graph_model.graph_sage import GraphSAGE
 from src.service.implementation.graph_model.graph_kan import KanGNN
 from src.service.implementation.graph_train.trainer import Trainer, TrainerImpl
+from src.service.implementation.graph_predict.maxl_predictor import MAXLPredictorImpl
 from src.service.implementation.graph_train.maxl_trainer import MAXLTrainerImpl
 from src.service.implementation.graph_predict.predictor import Predictor, PredictorImpl
 from src.service.implementation.graph_eval.evaluator import Evaluator, EvaluatorImpl
@@ -121,7 +122,7 @@ class ApplicationContainer(containers.DeclarativeContainer):
     predictor = providers.AbstractSingleton(Predictor)
     predictor.override(
         providers.Singleton(
-            PredictorImpl,
+            MAXLPredictorImpl,
             model=gcn,
             data_loader=elliptic_loader,
             logger=logger,
