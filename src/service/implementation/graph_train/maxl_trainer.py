@@ -59,7 +59,7 @@ class MAXLTrainerImpl(Trainer):
         self.writer = SummaryWriter(self.path_logs_tensorboard)
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=self.lr)
         self.adadw = AdaDWLoss(T=2)
-        self.criterion = FocalLoss(gamma=0.5, alpha=[0.25, 0.75])
+        self.criterion = FocalLoss(gamma=0.5)
         self.criterion_lp = nn.BCEWithLogitsLoss()
         self.transform = T.Compose([
             T.RandomLinkSplit(
@@ -307,14 +307,14 @@ class MAXLTrainerImpl(Trainer):
             self.logger.info(f'AP train: {ap_nc_train}')
             self.logger.info(f'AP val: {ap_nc_val}')
             self.logger.info(f'AP test: {ap_nc_test}')
-            self.logger.info(10 * '-')
+            self.logger.info(20 * '-')
             
             self.logger.info('-' * 5 + 'LINK PREDICTION METRICS' + '-' * 5)
             self.logger.info(f'Loss: {running_loss_lp}')
             self.logger.info(f'AP train: {ap_lp_train}')
             self.logger.info(f'AP val: {ap_lp_val}')
             self.logger.info(f'AP test: {ap_lp_test}')
-            self.logger.info(10 * '-')
+            self.logger.info(20 * '-')
             
                 
         self.logger.info('DONE PHASE TRAIN !')
