@@ -1,6 +1,7 @@
 import warnings
 warnings.filterwarnings('ignore')
 
+import torch.nn as nn
 from pathlib import Path
 import torch
 import torch_geometric.transforms as T
@@ -58,7 +59,8 @@ class MAXLTrainerImpl(Trainer):
         self.writer = SummaryWriter(self.path_logs_tensorboard)
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=self.lr)
         self.adadw = AdaDWLoss(T=2)
-        self.criterion = FocalLoss(gamma=0.5)
+        self.criterion = FocalLoss(gamma=0.5, alpha=[0.25, 0.75])
+        self.criterion_lp = nn.BCEWithLogitsLoss()
         self.transform = T.Compose([
             T.RandomLinkSplit(
                 num_val=0.05,
@@ -136,9 +138,7 @@ class MAXLTrainerImpl(Trainer):
             ], dim=0).to(self.device)
             
             out_lp = self.model.link_prediction(z, edge_label_index).view(-1)
-            print(out_lp.shape)
-            print(edge_label.shape)
-            loss_lp = self.criterion(
+            loss_lp = self.criterion_lp(
                 out_lp.to(self.device), 
                 edge_label.to(self.device, dtype=torch.int64)
             )
@@ -201,7 +201,7 @@ class MAXLTrainerImpl(Trainer):
                 val.y[val.val_mask].to(self.device, dtype=torch.int64)
             )
             
-            val_loss_lp = self.criterion(
+            val_loss_lp = self.criterion_lp(
                 out_lp.to(self.device), 
                 edge_label.to(self.device, dtype=torch.int64)
             )
@@ -247,7 +247,7 @@ class MAXLTrainerImpl(Trainer):
                 test.y[test.test_mask].to(self.device, dtype=torch.int64)
             )
             
-            test_loss_lp = self.criterion(
+            test_loss_lp = self.criterion_lp(
                 out_lp.to(self.device), 
                 edge_label.to(self.device, dtype=torch.int64)
             )
