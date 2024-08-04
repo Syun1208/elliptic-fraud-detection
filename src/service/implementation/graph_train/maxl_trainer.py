@@ -114,10 +114,10 @@ class MAXLTrainerImpl(Trainer):
             # Node Classification
             out_nc = self.model.node_classification(z)
             print(out_nc[train.train_mask].to(self.device)[:, 1].shape)
-            print(train.y.to(self.device, dtype=torch.int64).reshape(-1, 1).shape)
+            print(train.y[train.train_mask].to(self.device, dtype=torch.int64).reshape(-1, 1).shape)
             loss_nc = self.criterion( 
                 out_nc[train.train_mask].to(self.device)[:, 1],
-                train.y.to(self.device, dtype=torch.int64).reshape(-1, 1)
+                train.y[train.train_mask].to(self.device, dtype=torch.int64).reshape(-1, 1)
             )
             
             # Link Prediction
@@ -192,8 +192,8 @@ class MAXLTrainerImpl(Trainer):
             )
 
             ap_lp_val += average_precision_score(
-                        out_lp[self.data_loader.val_mask].to(self.device).cpu().detach().numpy(), 
-                        edge_label[self.data_loader.val_mask].to(self.device)
+                        out_lp[val.val_mask].to(self.device).cpu().detach().numpy(), 
+                        edge_label[val.val_mask].to(self.device)
             )
             
             val_loss_nc = self.criterion(
