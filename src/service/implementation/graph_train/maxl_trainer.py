@@ -157,10 +157,9 @@ class MAXLTrainerImpl(Trainer):
                     out_lp.cpu().detach().numpy()
                 )
         
-            loss_nc.backward()
-            loss_lp.backward()
+            # loss_nc.backward()
+            # loss_lp.backward()
             
-            self.optimizer.step()
 
             
             # Phase: EVAL
@@ -259,6 +258,8 @@ class MAXLTrainerImpl(Trainer):
             
             loss_tasks = self.adadw(loss_trains, loss_vals)
             loss_tasks.backwards()
+            
+            self.optimizer.step()
             
             # Save accuracy and loss to Tensorboard
             self.writer.add_scalars(
