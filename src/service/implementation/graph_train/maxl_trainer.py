@@ -147,14 +147,14 @@ class MAXLTrainerImpl(Trainer):
             running_loss_lp = loss_lp.item()
             self.logger.info(out_nc[train.train_mask].cpu().detach().numpy()[:, 1])
             self.logger.info(train.y[train.train_mask].cpu().detach().numpy())
-            ap_nc_train += average_precision_score(
-                    out_nc[train.train_mask].cpu().detach().numpy()[:, 1], 
-                    train.y[train.train_mask].cpu().detach().numpy()
+            ap_nc_train = average_precision_score(
+                    train.y[train.train_mask].cpu().detach().numpy(),
+                    out_nc[train.train_mask].cpu().detach().numpy()[:, 1]
                 )
             
-            ap_lp_train += average_precision_score(
-                    out_lp.cpu().detach().numpy(), 
-                    edge_label.cpu().detach().numpy()
+            ap_lp_train = average_precision_score(
+                    edge_label.cpu().detach().numpy(),
+                    out_lp.cpu().detach().numpy()
                 )
         
             loss_nc.backward()
@@ -192,9 +192,9 @@ class MAXLTrainerImpl(Trainer):
                     out_nc[val.val_mask].cpu().detach().numpy()[:, 1]
             )
 
-            ap_lp_val += average_precision_score(
-                        out_lp.to(self.device).cpu().detach().numpy(), 
-                        edge_label.to(self.device).cpu().detach().numpy()
+            ap_lp_val = average_precision_score(
+                    edge_label.to(self.device).cpu().detach().numpy(),
+                    out_lp.to(self.device).cpu().detach().numpy()
             )
             
             val_loss_nc = self.criterion(
@@ -238,10 +238,10 @@ class MAXLTrainerImpl(Trainer):
                 )
             
             
-            ap_lp_test += average_precision_score(
-                        out_lp.to(self.device).cpu().detach().numpy(), 
-                        edge_label.to(self.device).cpu().detach().numpy()
-                    )
+            ap_lp_test = average_precision_score(
+                    edge_label.to(self.device).cpu().detach().numpy(),
+                    out_lp.to(self.device).cpu().detach().numpy()
+                )
             
             test_loss_nc = self.criterion(
                 out_nc[test.test_mask].to(self.device),
