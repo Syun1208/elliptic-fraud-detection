@@ -145,8 +145,6 @@ class MAXLTrainerImpl(Trainer):
             
             running_loss_nc = loss_nc.item()
             running_loss_lp = loss_lp.item()
-            self.logger.info(out_nc[train.train_mask].cpu().detach().numpy()[:, 1])
-            self.logger.info(train.y[train.train_mask].cpu().detach().numpy())
             ap_nc_train = average_precision_score(
                     train.y[train.train_mask].cpu().detach().numpy(),
                     out_nc[train.train_mask].cpu().detach().numpy()[:, 1]
@@ -257,6 +255,7 @@ class MAXLTrainerImpl(Trainer):
             loss_vals = torch.tensor([val_loss_nc, val_loss_lp])
             
             loss_tasks = self.adadw(loss_trains, loss_vals)
+            print(loss_tasks.requires_grad)
             loss_tasks.backward()
             
             self.optimizer.step()
