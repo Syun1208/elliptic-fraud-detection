@@ -145,7 +145,8 @@ class MAXLTrainerImpl(Trainer):
             
             running_loss_nc = loss_nc.item()
             running_loss_lp = loss_lp.item()
-            
+            self.logger.info(out_nc[train.train_mask].cpu().detach().numpy()[:, 1])
+            self.logger.info(train.y[train.train_mask].cpu().detach().numpy())
             ap_nc_train += average_precision_score(
                     out_nc[train.train_mask].cpu().detach().numpy()[:, 1], 
                     train.y[train.train_mask].cpu().detach().numpy()
