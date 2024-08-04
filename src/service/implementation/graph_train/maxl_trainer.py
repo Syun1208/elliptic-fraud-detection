@@ -109,15 +109,15 @@ class MAXLTrainerImpl(Trainer):
             self.optimizer.zero_grad()
             
             z = self.model.encode(
-                    train.x.to(self.device), 
-                    train.edge_index.to(self.device)
+                    self.data_loader.get_network_torch().x.to(self.device), 
+                    self.data_loader.get_network_torch().edge_index.to(self.device)
                 ).to(self.device)
 
             # Node Classification
             out_nc = self.model.node_classification(z)
             loss_nc = self.criterion( 
-                out_nc[train.train_mask].to(self.device),
-                train.y[train.train_mask].to(self.device, dtype=torch.int64)
+                out_nc[self.data_loader.get_network_torch().train_mask].to(self.device),
+                self.data_loader.get_network_torch().y[self.data_loader.get_network_torch().train_mask].to(self.device, dtype=torch.int64)
             )
             
             # Link Prediction
@@ -154,17 +154,13 @@ class MAXLTrainerImpl(Trainer):
                     edge_label.cpu().detach().numpy(),
                     out_lp.cpu().detach().numpy()
                 )
-        
-            # loss_nc.backward()
-            # loss_lp.backward()
-            
 
             
             # Phase: EVAL
             self.model.eval()
             z = self.model.encode(
-                    val.x.to(self.device), 
-                    val.edge_index.to(self.device)
+                    self.data_loader.get_network_torch().x.to(self.device), 
+                    self.data_loader.get_network_torch().edge_index.to(self.device)
                 )
             
             out_nc = self.model.node_classification(z)
@@ -195,8 +191,8 @@ class MAXLTrainerImpl(Trainer):
             )
             
             val_loss_nc = self.criterion(
-                out_nc[val.val_mask].to(self.device),
-                val.y[val.val_mask].to(self.device, dtype=torch.int64)
+                out_nc[self.data_loader.get_network_torch().val_mask].to(self.device),
+                self.data_loader.get_network_torch().y[self.data_loader.get_network_torch().val_mask].to(self.device, dtype=torch.int64)
             )
             
             val_loss_lp = self.criterion_lp(
@@ -207,8 +203,8 @@ class MAXLTrainerImpl(Trainer):
             
             # Phase: TEST
             z = self.model.encode(
-                    test.x.to(self.device), 
-                    test.edge_index.to(self.device)
+                    self.data_loader.get_network_torch().x.to(self.device), 
+                    self.data_loader.get_network_torch().edge_index.to(self.device)
                 )
             
             out_nc = self.model.node_classification(z)
@@ -241,8 +237,8 @@ class MAXLTrainerImpl(Trainer):
                 )
             
             test_loss_nc = self.criterion(
-                out_nc[test.test_mask].to(self.device),
-                test.y[test.test_mask].to(self.device, dtype=torch.int64)
+                out_nc[self.data_loader.get_network_torch().test_mask].to(self.device),
+                self.data_loader.get_network_torch().y[self.data_loader.get_network_torch().test_mask].to(self.device, dtype=torch.int64)
             )
             
             test_loss_lp = self.criterion_lp(
@@ -255,7 +251,6 @@ class MAXLTrainerImpl(Trainer):
             loss_vals = torch.tensor([val_loss_nc, val_loss_lp], requires_grad=True)
             
             loss_tasks = self.adadw(loss_trains, loss_vals)
-            print(loss_tasks.requires_grad)
             loss_tasks.backward()
             
             self.optimizer.step()
