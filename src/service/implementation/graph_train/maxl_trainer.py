@@ -114,8 +114,8 @@ class MAXLTrainerImpl(Trainer):
             # Node Classification
             out_nc = self.model.node_classification(z)
             loss_nc = self.criterion( 
-                out_nc[train.train_mask].to(self.device)[:, 1].reshape(-1, 1),
-                train.y[train.train_mask].to(self.device, dtype=torch.int64)
+                out_nc[train.train_mask].to(self.device)[:, 1],
+                train.y.to(self.device, dtype=torch.int64)
             )
             
             # Link Prediction
@@ -137,7 +137,7 @@ class MAXLTrainerImpl(Trainer):
             
             out_lp = self.model.link_prediction(z, edge_label_index).view(-1)
             loss_lp = self.criterion(
-                out_lp.to(self.device).reshape(-1, 1), 
+                out_lp.to(self.device), 
                 edge_label.to(self.device, dtype=torch.int64)
             )
             
@@ -195,12 +195,12 @@ class MAXLTrainerImpl(Trainer):
             )
             
             val_loss_nc = self.criterion(
-                out_nc[val.val_mask][:, 1].to(self.device).reshape(-1, 1),
+                out_nc[val.val_mask][:, 1].to(self.device),
                 val.y[val.val_mask].to(self.device, dtype=torch.int64)
             )
             
             val_loss_lp = self.criterion(
-                out_lp[val.val_mask].to(self.device).reshape(-1, 1), 
+                out_lp[val.val_mask].to(self.device), 
                 edge_label[val.val_mask].to(self.device, dtype=torch.int64)
             )
             
@@ -241,12 +241,12 @@ class MAXLTrainerImpl(Trainer):
                     )
             
             test_loss_nc = self.criterion(
-                out_nc[test.test_mask].to(self.device)[:, 1].reshape(-1, 1),
+                out_nc[test.test_mask].to(self.device)[:, 1],
                 test.y[test.test_mask].to(self.device, dtype=torch.int64)
             )
             
             test_loss_lp = self.criterion(
-                out_lp[test.test_mask].to(self.device).reshape(-1, 1), 
+                out_lp[test.test_mask].to(self.device), 
                 edge_label[test.test_mask].to(self.device, dtype=torch.int64)
             )
             
