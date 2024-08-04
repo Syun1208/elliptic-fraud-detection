@@ -136,6 +136,8 @@ class MAXLTrainerImpl(Trainer):
             ], dim=0).to(self.device)
             
             out_lp = self.model.link_prediction(z, edge_label_index).view(-1)
+            print(out_lp.shape)
+            print(edge_label.shape)
             loss_lp = self.criterion(
                 out_lp.to(self.device), 
                 edge_label.to(self.device, dtype=torch.int64)
