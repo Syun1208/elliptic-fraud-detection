@@ -140,7 +140,7 @@ class MAXLTrainerImpl(Trainer):
             out_lp = self.model.link_prediction(z, edge_label_index).view(-1)
             loss_lp = self.criterion_lp(
                 out_lp.to(self.device), 
-                edge_label.to(self.device, dtype=torch.int64)
+                edge_label.to(self.device)
             )
             
             running_loss_nc = loss_nc.item()
@@ -203,7 +203,7 @@ class MAXLTrainerImpl(Trainer):
             
             val_loss_lp = self.criterion_lp(
                 out_lp.to(self.device), 
-                edge_label.to(self.device, dtype=torch.int64)
+                edge_label.to(self.device)
             )
             
             
@@ -249,7 +249,7 @@ class MAXLTrainerImpl(Trainer):
             
             test_loss_lp = self.criterion_lp(
                 out_lp.to(self.device), 
-                edge_label.to(self.device, dtype=torch.int64)
+                edge_label.to(self.device)
             )
             
             # Compute and update AdaDW loss
