@@ -257,7 +257,7 @@ class MAXLTrainerImpl(Trainer):
             loss_vals = torch.tensor([val_loss_nc, val_loss_lp])
             
             loss_tasks = self.adadw(loss_trains, loss_vals)
-            loss_tasks.backwards()
+            loss_tasks.backward()
             
             self.optimizer.step()
             
