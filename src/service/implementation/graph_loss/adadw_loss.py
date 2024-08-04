@@ -10,6 +10,7 @@ class AdaDWLoss(nn.Module):
         self, 
         T: float
     ) -> None:
+        super(AdaDWLoss, self).__init__()
         self.T = T
     
     def forward(
