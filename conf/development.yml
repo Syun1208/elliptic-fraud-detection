@@ -53,7 +53,7 @@ maxl:
   heads: 5
 
   lr: 0.0864
-  epochs: 500
+  epochs: 1000
   batch_size: 128
 
   path_model: 'model/maxl/maxl.pt'

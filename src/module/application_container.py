@@ -109,12 +109,12 @@ class ApplicationContainer(containers.DeclarativeContainer):
             model=gcn,
             data_loader=elliptic_loader,
             logger=logger, 
-            epochs=service_config.gcn.epochs,
-            lr=service_config.gcn.lr,
-            batch_size=service_config.gcn.batch_size,
+            epochs=service_config.maxl.epochs,
+            lr=service_config.maxl.lr,
+            batch_size=service_config.maxl.batch_size,
             device_id=service_config.device_id,
             path_logs_tensorboard=service_config.tensorboard.log_dir,
-            path_model=service_config.gcn.path_model
+            path_model=service_config.maxl.path_model
         )
     )
     
@@ -127,9 +127,9 @@ class ApplicationContainer(containers.DeclarativeContainer):
             data_loader=elliptic_loader,
             logger=logger,
             device_id=service_config.device_id,
-            batch_size=service_config.gcn.batch_size,
-            path_model=service_config.gcn.path_model,
-            n_random_samples=service_config.gcn.test.n_test
+            batch_size=service_config.maxl.batch_size,
+            path_model=service_config.maxl.path_model,
+            n_random_samples=service_config.maxl.test.n_test
         )
     )
     
@@ -139,7 +139,7 @@ class ApplicationContainer(containers.DeclarativeContainer):
             EvaluatorImpl,
             predictor=predictor,
             logger=logger,
-            path_results=service_config.gcn.test.path_results
+            path_results=service_config.maxl.test.path_results
         )
     )
     

@@ -107,9 +107,9 @@ class MAXLTrainerImpl(Trainer):
             # PHASE: TRAIN
             self.model.train()
             self.optimizer.zero_grad()
-            
+
             z = self.model.encode(
-                    self.data_loader.get_network_torch().x[self.data_loader.get_network_torch().train_mask].to(self.device), 
+                    self.data_loader.get_network_torch().x.to(self.device), 
                     self.data_loader.get_network_torch().edge_index.to(self.device)
                 ).to(self.device)
 
@@ -158,10 +158,6 @@ class MAXLTrainerImpl(Trainer):
             
             # Phase: EVAL
             self.model.eval()
-            z = self.model.encode(
-                    self.data_loader.get_network_torch().x[self.data_loader.get_network_torch().val_mask].to(self.device), 
-                    self.data_loader.get_network_torch().edge_index.to(self.device)
-                )
             
             out_nc = self.model.node_classification(z)
             
@@ -202,11 +198,6 @@ class MAXLTrainerImpl(Trainer):
             
             
             # Phase: TEST
-            z = self.model.encode(
-                    self.data_loader.get_network_torch().x[self.data_loader.get_network_torch().test_mask].to(self.device), 
-                    self.data_loader.get_network_torch().edge_index.to(self.device)
-                )
-            
             out_nc = self.model.node_classification(z)
             
             neg_edge_index = negative_sampling(
