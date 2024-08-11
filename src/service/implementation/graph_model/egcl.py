@@ -59,7 +59,7 @@ class EGCL(nn.Module):
 
     def node_model(self, x, edge_index, edge_attr, node_attr):
         row, col = edge_index
-        agg = unsorted_segment_sum(edge_attr, row, num_segments=x.size(0))
+        agg = self.unsorted_segment_sum(edge_attr, row, num_segments=x.size(0))
         if node_attr is not None:
             agg = torch.cat([x, agg, node_attr], dim=1)
         else:
@@ -69,13 +69,32 @@ class EGCL(nn.Module):
             out = x + out
         return out, agg
 
+    @staticmethod
+    def unsorted_segment_sum(data, segment_ids, num_segments):
+        result_shape = (num_segments, data.size(1))
+        result = data.new_full(result_shape, 0)  # Init empty result tensor.
+        segment_ids = segment_ids.unsqueeze(-1).expand(-1, data.size(1))
+        result.scatter_add_(0, segment_ids, data)
+        return result
+
+    @staticmethod
+    def unsorted_segment_mean(data, segment_ids, num_segments):
+        result_shape = (num_segments, data.size(1))
+        segment_ids = segment_ids.unsqueeze(-1).expand(-1, data.size(1))
+        result = data.new_full(result_shape, 0)  # Init empty result tensor.
+        count = data.new_full(result_shape, 0)
+        result.scatter_add_(0, segment_ids, data)
+        count.scatter_add_(0, segment_ids, torch.ones_like(data))
+        return result / count.clamp(min=1)
+
+
     def coord_model(self, coord, edge_index, coord_diff, edge_feat):
         row, col = edge_index
         trans = coord_diff * self.coord_mlp(edge_feat)
         if self.coords_agg == 'sum':
-            agg = unsorted_segment_sum(trans, row, num_segments=coord.size(0))
+            agg = self.unsorted_segment_sum(trans, row, num_segments=coord.size(0))
         elif self.coords_agg == 'mean':
-            agg = unsorted_segment_mean(trans, row, num_segments=coord.size(0))
+            agg = self.unsorted_segment_mean(trans, row, num_segments=coord.size(0))
         else:
             raise Exception('Wrong coords_agg parameter' % self.coords_agg)
         coord = coord + agg

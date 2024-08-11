@@ -8,6 +8,7 @@ from src.utils.constants import CONFIG_FILE
 from src.utils.debugger import pretty_errors
 from src.service.implementation.data_loader.elliptic_loader import DataLoader, EllipticLoader
 from src.service.implementation.graph_model.gcn import GCN
+from src.service.implementation.graph_model.egnn import EGNN
 from src.service.implementation.graph_model.gat import GAT
 from src.service.implementation.graph_model.gin import GIN
 from src.service.implementation.graph_model.graph_sage import GraphSAGE
@@ -70,6 +71,16 @@ class ApplicationContainer(containers.DeclarativeContainer):
         n_layers=service_config.gcn.n_layers,
         dropout_rate=service_config.gcn.dropout_rate
     )
+    
+    egnn = providers.Singleton(
+        EGNN,
+        num_features=service_config.egnn.n_features,
+        hidden_dim=service_config.egnn.hidden_dim,
+        embedding_dim=service_config.egnn.embedding_dim,
+        output_dim=service_config.egnn.output_dim,
+        n_layers=service_config.egnn.n_layers,
+        dropout_rate=service_config.egnn.dropout_rate
+    )
 
     gin = providers.Singleton(
         GIN,
@@ -106,7 +117,7 @@ class ApplicationContainer(containers.DeclarativeContainer):
     trainer.override(
         providers.Singleton(
             MAXLTrainerImpl,
-            model=gcn,
+            model=egnn,
             data_loader=elliptic_loader,
             logger=logger, 
             epochs=service_config.maxl.epochs,
