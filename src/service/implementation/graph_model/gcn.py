@@ -72,4 +72,14 @@ class GCN(nn.Module):
         
         
         return output
+    
+    def forward(
+        self, 
+        x: torch.Tensor, 
+        edge_index: torch.Tensor
+    ) -> torch.Tensor:
         
+        z = self.encode(x, edge_index)
+        out = self.node_classification(z)
+        
+        return out

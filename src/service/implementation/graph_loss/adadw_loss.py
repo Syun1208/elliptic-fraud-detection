@@ -19,9 +19,19 @@ class AdaDWLoss(nn.Module):
         loss_vals: List[torch.Tensor]
     ) -> torch.Tensor:
         
-        weights = 1 - loss_trains / loss_vals
-        lambda_coeff = torch.exp(weights / self.T) / torch.sum(torch.exp(weights / self.T))
+        num_tasks = len(loss_trains)
+        weights = []
+        lambda_coeffs = []
         
-        loss_tasks = torch.dot(lambda_coeff, loss_trains)
+        for i in range(num_tasks):
+            
+            weight = 1 - loss_trains[i] / loss_vals[i]
+            lambda_coeff = torch.exp(weight / self.T)
+            
+            lambda_coeffs.append(lambda_coeff)
+            weights.append(weights)
+            
+        lambda_coeffs = [i / sum(lambda_coeffs) for i in lambda_coeffs]
+        loss_tasks = sum([loss_trains[i] * lambda_coeffs[i] for i in range(num_tasks)])
         
         return loss_tasks

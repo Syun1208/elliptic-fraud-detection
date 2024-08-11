@@ -247,8 +247,8 @@ class MAXLTrainerImpl(Trainer):
             )
             
             # Compute and update AdaDW loss
-            loss_trains = torch.tensor([loss_nc, loss_lp], requires_grad=True)
-            loss_vals = torch.tensor([val_loss_nc, val_loss_lp], requires_grad=True)
+            loss_trains = [loss_nc, loss_lp]
+            loss_vals = [val_loss_nc, val_loss_lp]
             
             loss_tasks = self.adadw(loss_trains, loss_vals)
             loss_tasks.backward()
