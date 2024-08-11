@@ -245,6 +245,8 @@ class MAXLTrainerImpl(Trainer):
             loss_tasks.backward()
             
             self.optimizer.step()
+            loss_nc = loss_tasks
+            loss_lp = loss_tasks
             
             # Save accuracy and loss to Tensorboard
             self.writer.add_scalars(

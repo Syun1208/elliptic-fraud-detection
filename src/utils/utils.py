@@ -13,10 +13,10 @@ def load_yaml(path: str) -> Dict[str, Any]:
 
 def get_device(device_id: int) -> torch.device:
     
-    # if torch.cuda.is_available():
-    #     hw = f'cuda:{device_id}'
+    if torch.cuda.is_available():
+        hw = f'cuda:{device_id}'
     
-    if torch.backends.mps.is_available():
+    elif torch.backends.mps.is_available():
         hw = 'mps'
     
     else: 
