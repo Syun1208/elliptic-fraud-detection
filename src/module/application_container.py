@@ -117,7 +117,7 @@ class ApplicationContainer(containers.DeclarativeContainer):
     trainer.override(
         providers.Singleton(
             MAXLTrainerImpl,
-            model=egnn,
+            model=gcn,
             data_loader=elliptic_loader,
             logger=logger, 
             epochs=service_config.maxl.epochs,

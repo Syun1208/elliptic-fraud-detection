@@ -11,7 +11,7 @@ class EGNN(nn.Module):
         num_features: int, 
         hidden_dim: int, 
         embedding_dim: int, 
-        output_dim: int= 1, 
+        output_dim: int= 2, 
         n_layers: int = 3, 
         dropout_rate: float = 0,
         in_edge_nf: int =0, 
@@ -46,13 +46,13 @@ class EGNN(nn.Module):
             n_layers=n_layers, 
             dropout_rate=dropout_rate
         )
-        
+        self.n_layers = n_layers
         for i in range(0, n_layers):
             self.add_module("gcl_%d" % i, EGCL(
-                    hidden_dim, 
-                    hidden_dim, 
-                    hidden_dim, 
-                    edges_in_d=2,                        
+                    embedding_dim, 
+                    embedding_dim, 
+                    embedding_dim, 
+                    edges_in_d=0,                        
                     act_fn=act_fn, 
                     residual=residual, 
                     attention=attention,
@@ -90,7 +90,7 @@ class EGNN(nn.Module):
         edge_attr=None
     ) -> None:
         h = self.gcn.encode(x, edge_index)
-        for i in range(0, self.n_layers):
+        for i in range(self.n_layers-2):
             h, x, _ = self._modules["gcl_%d" % i](h, edge_index, x, edge_attr=edge_attr)
    
         return h

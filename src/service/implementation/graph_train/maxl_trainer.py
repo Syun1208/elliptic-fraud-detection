@@ -145,6 +145,7 @@ class MAXLTrainerImpl(Trainer):
             
             running_loss_nc = loss_nc.item()
             running_loss_lp = loss_lp.item()
+
             ap_nc_train = average_precision_score(
                     train.y[train.train_mask].cpu().detach().numpy(),
                     out_nc[train.train_mask].cpu().detach().numpy()[:, 1]
@@ -154,7 +155,6 @@ class MAXLTrainerImpl(Trainer):
                     edge_label.cpu().detach().numpy(),
                     out_lp.cpu().detach().numpy()
                 )
-
             
             # Phase: EVAL
             self.model.eval()
