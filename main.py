@@ -7,7 +7,7 @@ from src.utils.debugger import pretty_errors
 from src.module.application_container import ApplicationContainer
 from src.service.implementation.graph_experiments.graph_experiments import ExperimentsImpl
 
-warnings.filterwarnings("ignore", category=RuntimeWarning, message="Found Intel OpenMP")
+warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 def parse_arg():
     parser = argparse.ArgumentParser()
@@ -29,7 +29,6 @@ create_container(environment=__name__)
 
 
 if __name__ == '__main__':
-    args = parse_arg()
     
-    with threadpool_limits(limits=1, user_api='openmp'):
-        run(phase=args.phase)
+    args = parse_arg()
+    run(phase=args.phase)

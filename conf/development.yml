@@ -36,11 +36,11 @@ gcn:
   epochs: 500
   batch_size: 128
 
-  path_model: 'model/gat/gat.pt'
+  path_model: 'model/gcn/gcn.pt'
 
   test:
     n_test: 1000
-    path_results: 'model/gat/results.csv'
+    path_results: 'model/gcn/results.csv'
 
 
 maxl:

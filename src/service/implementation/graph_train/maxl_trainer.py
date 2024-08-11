@@ -59,7 +59,7 @@ class MAXLTrainerImpl(Trainer):
         self.writer = SummaryWriter(self.path_logs_tensorboard)
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=self.lr)
         self.adadw = AdaDWLoss(T=2)
-        self.criterion = FocalLoss(gamma=0.5)
+        self.criterion = FocalLoss(gamma=5, alpha=[0.25, 0.75])
         self.criterion_lp = nn.BCEWithLogitsLoss()
         self.transform = T.Compose([
             T.RandomLinkSplit(
@@ -109,7 +109,7 @@ class MAXLTrainerImpl(Trainer):
             self.optimizer.zero_grad()
             
             z = self.model.encode(
-                    self.data_loader.get_network_torch().x.to(self.device), 
+                    self.data_loader.get_network_torch().x[self.data_loader.get_network_torch().train_mask].to(self.device), 
                     self.data_loader.get_network_torch().edge_index.to(self.device)
                 ).to(self.device)
 
@@ -159,7 +159,7 @@ class MAXLTrainerImpl(Trainer):
             # Phase: EVAL
             self.model.eval()
             z = self.model.encode(
-                    self.data_loader.get_network_torch().x.to(self.device), 
+                    self.data_loader.get_network_torch().x[self.data_loader.get_network_torch().val_mask].to(self.device), 
                     self.data_loader.get_network_torch().edge_index.to(self.device)
                 )
             
@@ -203,7 +203,7 @@ class MAXLTrainerImpl(Trainer):
             
             # Phase: TEST
             z = self.model.encode(
-                    self.data_loader.get_network_torch().x.to(self.device), 
+                    self.data_loader.get_network_torch().x[self.data_loader.get_network_torch().test_mask].to(self.device), 
                     self.data_loader.get_network_torch().edge_index.to(self.device)
                 )
             
@@ -247,8 +247,8 @@ class MAXLTrainerImpl(Trainer):
             )
             
             # Compute and update AdaDW loss
-            loss_trains = torch.tensor([loss_nc, loss_lp], requires_grad=True)
-            loss_vals = torch.tensor([val_loss_nc, val_loss_lp], requires_grad=True)
+            loss_trains = [loss_nc, loss_lp]
+            loss_vals = [val_loss_nc, val_loss_lp]
             
             loss_tasks = self.adadw(loss_trains, loss_vals)
             loss_tasks.backward()
